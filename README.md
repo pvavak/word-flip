@@ -1,2 +1,2 @@
-# word-flip
+# index.html
 opakovanie angličtiny
