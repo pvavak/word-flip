@@ -6,24 +6,15 @@
   <title>Word Flip – EN↔SK tréning</title>
   <style>
     :root{
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --ink:#1f2937;
-      --muted:#6b7280;
-      --brand:#7c8cfb;
-      --brand-2:#f9c8d1;
-      --ok:#22c55e;
-      --bad:#ef4444;
-      --warn:#f59e0b;
-      --radius:18px;
-      --shadow:0 8px 24px rgba(31,41,55,.08);
-      --shadow-2:0 10px 30px rgba(124,140,251,.18);
-      --btn-h:54px;
-      --maxw:980px;
+      --bg:#f8fafc; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
+      --brand:#7c8cfb; --brand-2:#f9c8d1; --ok:#22c55e; --bad:#ef4444; --warn:#f59e0b;
+      --radius:18px; --shadow:0 8px 24px rgba(31,41,55,.08); --shadow-2:0 10px 30px rgba(124,140,251,.18);
+      --btn-h:54px; --maxw:980px;
     }
     html,body{height:100%}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,#f7f8ff, #f8fafc 120%);color:var(--ink);}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:20px 16px 80px;}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
+         background:linear-gradient(180deg,#f7f8ff,#f8fafc 120%);color:var(--ink);}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:20px 16px 100px;}
     header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:14px}
     .title{display:flex;gap:12px;align-items:center}
     .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow-2)}
@@ -32,12 +23,12 @@
     .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
     .controls .row{display:flex;flex-direction:column;gap:6px}
     label{font-size:13px;color:var(--muted)}
-    select,input[type="number"]{height:44px;border-radius:12px;border:1px solid #e5e7eb;padding:0 12px;font-size:15px;background:#fff}
-    .btn{height:var(--btn-h);border:none;border-radius:14px;padding:0 18px;background:var(--brand);color:#fff;font-weight:700;letter-spacing:.2px;cursor:pointer;box-shadow:var(--shadow-2);}
+    select{height:44px;border-radius:12px;border:1px solid #e5e7eb;padding:0 12px;font-size:15px;background:#fff}
+    .btn{height:var(--btn-h);border:none;border-radius:14px;padding:0 18px;background:var(--brand);color:#fff;
+         font-weight:700;cursor:pointer;box-shadow:var(--shadow-2);}
     .btn.secondary{background:#e5e7ff;color:#3b3b81}
     .btn.ghost{background:#fff;border:1px solid #e5e7eb;color:#374151;box-shadow:none}
     .btn.warn{background:var(--warn);}
-    .btn:disabled{opacity:.6;cursor:not-allowed}
     .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
     .stat{background:#ffffff;border:1px solid #eef0f4;padding:8px 12px;border-radius:12px;font-size:14px;color:#334155}
     .timer{flex:1;display:flex;align-items:center;gap:10px}
@@ -48,25 +39,21 @@
     .q-head{display:flex;justify-content:space-between;align-items:center}
     .q-type{font-size:13px;color:var(--muted)}
     .q-num{font-size:13px;color:var(--muted)}
-    .prompt{font-size:24px;line-height:1.3;font-weight:800;letter-spacing:.2px}
+    .prompt{font-size:24px;line-height:1.3;font-weight:800}
     .options{display:grid;grid-template-columns:1fr;gap:10px}
     .opt{border:1px solid #e5e7eb;background:#fff;padding:14px;border-radius:14px;font-size:18px;text-align:left;cursor:pointer}
-    .opt:hover{border-color:#d0d6ff;box-shadow:0 0 0 4px #eef1ff}
     .opt.correct{background:#ecfdf5;border-color:#bbf7d0}
     .opt.wrong{background:#fef2f2;border-color:#fecaca}
-    .hint{font-size:14px;color:var(--muted)}
     .feedback{border-radius:14px;padding:12px 14px}
     .feedback.ok{background:#ecfdf5;color:#065f46}
     .feedback.bad{background:#fef2f2;color:#7f1d1d}
-    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
     @media (min-width:740px){
       .controls{grid-template-columns:repeat(4,minmax(0,1fr))}
       .options{grid-template-columns:repeat(2,minmax(0,1fr))}
       .prompt{font-size:28px}
     }
-    footer{position:fixed;inset:auto 0 0 0;background:rgba(255,255,255,.8);backdrop-filter: blur(6px);border-top:1px solid #eef0f4}
+    footer{position:fixed;inset:auto 0 0 0;background:#fff;border-top:1px solid #eef0f4}
     .foot{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between}
-    .foot .left{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   </style>
 </head>
 <body>
@@ -81,7 +68,6 @@
 
     <section class="card">
       <div class="controls">
-        <!-- nastavenia hry -->
         <div class="row">
           <label for="modeContent">Režim obsahu</label>
           <select id="modeContent">
@@ -122,13 +108,6 @@
           </select>
         </div>
         <div class="row">
-          <label>Zvuky</label>
-          <select id="soundToggle">
-            <option value="on">Zapnuté</option>
-            <option value="off">Vypnuté</option>
-          </select>
-        </div>
-        <div class="row">
           <label for="packSelect">Balík / Téma</label>
           <select id="packSelect">
             <option value="all">Všetko</option>
@@ -156,7 +135,6 @@
         <div class="stat">Skóre: <b id="score">0</b></div>
         <div class="stat">Otázka: <b id="qIndex">0</b>/<span id="qTotal">0</span></div>
         <div class="timer">
-          <div style="font-size:13px;color:var(--muted)">Čas:</div>
           <div class="timerbar" aria-hidden="true"><div id="timeFill"></div></div>
           <div id="timeLeft" class="stat">0s</div>
         </div>
@@ -170,11 +148,10 @@
           <div class="q-num" id="qNum">—</div>
         </div>
         <div class="prompt" id="prompt">Klikni „Spustiť hru“ ↑</div>
-        <div class="hint" id="hint"></div>
         <div class="options" id="options"></div>
         <div id="feedback"></div>
       </div>
-      <div class="grid2">
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
         <button id="btnExport" class="btn ghost" disabled>Export výsledkov (CSV)</button>
         <button id="btnReset" class="btn warn">Vymaž lokálne dáta</button>
       </div>
@@ -183,32 +160,394 @@
 
   <footer>
     <div class="foot">
-      <div class="left">
-        <span style="font-size:13px;color:var(--muted)">Offline • Uloženie pokroku v zariadení</span>
-        <span class="stat">Naj skóre: <b id="bestScore">0</b></span>
-        <span class="stat">Posledné: <b id="lastScore">0</b></span>
-      </div>
-      <div>
-        <button id="btnShare" class="btn secondary" disabled>Zdieľať výsledok</button>
-      </div>
+      <span>Naj skóre: <b id="bestScore">0</b></span>
+      <span>Posledné: <b id="lastScore">0</b></span>
+      <button id="btnShare" class="btn secondary" disabled>Zdieľať výsledok</button>
     </div>
   </footer>
 
   <script>
-    // 🔧 opravené funkcie
-    function updateHud(){
-      els.score.textContent = state.score;
-      els.qIndex.textContent = String(Math.min(state.index + 1, state.total)); // +1
-      els.qTotal.textContent = String(state.total);
+  // ---------- DÁTA ----------
+  const VOCAB_PACKS = {
+    colors:[{en:'red',sk:'červená'},{en:'blue',sk:'modrá'},{en:'yellow',sk:'žltá'},{en:'green',sk:'zelená'},{en:'orange',sk:'oranžová'},{en:'pink',sk:'ružová'},{en:'purple',sk:'fialová'},{en:'brown',sk:'hnedá'},{en:'black',sk:'čierna'},{en:'white',sk:'biela'},{en:'grey',sk:'sivá'}],
+    numbers:[{en:'one',sk:'jeden'},{en:'two',sk:'dva'},{en:'three',sk:'tri'},{en:'four',sk:'štyri'},{en:'five',sk:'päť'},{en:'six',sk:'šesť'},{en:'seven',sk:'sedem'},{en:'eight',sk:'osem'},{en:'nine',sk:'deväť'},{en:'ten',sk:'desať'},{en:'eleven',sk:'jedenásť'},{en:'twelve',sk:'dvanásť'},{en:'thirteen',sk:'trinásť'},{en:'fourteen',sk:'štrnásť'},{en:'fifteen',sk:'pätnásť'},{en:'sixteen',sk:'šestnásť'},{en:'seventeen',sk:'sedemnásť'},{en:'eighteen',sk:'osemnásť'},{en:'nineteen',sk:'devätnásť'},{en:'twenty',sk:'dvadsať'}],
+    family:[{en:'mum',sk:'mama'},{en:'dad',sk:'otec'},{en:'mother',sk:'mamička'},{en:'father',sk:'otecko'},{en:'brother',sk:'brat'},{en:'sister',sk:'sestra'},{en:'grandma',sk:'babička'},{en:'grandpa',sk:'dedko'},{en:'aunt',sk:'teta'},{en:'uncle',sk:'ujo'},{en:'cousin',sk:'bratranec / sesternica'},{en:'baby',sk:'bábätko'}],
+    school:[{en:'book',sk:'kniha'},{en:'pen',sk:'pero'},{en:'pencil',sk:'ceruzka'},{en:'rubber',sk:'guma'},{en:'ruler',sk:'pravítko'},{en:'pencil case',sk:'peračník'},{en:'bag',sk:'taška'},{en:'desk',sk:'lavica'},{en:'chair',sk:'stolička'},{en:'board',sk:'tabuľa'},{en:'teacher',sk:'učiteľ'},{en:'classroom',sk:'trieda'},{en:'playground',sk:'ihrisko'},{en:'library',sk:'knižnica'},{en:'gym',sk:'telocvičňa'},{en:'computer room',sk:'počítačová učebňa'},{en:'English',sk:'angličtina'},{en:'Maths',sk:'matematika'},{en:'Science',sk:'prírodoveda'},{en:'Art',sk:'výtvarná'},{en:'Music',sk:'hudobná'},{en:'PE',sk:'telesná výchova'}],
+    toys:[{en:'ball',sk:'lopta'},{en:'doll',sk:'bábika'},{en:'teddy',sk:'plyšák'},{en:'car',sk:'auto'},{en:'kite',sk:'šarkan'},{en:'bike',sk:'bicykel'},{en:'train',sk:'vlak'},{en:'plane',sk:'lietadlo'},{en:'computer game',sk:'počítačová hra'},{en:'guitar',sk:'gitara'},{en:'piano',sk:'klavír'}],
+    food:[{en:'apple',sk:'jablko'},{en:'banana',sk:'banán'},{en:'orange',sk:'pomaranč'},{en:'pear',sk:'hruška'},{en:'grapes',sk:'hrozno'},{en:'melon',sk:'melón'},{en:'lemon',sk:'citrón'},{en:'carrot',sk:'mrkva'},{en:'potato',sk:'zemiak'},{en:'tomato',sk:'paradajka'},{en:'cucumber',sk:'uhorka'},{en:'rice',sk:'ryža'},{en:'pasta',sk:'cestoviny'},{en:'sandwich',sk:'sendvič'},{en:'pizza',sk:'pizza'},{en:'egg',sk:'vajce'},{en:'cheese',sk:'syr'},{en:'chicken',sk:'kurča'},{en:'fish',sk:'ryba'},{en:'bread',sk:'chlieb'},{en:'cereal',sk:'cereálie'},{en:'milk',sk:'mlieko'},{en:'juice',sk:'džús'},{en:'water',sk:'voda'}],
+    animals:[{en:'dog',sk:'pes'},{en:'cat',sk:'mačka'},{en:'fish',sk:'ryba'},{en:'bird',sk:'vták'},{en:'rabbit',sk:'zajac'},{en:'duck',sk:'kačka'},{en:'cow',sk:'krava'},{en:'horse',sk:'kôň'},{en:'sheep',sk:'ovca'},{en:'goat',sk:'koza'},{en:'pig',sk:'prasa'},{en:'chicken',sk:'sliepka'},{en:'elephant',sk:'slon'},{en:'tiger',sk:'tiger'},{en:'lion',sk:'lev'},{en:'giraffe',sk:'žirafa'},{en:'crocodile',sk:'krokodíl'},{en:'monkey',sk:'opica'},{en:'parrot',sk:'papagáj'},{en:'kangaroo',sk:'klokán'},{en:'zebra',sk:'zebra'},{en:'bear',sk:'medveď'},{en:'snake',sk:'had'},{en:'mouse',sk:'myš'}],
+    places:[{en:'house',sk:'dom'},{en:'room',sk:'izba'},{en:'kitchen',sk:'kuchyňa'},{en:'bathroom',sk:'kúpeľňa'},{en:'living room',sk:'obývačka'},{en:'garden',sk:'záhrada'},{en:'bed',sk:'posteľ'},{en:'table',sk:'stôl'},{en:'door',sk:'dvere'},{en:'window',sk:'okno'},{en:'cinema',sk:'kino'},{en:'supermarket',sk:'supermarket'},{en:'hospital',sk:'nemocnica'},{en:'post office',sk:'pošta'},{en:'park',sk:'park'},{en:'street',sk:'ulica'},{en:'shop',sk:'obchod'},{en:'bus stop',sk:'autobusová zastávka'},{en:'train station',sk:'vlaková stanica'},{en:'mountain',sk:'hora'},{en:'river',sk:'rieka'},{en:'beach',sk:'pláž'},{en:'sea',sk:'more'},{en:'lake',sk:'jazero'}],
+    clothes:[{en:'shirt',sk:'košeľa'},{en:'T-shirt',sk:'tričko'},{en:'trousers',sk:'nohavice'},{en:'skirt',sk:'sukňa'},{en:'dress',sk:'šaty'},{en:'shorts',sk:'kraťasy'},{en:'shoes',sk:'topánky'},{en:'trainers',sk:'tenisky'},{en:'boots',sk:'čižmy'},{en:'socks',sk:'ponožky'},{en:'coat',sk:'kabát'},{en:'jacket',sk:'bunda'},{en:'hat',sk:'klobúk'},{en:'cap',sk:'šiltovka'},{en:'scarf',sk:'šál'},{en:'gloves',sk:'rukavice'}],
+    weather:[{en:'sun',sk:'slnko'},{en:'cloud',sk:'oblak'},{en:'rain',sk:'dážď'},{en:'snow',sk:'sneh'},{en:'wind',sk:'vietor'},{en:'spring',sk:'jar'},{en:'summer',sk:'leto'},{en:'autumn',sk:'jeseň'},{en:'winter',sk:'zima'},{en:'sunny',sk:'slnečno'},{en:'cloudy',sk:'oblačno'},{en:'rainy',sk:'daždivo'},{en:'snowy',sk:'snežno'},{en:'windy',sk:'veterno'},{en:'hot',sk:'horúco'},{en:'cold',sk:'zima'},{en:'warm',sk:'teplo'}]
+  };
+
+  const PHRASES = [
+    {en:'Hello!', sk:'Ahoj!'}, {en:'Goodbye!', sk:'Dovidenia!'}, {en:'How are you?', sk:'Ako sa máš?'}, {en:"I’m fine, thank you.", sk:'Mám sa dobre, ďakujem.'},
+    {en:'This is my sister.', sk:'Toto je moja sestra.'}, {en:'He’s my uncle.', sk:'On je môj ujo.'}, {en:'Have you got a brother?', sk:'Máš brata?'},
+    {en:'Yes, I have.', sk:'Áno, mám.'}, {en:"No, I haven’t.", sk:'Nie, nemám.'},
+    {en:'This is my classroom.', sk:'Toto je moja trieda.'}, {en:'We’ve got English on Monday.', sk:'V pondelok máme angličtinu.'},
+    {en:'What’s your favourite subject?', sk:'Aký je tvoj obľúbený predmet?'}, {en:'My favourite subject is Art.', sk:'Môj obľúbený predmet je výtvarná.'},
+    {en:'I get up at seven o’clock.', sk:'Vstávam o siedmej.'}, {en:'Do you do your homework in the afternoon?', sk:'Robíš si úlohy popoludní?'},
+    {en:'I usually watch TV.', sk:'Zvyčajne pozerám televíziu.'},
+    {en:'I like apples.', sk:'Mám rád jablká.'}, {en:"I don’t like fish.", sk:'Nemám rád rybu.'}, {en:'What would you like?', sk:'Čo by si chcel?'},
+    {en:"I’d like a sandwich, please.", sk:'Prosím si sendvič.'}, {en:'Have you got any milk?', sk:'Máte mlieko?'},
+    {en:'Yes, we have.', sk:'Áno, máme.'}, {en:"No, we haven’t.", sk:'Nie, nemáme.'},
+    {en:'Can you play football?', sk:'Vieš hrať futbal?'}, {en:'Yes, I can.', sk:'Áno, viem.'}, {en:"No, I can’t.", sk:'Nie, neviem.'},
+    {en:'I like drawing and singing.', sk:'Rád kreslím a spievam.'},
+    {en:'The lion is big.', sk:'Lev je veľký.'}, {en:'Monkeys can jump.', sk:'Opice vedia skákať.'}, {en:'Have you got a pet?', sk:'Máš domáce zvieratko?'},
+    {en:'Yes, I’ve got a cat.', sk:'Áno, mám mačku.'},
+    {en:'Where’s the park?', sk:'Kde je park?'}, {en:'It’s next to the cinema.', sk:'Je vedľa kina.'}, {en:'Go straight and turn left.', sk:'Choď rovno a zaboč doľava.'},
+    {en:'What’s the weather like?', sk:'Aké je počasie?'}, {en:'It’s sunny.', sk:'Je slnečno.'}, {en:'It’s cold and windy.', sk:'Je zima a veterno.'},
+    {en:"I’m wearing a T-shirt.", sk:'Mám na sebe tričko.'}, {en:"What are you wearing?", sk:'Čo máš oblečené?'}
+  ];
+
+  // ---------- STAV & ELEMENTY ----------
+  const els = {
+    btnStart: document.getElementById('btnStart'),
+    btnImport: document.getElementById('btnImport'),
+    fileInput: document.getElementById('fileInput'),
+    btnExport: document.getElementById('btnExport'),
+    btnReset: document.getElementById('btnReset'),
+    btnShare: document.getElementById('btnShare'),
+    btnInstall: document.getElementById('btnInstall'),
+    modeContent: document.getElementById('modeContent'),
+    modeDir: document.getElementById('modeDir'),
+    qCount: document.getElementById('qCount'),
+    perSec: document.getElementById('perSec'),
+    repeatWrong: document.getElementById('repeatWrong'),
+    packSelect: document.getElementById('packSelect'),
+    score: document.getElementById('score'),
+    qIndex: document.getElementById('qIndex'),
+    qTotal: document.getElementById('qTotal'),
+    qType: document.getElementById('qType'),
+    qNum: document.getElementById('qNum'),
+    prompt: document.getElementById('prompt'),
+    options: document.getElementById('options'),
+    feedback: document.getElementById('feedback'),
+    timeFill: document.getElementById('timeFill'),
+    timeLeft: document.getElementById('timeLeft'),
+    bestScore: document.getElementById('bestScore'),
+    lastScore: document.getElementById('lastScore')
+  };
+
+  const STORAGE_KEY='wordflip_results_v1';
+  const STORAGE_BEST='wordflip_best_v1';
+  const STORAGE_DATA='wordflip_custom_data_v1';
+
+  let state={
+    pool:[], index:0, score:0, total:0, perSec:15,
+    dir:'mix', mode:'vocab', timerId:null, timeLeft:0, lock:false,
+    showDelayWrongMs:8000, answers:[], wrongSet:[], mistakes:{}, sound:'on'
+  };
+
+  function randInt(n){return Math.floor(Math.random()*n);}
+  function shuffle(a){for(let i=a.length-1;i>0;i--){const j=randInt(i+1); [a[i],a[j]]=[a[j],a[i]];} return a;}
+
+  // Audio dingi
+  const audioCtx = typeof AudioContext!=='undefined'? new AudioContext(): null;
+  function beepSuccess(){ if(!audioCtx||state.sound==='off') return; const o=audioCtx.createOscillator(), g=audioCtx.createGain(); o.type='sine'; o.frequency.value=880; o.connect(g); g.connect(audioCtx.destination); g.gain.setValueAtTime(.0001,audioCtx.currentTime); g.gain.exponentialRampToValueAtTime(.2,audioCtx.currentTime+.01); o.start(); g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.18); o.stop(audioCtx.currentTime+.2); }
+  function beepFail(){ if(!audioCtx||state.sound==='off') return; const o=audioCtx.createOscillator(), g=audioCtx.createGain(); o.type='square'; o.frequency.value=220; o.connect(g); g.connect(audioCtx.destination); g.gain.setValueAtTime(.0001,audioCtx.currentTime); g.gain.exponentialRampToValueAtTime(.25,audioCtx.currentTime+.01); o.start(); g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.25); o.stop(audioCtx.currentTime+.27); }
+
+  function updateHud(){
+    els.score.textContent = state.score;
+    els.qIndex.textContent = String(Math.min(state.index + 1, state.total)); // +1 pre aktuálnu
+    els.qTotal.textContent = String(state.total);
+  }
+
+  function buildPool(){
+    const count=parseInt(els.qCount.value,10);
+    state.perSec=parseInt(els.perSec.value,10);
+    state.dir=els.modeDir.value;
+    state.mode=els.modeContent.value;
+
+    let dataVocab=[];
+    const pack=els.packSelect.value;
+    if(pack==='all'){ dataVocab = Object.values(VOCAB_PACKS).flat(); }
+    else if(pack!=='phr'){ dataVocab = (VOCAB_PACKS[pack]||[]); }
+
+    // Custom import z localStorage
+    try{
+      const customRaw=localStorage.getItem(STORAGE_DATA);
+      if(customRaw){
+        const obj=JSON.parse(customRaw);
+        if(obj.vocab && Array.isArray(obj.vocab)) dataVocab = dataVocab.concat(obj.vocab);
+        if(obj.phrases && Array.isArray(obj.phrases)) PHRASES.push(...obj.phrases);
+      }
+    }catch(e){}
+
+    let pool=[];
+    if(state.mode==='vocab'){ pool = dataVocab.map(x=>({...x,type:'v'})); }
+    else if(state.mode==='phrases' || pack==='phr'){ pool = PHRASES.map(x=>({...x,type:'p'})); }
+    else { pool = dataVocab.map(x=>({...x,type:'v'})).concat(PHRASES.map(x=>({...x,type:'p'}))); }
+
+    // váženie podľa chýb
+    const weighted=[];
+    for(const it of pool){
+      const key=it.en+'||'+it.sk;
+      const m=state.mistakes[key]||0;
+      const times=1+Math.min(3,m);
+      for(let i=0;i<times;i++) weighted.push(it);
+    }
+    shuffle(weighted);
+
+    // unikátne do počtu
+    const unique=[], seen=new Set();
+    for(const it of weighted){
+      const k=it.en+'||'+it.sk;
+      if(!seen.has(k)){ unique.push(it); seen.add(k); }
+      if(unique.length>=count) break;
     }
 
-    function nextQuestion(){
-      clearTimer();
-      state.lock = false; // 🔧 odomkni pre novú otázku
-      els.options.innerHTML = '';
-      els.feedback.innerHTML = '';
-      // ... zvyšok logiky (rovnako ako v pôvodnom kóde)
+    state.pool=unique;
+    state.total=unique.length;
+    state.index=0;
+    state.score=0;
+    state.answers=[];
+    state.wrongSet=[];
+    updateHud();
+  }
+
+  function nextQuestion(){
+    clearTimer();
+    state.lock = false; // 🔧 FIX: odomkni pri každej novej otázke
+    els.options.innerHTML='';
+    els.feedback.innerHTML='';
+
+    if(state.index>=state.total){
+      if(els.repeatWrong.value==='yes' && state.wrongSet.length>0){
+        state.pool=state.wrongSet;
+        state.total=state.pool.length;
+        state.index=0;
+        state.wrongSet=[];
+        infoMsg('Opakovanie chýb');
+      } else {
+        return endGame();
+      }
     }
+
+    const q=state.pool[state.index];
+    const dir = (state.dir==='mix') ? (Math.random()<.5?'en2sk':'sk2en') : state.dir;
+    const isPhrase = q.type==='p';
+
+    let prompt, answer, fieldPrompt, fieldAnswer;
+    if(dir==='en2sk'){ prompt=q.en; answer=q.sk; fieldPrompt='EN'; fieldAnswer='SK'; }
+    else{ prompt=q.sk; answer=q.en; fieldPrompt='SK'; fieldAnswer='EN'; }
+
+    els.qType.textContent=(isPhrase?'Veta & fráza':'Slovíčko')+` • ${fieldPrompt}→${fieldAnswer}`;
+    els.qNum.textContent = `#${state.index+1}`;
+    els.prompt.textContent = prompt;
+
+    const poolForOptions = state.pool.filter(x=>x.type===q.type);
+    const opts=[answer]; const used=new Set([answer]);
+    while(opts.length<4){
+      const r=poolForOptions[randInt(poolForOptions.length)];
+      const distract=(dir==='en2sk')? r.sk : r.en;
+      if(!used.has(distract)){ opts.push(distract); used.add(distract); }
+    }
+    shuffle(opts);
+    opts.forEach(txt=>{
+      const b=document.createElement('button');
+      b.className='opt'; b.textContent=txt;
+      b.onclick=()=>handleAnswer(q,dir,txt,answer,b);
+      els.options.appendChild(b);
+    });
+
+    startTimer(state.perSec, ()=>{
+      reveal(false,answer);
+      registerAnswer(q,dir,null,answer,false,'timeout');
+      pauseThenNext();
+    });
+
+    updateHud();
+  }
+
+  function handleAnswer(q,dir,choice,answer,btn){
+    if(state.lock) return;
+    stopInteraction();
+    const correct=(choice===answer);
+    if(correct){
+      btn.classList.add('correct'); beepSuccess();
+      reveal(true,answer);
+      registerAnswer(q,dir,choice,answer,true,'tap');
+      setTimeout(()=>{ state.index++; nextQuestion(); }, 500);
+    }else{
+      btn.classList.add('wrong'); beepFail();
+      reveal(false,answer);
+      registerAnswer(q,dir,choice,answer,false,'tap');
+      pauseThenNext();
+    }
+  }
+
+  function stopInteraction(){
+    state.lock=true;
+    clearTimer();
+    [...els.options.children].forEach(b=> b.disabled=true);
+  }
+
+  function pauseThenNext(){
+    setTimeout(()=>{ state.index++; nextQuestion(); }, state.showDelayWrongMs);
+  }
+
+  function reveal(ok,answer){
+    const fb=document.createElement('div');
+    fb.className='feedback ' + (ok?'ok':'bad');
+    fb.textContent = ok ? 'Správne!' : ('Nesprávne. Správna odpoveď: '+answer);
+    els.feedback.innerHTML='';
+    els.feedback.appendChild(fb);
+  }
+
+  function registerAnswer(q,dir,choice,answer,correct,how){
+    state.score += correct ? 1 : -1;
+    els.score.textContent = state.score;
+    const rec={time:Date.now(),type:q.type,dir,prompt:(dir==='en2sk'?q.en:q.sk),answer,choice,correct};
+    state.answers.push(rec);
+    const key=q.en+'||'+q.sk;
+    if(!correct){
+      state.wrongSet.push(q);
+      state.mistakes[key]=(state.mistakes[key]||0)+1;
+    } else {
+      state.mistakes[key]=Math.max(0,(state.mistakes[key]||0)-1);
+    }
+  }
+
+  function startTimer(sec,onExpire){
+    clearTimer();
+    state.timeLeft=sec; updateTimerUi();
+    state.timerId=setInterval(()=>{
+      state.timeLeft--; updateTimerUi();
+      if(state.timeLeft<=0){ clearTimer(); onExpire&&onExpire(); }
+    },1000);
+  }
+  function clearTimer(){ if(state.timerId){ clearInterval(state.timerId); state.timerId=null; } }
+  function updateTimerUi(){
+    els.timeLeft.textContent = state.timeLeft+'s';
+    const ratio=Math.max(0,Math.min(1,state.timeLeft/state.perSec));
+    els.timeFill.style.width=(ratio*100)+'%';
+    els.timeFill.style.background = ratio<.33? 'linear-gradient(90deg,#ef4444,#fecaca)'
+      : ratio<.66? 'linear-gradient(90deg,#f59e0b,#fde68a)'
+      : 'linear-gradient(90deg,#22c55e,#a7f3d0)';
+  }
+
+  function endGame(){
+    clearTimer();
+    els.prompt.textContent='Hotovo!';
+    els.options.innerHTML='';
+    const correctCount = state.answers.filter(a=>a.correct).length;
+    const totalQ = state.answers.length;
+
+    // uložiť históriu
+    const history = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+    history.push({date:new Date().toISOString(),score:state.score,correct:correctCount,total:totalQ,mode:state.mode,dir:state.dir});
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+
+    const best = Math.max(Number(localStorage.getItem(STORAGE_BEST)||'0'), state.score);
+    localStorage.setItem(STORAGE_BEST, String(best));
+    els.bestScore.textContent = best;
+    els.lastScore.textContent = state.score;
+
+    els.btnExport.disabled=false;
+    els.btnShare.disabled=false;
+    infoMsg('Tip: Exportni výsledky alebo ich zdieľaj.');
+  }
+
+  function infoMsg(t){
+    els.feedback.innerHTML = '<div class="feedback ok" style="background:#eef2ff;color:#3730a3">'+t+'</div>';
+  }
+
+  // Export CSV
+  function exportCsv(){
+    const rows=[['time','type','dir','prompt','answer','choice','correct']];
+    state.answers.forEach(a=> rows.push([new Date(a.time).toLocaleString(),a.type,a.dir,a.prompt,a.answer,a.choice??'',a.correct?'1':'0']));
+    const csv=rows.map(r=>r.map(x=> '\"'+String(x).replaceAll('\"','\"\"')+'\"').join(',')).join('\n');
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download='wordflip_vysledky.csv'; a.click(); URL.revokeObjectURL(url);
+  }
+
+  // Share
+  async function shareResult(){
+    const correct=state.answers.filter(a=>a.correct).length;
+    const totalQ=state.answers.length;
+    const text='Word Flip – môj výsledok: '+correct+'/'+totalQ+' (skóre '+state.score+').';
+    if(navigator.share){ try{ await navigator.share({title:'Word Flip výsledok', text}); }catch(e){} }
+    else { location.href='mailto:?subject=Word Flip – výsledok&body='+encodeURIComponent(text); }
+  }
+
+  // Import CSV/JSON
+  function parseCsv(text){
+    const lines=text.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+    const out=[];
+    for(const line of lines){
+      const cells=line.split(',').map(c=>c.replace(/^\"|\"$/g,'').trim());
+      if(cells.length>=2){ out.push({en:cells[0], sk:cells[1]}); }
+    }
+    return out;
+  }
+
+  els.btnImport.addEventListener('click',()=> els.fileInput.click());
+  els.fileInput.addEventListener('change',(e)=>{
+    const f=e.target.files[0]; if(!f) return;
+    const r=new FileReader();
+    r.onload=()=>{
+      try{
+        let vocab=[], phrases=[];
+        if(f.name.endsWith('.json')){
+          const obj=JSON.parse(r.result);
+          if(Array.isArray(obj)) vocab=obj;
+          else { vocab=obj.vocab||[]; phrases=obj.phrases||[]; }
+        } else {
+          vocab=parseCsv(r.result);
+        }
+        localStorage.setItem(STORAGE_DATA, JSON.stringify({vocab,phrases}));
+        alert('Dáta importované. Spusti hru, aby sa načítali.');
+      }catch(err){ alert('Import zlyhal: '+err.message); }
+    };
+    r.readAsText(f,'utf-8');
+  });
+
+  // Tlačidlá
+  els.btnStart.addEventListener('click', ()=>{ buildPool(); nextQuestion(); });
+  els.btnExport.addEventListener('click', exportCsv);
+  els.btnReset.addEventListener('click', ()=>{ localStorage.removeItem(STORAGE_KEY); localStorage.removeItem(STORAGE_BEST); localStorage.removeItem(STORAGE_DATA); alert('Vymazané.'); location.reload(); });
+  els.btnShare.addEventListener('click', shareResult);
+
+  // Načítanie best/last
+  els.bestScore.textContent = localStorage.getItem(STORAGE_BEST)||'0';
+  const hist = JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');
+  if(hist.length){ els.lastScore.textContent = hist[hist.length-1].score; }
+
+  // PWA manifest
+  (function(){
+    const manifest={name:'Word Flip – EN↔SK',short_name:'Word Flip',start_url:'.',display:'standalone',background_color:'#f7f8ff',theme_color:'#7c8cfb',icons:[]};
+    const blob=new Blob([JSON.stringify(manifest)],{type:'application/manifest+json'});
+    const url=URL.createObjectURL(blob);
+    const link=document.createElement('link'); link.rel='manifest'; link.href=url; document.head.appendChild(link);
+  })();
+
+  // Service worker – v3: vyčisti staré cache a používaj novú
+  if('serviceWorker' in navigator){
+    const swCode = `
+      const CACHE='wordflip-cache-v3';
+      self.addEventListener('install',e=>{
+        self.skipWaiting();
+        e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./'])));
+      });
+      self.addEventListener('activate',e=>{
+        e.waitUntil(
+          caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))
+          .then(()=>self.clients.claim())
+        );
+      });
+      self.addEventListener('fetch', e=>{
+        e.respondWith(
+          caches.match(e.request).then(res=> res || fetch(e.request).then(r=>{ const cc=r.clone(); caches.open(CACHE).then(c=>c.put(e.request,cc)); return r; }))
+        );
+      });
+    `;
+    const blob=new Blob([swCode],{type:'text/javascript'});
+    const swUrl=URL.createObjectURL(blob);
+    navigator.serviceWorker.register(swUrl,{scope:'./'});
+  }
   </script>
 </body>
 </html>
