@@ -3,21 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Word Flip – EN↔SK tréning</title>
+<title>Word Flip – EN↔SK tréning (Mix)</title>
 <style>
   :root{
-    --bg: #0b1020;
-    --card: rgba(255,255,255,0.08);
-    --card2: rgba(255,255,255,0.06);
-    --text: rgba(255,255,255,0.92);
-    --muted: rgba(255,255,255,0.60);
-    --muted2: rgba(255,255,255,0.42);
-    --line: rgba(255,255,255,0.12);
-    --good: rgba(34,197,94,0.18);
-    --bad: rgba(239,68,68,0.18);
-    --focus: rgba(99,102,241,0.55);
-    --shadow: 0 18px 45px rgba(0,0,0,0.30);
-    --radius: 18px;
+    --bg:#0b1020;
+    --text:rgba(255,255,255,.92);
+    --muted:rgba(255,255,255,.60);
+    --line:rgba(255,255,255,.12);
+    --card:rgba(255,255,255,.06);
+    --card2:rgba(255,255,255,.04);
+    --good:rgba(34,197,94,.18);
+    --bad:rgba(239,68,68,.18);
+    --pri:rgba(99,102,241,.30);
+    --shadow:0 18px 45px rgba(0,0,0,.30);
+    --r:18px;
   }
   *{box-sizing:border-box}
   body{
@@ -28,39 +27,38 @@
       radial-gradient(900px 600px at 35% 95%, rgba(244,63,94,0.20), transparent 60%),
       var(--bg);
     color:var(--text);
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
     line-height:1.35;
   }
-  a{color:inherit}
   .wrap{max-width:1100px;margin:0 auto;padding:22px}
-  .topbar{
-    display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  .top{
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;
     margin-bottom:14px;
   }
-  .title h1{margin:0;font-size:28px;letter-spacing:0.2px}
-  .title .sub{margin-top:6px;color:var(--muted);font-size:13px}
-  .pillrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+  h1{margin:0;font-size:26px;letter-spacing:.2px}
+  .sub{margin-top:6px;color:var(--muted);font-size:13px}
+  .pillrow{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
   .pill{
     padding:8px 10px;border-radius:999px;border:1px solid var(--line);
     background:rgba(255,255,255,0.05);
-    color:var(--muted);
-    font-size:12px;
+    color:var(--muted);font-size:12px;
   }
-  .grid{
-    display:grid;grid-template-columns: 1.1fr 0.9fr;gap:14px;
-  }
-  @media (max-width: 980px){ .grid{grid-template-columns: 1fr} }
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+  @media (max-width:980px){.grid{grid-template-columns:1fr}}
   .card{
     background:linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
     border:1px solid var(--line);
-    border-radius:var(--radius);
+    border-radius:var(--r);
     box-shadow:var(--shadow);
     padding:14px;
   }
-  .card h2{margin:0 0 10px 0;font-size:14px;color:var(--muted);font-weight:600;letter-spacing:0.4px;text-transform:uppercase}
+  .card h2{
+    margin:0 0 10px 0;
+    font-size:14px;color:var(--muted);
+    font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+  }
   .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .row > *{flex:0 0 auto}
-  select, input[type="text"], input[type="number"]{
+  select,input{
     background:rgba(255,255,255,0.06);
     border:1px solid var(--line);
     color:var(--text);
@@ -68,70 +66,49 @@
     padding:10px 12px;
     outline:none;
   }
-  select:focus, input:focus{box-shadow:0 0 0 4px rgba(99,102,241,0.18);border-color:rgba(99,102,241,0.6)}
-  input[type="number"]{width:110px}
+  select:focus,input:focus{box-shadow:0 0 0 4px rgba(99,102,241,0.18);border-color:rgba(99,102,241,0.6)}
   .btn{
     background:rgba(255,255,255,0.10);
     border:1px solid var(--line);
     color:var(--text);
-    padding:10px 12px;
-    border-radius:12px;
+    padding:10px 12px;border-radius:12px;
     cursor:pointer;
-    transition:transform .06s ease, background .15s ease, border .15s ease;
+    transition:transform .06s ease, background .15s ease;
     user-select:none;
   }
   .btn:hover{background:rgba(255,255,255,0.14)}
   .btn:active{transform:translateY(1px)}
-  .btn.primary{
-    background:rgba(99,102,241,0.28);
-    border-color:rgba(99,102,241,0.55);
-  }
-  .btn.primary:hover{background:rgba(99,102,241,0.34)}
-  .btn.danger{background:rgba(239,68,68,0.18);border-color:rgba(239,68,68,0.35)}
-  .btn.good{background:rgba(34,197,94,0.18);border-color:rgba(34,197,94,0.35)}
+  .btn.primary{background:var(--pri);border-color:rgba(99,102,241,0.55)}
+  .btn.primary:hover{background:rgba(99,102,241,0.36)}
   .btn.small{padding:8px 10px;font-size:12px;border-radius:999px}
-  .btn.wide{min-width:150px}
+  .btn.good{background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.35)}
+  .btn.danger{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.35)}
   .toggle{
-    display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;border:1px solid var(--line);
+    display:flex;align-items:center;gap:10px;
+    padding:8px 10px;border-radius:12px;border:1px solid var(--line);
     background:rgba(255,255,255,0.05);
   }
   .toggle label{font-size:12px;color:var(--muted);cursor:pointer}
-  .toggle input{accent-color: rgb(99,102,241)}
-  .muted{color:var(--muted);font-size:12px}
-  .muted2{color:var(--muted2);font-size:12px}
+  .toggle input{accent-color:rgb(99,102,241)}
   .sep{height:1px;background:var(--line);margin:12px 0}
   .qbox{
     background:rgba(255,255,255,0.05);
     border:1px solid var(--line);
-    border-radius:16px;
-    padding:14px;
-    min-height:110px;
+    border-radius:16px;padding:14px;
+    min-height:120px;
   }
   .qmeta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
-  .qmeta .left{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
   .badge{
     font-size:12px;color:var(--muted);
     border:1px solid var(--line);
     padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.04);
   }
-  .question{
-    font-size:22px;font-weight:700;letter-spacing:0.2px;
-    margin:0;
-  }
-  .answerReveal{
-    margin-top:10px;
-    padding:12px;
-    border-radius:14px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,0.04);
-    display:none;
-  }
-  .answerReveal.show{display:block}
+  .question{font-size:22px;font-weight:700;letter-spacing:.2px;margin:0}
+  .mini{font-size:12px;color:var(--muted);margin-top:8px}
   .options{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
   .opt{
     text-align:left;
-    padding:12px 12px;
-    border-radius:14px;
+    padding:12px 12px;border-radius:14px;
     border:1px solid var(--line);
     background:rgba(255,255,255,0.05);
     color:var(--text);
@@ -142,54 +119,50 @@
   .opt:active{transform:translateY(1px)}
   .opt.correct{background:var(--good);border-color:rgba(34,197,94,0.55)}
   .opt.wrong{background:var(--bad);border-color:rgba(239,68,68,0.55)}
-  .typingRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .typingRow{display:none;gap:10px;flex-wrap:wrap;margin-top:12px}
   .typingRow input{flex:1 1 260px}
-  .srRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .stat{
-    background:rgba(255,255,255,0.05);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:12px;
+  .reveal{
+    margin-top:10px;
+    padding:12px;border-radius:14px;border:1px solid var(--line);
+    background:rgba(255,255,255,0.04);
+    display:none;
   }
+  .reveal.show{display:block}
+  .rateRow{display:none;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .stat{background:rgba(255,255,255,0.05);border:1px solid var(--line);border-radius:16px;padding:12px}
   .stat .k{color:var(--muted);font-size:12px;margin-bottom:6px}
   .stat .v{font-size:18px;font-weight:700}
-  .mini{font-size:12px;color:var(--muted);margin-top:6px}
-  .list{
-    margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;
-  }
-  .li{
-    display:flex;justify-content:space-between;gap:10px;align-items:center;
-    padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.04);
-  }
+  .list{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+  .li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.04);cursor:pointer}
   .li .name{font-size:13px}
   .li .count{font-size:12px;color:var(--muted)}
-  .footerHints{margin-top:10px;color:var(--muted2);font-size:12px}
   .kbd{
     border:1px solid var(--line);
     background:rgba(255,255,255,0.05);
     padding:2px 6px;border-radius:8px;
     font-size:12px;color:var(--muted);
   }
+  .hints{margin-top:10px;color:rgba(255,255,255,.42);font-size:12px}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="topbar">
-    <div class="title">
+  <div class="top">
+    <div>
       <h1>Word Flip – EN↔SK tréning</h1>
-      <div class="sub">Efektívnejšie učenie: opakovanie “na dnes”, písanie, kartičky, štatistiky, TTS.</div>
+      <div class="sub">Mix (vyvážené): SRS + MC default + prepínač Písanie + TTS.</div>
     </div>
     <div class="pillrow">
-      <div class="pill" id="pillDataset">Dataset: …</div>
+      <div class="pill" id="pillDataset">Položky: …</div>
       <div class="pill" id="pillUnique">Unikátne: …</div>
       <div class="pill" id="pillDue">Na dnes: …</div>
     </div>
   </div>
 
   <div class="grid">
-    <!-- LEFT: STUDY -->
+    <!-- STUDY -->
     <div class="card">
       <h2>Tréning</h2>
 
@@ -197,7 +170,7 @@
         <select id="packSelect" title="Balík"></select>
 
         <select id="typeSelect" title="Typ">
-          <option value="all">Všetko (vocab + phrase)</option>
+          <option value="all">Všetko</option>
           <option value="vocab">Len slovíčka</option>
           <option value="phrase">Len frázy/vety</option>
         </select>
@@ -208,29 +181,28 @@
           <option value="mix">Mix</option>
         </select>
 
-        <select id="studyModeSelect" title="Režim učenia">
+        <select id="modeSelect" title="Režim">
           <option value="mc">Výber (4 možnosti)</option>
           <option value="typing">Písanie</option>
-          <option value="flip">Kartička (flip)</option>
         </select>
       </div>
 
       <div class="row" style="margin-top:10px">
-        <button class="btn primary wide" id="startBtn">Štart / Pokračovať</button>
+        <button class="btn primary" id="startBtn">Štart / Pokračovať</button>
         <button class="btn" id="nextBtn">Ďalšia</button>
-        <button class="btn" id="ttsBtn" title="Prečítať nahlas (TTS)">🔊 TTS</button>
+        <button class="btn" id="ttsBtn" title="Prečítať nahlas (S)">🔊 TTS</button>
 
-        <div class="toggle" title="Odstráni duplicity (opakovanie rovnakých kariet)">
+        <div class="toggle" title="Učiť len karty, ktoré sú na dnes (SRS)">
+          <input type="checkbox" id="dueOnlyToggle" checked />
+          <label for="dueOnlyToggle">Len na dnes</label>
+        </div>
+
+        <div class="toggle" title="Odstráni identické duplicity kariet">
           <input type="checkbox" id="dedupToggle" checked />
           <label for="dedupToggle">Dedup</label>
         </div>
 
-        <div class="toggle" title="Učiť len to, čo je “na dnes” podľa SRS">
-          <input type="checkbox" id="dueOnlyToggle" checked />
-          <label for="dueOnlyToggle">Len “na dnes”</label>
-        </div>
-
-        <div class="toggle" title="Automaticky pokračovať po odpovedi">
+        <div class="toggle" title="Automaticky prejsť na ďalšiu po odpovedi">
           <input type="checkbox" id="autoNextToggle" checked />
           <label for="autoNextToggle">Auto next</label>
         </div>
@@ -240,37 +212,35 @@
 
       <div class="qbox">
         <div class="qmeta">
-          <div class="left">
+          <div class="row">
             <span class="badge" id="badgePack">Pack: –</span>
             <span class="badge" id="badgeType">Type: –</span>
             <span class="badge" id="badgeBox">Box: –</span>
           </div>
-          <div class="left">
-            <span class="badge" id="badgeProgress">Dnes: 0/0</span>
-            <span class="badge" id="badgeScore">Skóre: 0</span>
+          <div class="row">
+            <span class="badge" id="badgeProgress">Dnes: 0/20</span>
+            <span class="badge" id="badgeAcc">Presnosť: 0%</span>
           </div>
         </div>
 
         <p class="question" id="question">Klikni „Štart / Pokračovať“</p>
+        <div class="mini" id="qMini"></div>
 
-        <div class="answerReveal" id="revealBox">
-          <div class="muted">Správna odpoveď</div>
+        <div class="reveal" id="revealBox">
+          <div class="mini">Správna odpoveď</div>
           <div style="font-size:18px;font-weight:700;margin-top:4px" id="revealAnswer">—</div>
-          <div class="mini" id="revealMini">—</div>
+          <div class="mini" id="revealInfo"></div>
         </div>
 
-        <!-- Multiple choice -->
         <div class="options" id="options"></div>
 
-        <!-- Typing -->
-        <div class="typingRow" id="typingRow" style="display:none">
+        <div class="typingRow" id="typingRow">
           <input type="text" id="typingInput" placeholder="Napíš odpoveď a Enter…" autocomplete="off" />
           <button class="btn" id="checkTypingBtn">Skontroluj</button>
           <button class="btn" id="showAnswerBtn">Ukáž odpoveď</button>
         </div>
 
-        <!-- SRS buttons (after reveal / in flip / typing) -->
-        <div class="srRow" id="srRow" style="display:none">
+        <div class="rateRow" id="rateRow">
           <button class="btn danger" id="btnAgain">Again</button>
           <button class="btn" id="btnHard">Hard</button>
           <button class="btn good" id="btnGood">Good</button>
@@ -278,12 +248,12 @@
         </div>
       </div>
 
-      <div class="footerHints">
-        Skratky: <span class="kbd">Enter</span> potvrď / ďalšia • <span class="kbd">1–4</span> výber možností • <span class="kbd">Space</span> flip/ukáž odpoveď • <span class="kbd">S</span> TTS
+      <div class="hints">
+        Skratky: <span class="kbd">1–4</span> výber • <span class="kbd">Enter</span> potvrď (písanie) / ďalšia • <span class="kbd">S</span> TTS
       </div>
     </div>
 
-    <!-- RIGHT: DASHBOARD -->
+    <!-- DASH -->
     <div class="card">
       <h2>Dashboard</h2>
 
@@ -296,19 +266,19 @@
         <div class="stat">
           <div class="k">Na dnes (due)</div>
           <div class="v" id="statDue">0</div>
-          <div class="mini" id="statDueMini">v aktuálnom výbere</div>
+          <div class="mini">v aktuálnom výbere</div>
         </div>
         <div class="stat">
-          <div class="k">Presnosť</div>
+          <div class="k">Presnosť (relácia)</div>
           <div class="v" id="statAcc">0%</div>
-          <div class="mini" id="statAccMini">v tejto relácii</div>
+          <div class="mini" id="statAccMini">0/0</div>
         </div>
         <div class="stat">
           <div class="k">Cieľ na deň</div>
           <div class="v"><span id="statGoal">20</span></div>
           <div class="mini">
-            <span class="muted">Nastav:</span>
-            <input type="number" min="5" max="200" step="5" id="goalInput" value="20" />
+            <span style="color:var(--muted)">Nastav:</span>
+            <input id="goalInput" type="number" min="5" max="200" step="5" value="20" />
           </div>
         </div>
       </div>
@@ -317,18 +287,17 @@
 
       <div class="row" style="justify-content:space-between">
         <div>
-          <div class="muted">Data a tréning</div>
-          <div class="muted2">SRS + štatistiky sú uložené lokálne v prehliadači (localStorage).</div>
+          <div class="sub" style="margin:0;color:var(--muted)">SRS progres sa ukladá lokálne (v prehliadači).</div>
         </div>
         <div class="row">
-          <button class="btn small" id="resetSessionBtn" title="Vynuluje len reláciu (skóre/počítadlá)">Reset relácie</button>
-          <button class="btn small danger" id="wipeProgressBtn" title="Zmaže SRS progres (boxy) pre všetky karty">Zmaž progres</button>
+          <button class="btn small" id="resetSessionBtn">Reset relácie</button>
+          <button class="btn small danger" id="wipeProgressBtn">Zmaž progres</button>
         </div>
       </div>
 
       <div class="sep"></div>
 
-      <div class="muted" style="margin-bottom:10px">Packy (v aktuálnom datasete)</div>
+      <div class="sub" style="margin:0 0 10px 0;color:var(--muted)">Packy (klik = prepni pack)</div>
       <ul class="list" id="packList"></ul>
     </div>
   </div>
@@ -336,34 +305,24 @@
 
 <script>
 /* =========================
-   DATASET LOADING
+   DATA
 ========================= */
 const DATASET_URL = "./wordflip_dataset_en_sk.json";
-
-// Minimal fallback – použije sa len ak JSON nejde načítať
 const DATASET_FALLBACK = [
   {"type":"vocab","pack":"colors","en":"red","sk":"červená"},
   {"type":"vocab","pack":"colors","en":"blue","sk":"modrá"},
-  {"type":"vocab","pack":"numbers","en":"one","sk":"jeden"},
-  {"type":"vocab","pack":"numbers","en":"two","sk":"dva"},
-  {"type":"phrase","pack":"phrases","en":"Hello!","sk":"Ahoj!"},
-  {"type":"phrase","pack":"phrases","en":"How are you?","sk":"Ako sa máš?"}
+  {"type":"phrase","pack":"phrases","en":"Hello!","sk":"Ahoj!"}
 ];
-
 let DATASET = [...DATASET_FALLBACK];
 
 /* =========================
-   STORAGE KEYS
+   STORAGE
 ========================= */
-const STORAGE_SRS = "wordflip_srs_v1";          // progress map
-const STORAGE_SETTINGS = "wordflip_settings_v1";
-const STORAGE_DAILY = "wordflip_daily_v1";      // daily done
-const STORAGE_SESSION = "wordflip_session_v1";  // session stats
+const STORAGE_SRS = "wordflip_srs_v2";
+const STORAGE_SETTINGS = "wordflip_settings_v2";
+const STORAGE_DAILY = "wordflip_daily_v2";
 
-/* =========================
-   SRS (Leitner) settings
-   box 1..5 => interval days
-========================= */
+/* SRS intervals (days) */
 const BOX_INTERVAL_DAYS = {1:0, 2:1, 3:3, 4:7, 5:14};
 
 /* =========================
@@ -373,32 +332,28 @@ let settings = {
   pack: "all",
   type: "all",
   dir: "en2sk",
-  studyMode: "mc",
-  dedup: true,
+  mode: "mc",          // default MC
   dueOnly: true,
+  dedup: true,
   autoNext: true,
   goal: 20
 };
 
-let session = {
-  startedAt: Date.now(),
-  answered: 0,
-  correct: 0,
-  doneToday: 0
-};
+let session = { answered: 0, correct: 0, doneToday: 0 };
+let srsMap = {}; // key -> {box, dueTs, lastTs, streak}
 
-let pool = [];        // filtered & maybe due-only
-let current = null;   // current item
-let currentQA = null; // {q,a,dirUsed}
-let options = [];     // mc options
-let revealed = false; // answer shown?
-let srsMap = {};      // key -> {box, dueTs, lastTs, streak}
+let pool = [];
+let current = null;
+let currentQA = null;
+let revealed = false;
 
 /* =========================
    HELPERS
 ========================= */
-function $(id){ return document.getElementById(id); }
-function now(){ return Date.now(); }
+const $ = (id) => document.getElementById(id);
+const now = () => Date.now();
+const normalize = (s) => String(s ?? "").trim();
+const normCompare = (s) => normalize(s).toLowerCase().replace(/\s+/g,' ');
 function todayKey(){
   const d = new Date();
   const y = d.getFullYear();
@@ -406,26 +361,17 @@ function todayKey(){
   const dd = String(d.getDate()).padStart(2,'0');
   return `${y}-${m}-${dd}`;
 }
-function normalize(s){
-  return String(s ?? "").trim();
-}
-function normCompare(s){
-  // tolerant compare for typing (lowercase, remove extra spaces)
-  return normalize(s).toLowerCase().replace(/\s+/g,' ');
-}
+function safeParse(s, fb){ try{ return JSON.parse(s); } catch { return fb; } }
 function packTitle(pack){
-  return normalize(pack)
-    .replace(/^ff3-/, 'FF3 – ')
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase());
+  return normalize(pack).replace(/^ff3-/, 'FF3 – ').replace(/-/g,' ').replace(/\b\w/g, c=>c.toUpperCase());
 }
 function itemKey(it){
-  // stable unique key for a "card"
   return `${normalize(it.type)}|${normalize(it.pack)}|${normalize(it.en)}|${normalize(it.sk)}`;
 }
-function safeParse(json, fallback){
-  try{ return JSON.parse(json); }catch{ return fallback; }
-}
+
+/* =========================
+   SETTINGS / DAILY
+========================= */
 function loadSettings(){
   const s = safeParse(localStorage.getItem(STORAGE_SETTINGS) || "null", null);
   if(s && typeof s === "object") settings = {...settings, ...s};
@@ -433,6 +379,21 @@ function loadSettings(){
 function saveSettings(){
   localStorage.setItem(STORAGE_SETTINGS, JSON.stringify(settings));
 }
+function loadDaily(){
+  const daily = safeParse(localStorage.getItem(STORAGE_DAILY) || "{}", {});
+  session.doneToday = Number(daily[todayKey()] || 0);
+}
+function incDaily(n=1){
+  const daily = safeParse(localStorage.getItem(STORAGE_DAILY) || "{}", {});
+  const k = todayKey();
+  daily[k] = Number(daily[k] || 0) + n;
+  localStorage.setItem(STORAGE_DAILY, JSON.stringify(daily));
+  session.doneToday = daily[k];
+}
+
+/* =========================
+   SRS
+========================= */
 function loadSrs(){
   srsMap = safeParse(localStorage.getItem(STORAGE_SRS) || "{}", {});
   if(!srsMap || typeof srsMap !== "object") srsMap = {};
@@ -440,40 +401,32 @@ function loadSrs(){
 function saveSrs(){
   localStorage.setItem(STORAGE_SRS, JSON.stringify(srsMap));
 }
-function loadDaily(){
-  const daily = safeParse(localStorage.getItem(STORAGE_DAILY) || "{}", {});
-  const key = todayKey();
-  session.doneToday = Number(daily[key] || 0);
+function ensureSrs(it){
+  const k = itemKey(it);
+  if(!srsMap[k]) srsMap[k] = { box: 1, dueTs: 0, lastTs: 0, streak: 0 };
+  return srsMap[k];
 }
-function incDaily(n=1){
-  const daily = safeParse(localStorage.getItem(STORAGE_DAILY) || "{}", {});
-  const key = todayKey();
-  daily[key] = Number(daily[key] || 0) + n;
-  localStorage.setItem(STORAGE_DAILY, JSON.stringify(daily));
-  session.doneToday = daily[key];
+function isDue(it){
+  const rec = ensureSrs(it);
+  return Number(rec.dueTs || 0) <= now();
 }
-function loadSession(){
-  const s = safeParse(localStorage.getItem(STORAGE_SESSION) || "null", null);
-  if(s && typeof s === "object"){
-    // reset per refresh is fine; we keep minimal
-  }
-}
-function resetSession(){
-  session.answered = 0;
-  session.correct = 0;
-  session.startedAt = Date.now();
-  revealed = false;
-  updateDashboard();
-}
-function wipeProgress(){
-  localStorage.removeItem(STORAGE_SRS);
-  loadSrs();
-  buildPoolAndUI();
-  updateDashboard();
+function schedule(it, rating){
+  const rec = ensureSrs(it);
+  rec.lastTs = now();
+
+  if(rating === "again"){ rec.box = 1; rec.streak = 0; }
+  else if(rating === "hard"){ /* box stays */ rec.streak = Math.max(0, rec.streak || 0); }
+  else if(rating === "good"){ rec.box = Math.min(5, rec.box + 1); rec.streak = (rec.streak||0) + 1; }
+  else if(rating === "easy"){ rec.box = Math.min(5, rec.box + 2); rec.streak = (rec.streak||0) + 1; }
+
+  const days = BOX_INTERVAL_DAYS[rec.box] ?? 1;
+  rec.dueTs = now() + days*24*60*60*1000;
+
+  saveSrs();
 }
 
 /* =========================
-   DATASET UTIL
+   DATASET UTILS
 ========================= */
 function cleanDataset(raw){
   return raw.map(x => ({
@@ -504,46 +457,6 @@ function buildPackIndex(list){
 }
 
 /* =========================
-   SRS CORE
-========================= */
-function ensureSrs(it){
-  const k = itemKey(it);
-  if(!srsMap[k]){
-    srsMap[k] = { box: 1, dueTs: 0, lastTs: 0, streak: 0 };
-  }
-  return srsMap[k];
-}
-function isDue(it){
-  const rec = ensureSrs(it);
-  return Number(rec.dueTs || 0) <= now();
-}
-function schedule(it, rating){
-  // rating: again | hard | good | easy
-  const rec = ensureSrs(it);
-  rec.lastTs = now();
-
-  if(rating === "again"){
-    rec.box = 1;
-    rec.streak = 0;
-  } else if(rating === "hard"){
-    rec.box = Math.max(1, rec.box); // keep
-    rec.streak = Math.max(0, rec.streak);
-  } else if(rating === "good"){
-    rec.box = Math.min(5, rec.box + 1);
-    rec.streak = (rec.streak || 0) + 1;
-  } else if(rating === "easy"){
-    rec.box = Math.min(5, rec.box + 2);
-    rec.streak = (rec.streak || 0) + 1;
-  }
-
-  const days = BOX_INTERVAL_DAYS[rec.box] ?? 1;
-  const ms = days * 24 * 60 * 60 * 1000;
-  rec.dueTs = now() + ms;
-
-  saveSrs();
-}
-
-/* =========================
    QA + DISTRACTORS
 ========================= */
 function getQA(it, dir){
@@ -555,7 +468,6 @@ function getQA(it, dir){
 }
 
 function pickDistractors(correctAnswer, datasetAll, it, dirUsed){
-  // Much better: same type first, same pack first
   const need = 4;
   const used = new Set([correctAnswer]);
   const out = [correctAnswer];
@@ -566,125 +478,57 @@ function pickDistractors(correctAnswer, datasetAll, it, dirUsed){
   function maybePush(x){
     const cand = (dirUsed === "en2sk") ? x.sk : x.en;
     const v = normalize(cand);
-    if(!v) return;
-    if(used.has(v)) return;
+    if(!v || used.has(v)) return;
     used.add(v);
     out.push(v);
   }
 
-  // 1) prefer same pack + same type
   while(out.length < need && samePackSameType.length){
     const r = samePackSameType[Math.floor(Math.random()*samePackSameType.length)];
     maybePush(r);
   }
-
-  // 2) then same type across dataset
   while(out.length < need && sameType.length){
     const r = sameType[Math.floor(Math.random()*sameType.length)];
     maybePush(r);
   }
-
-  // 3) then anything
   while(out.length < need){
     const r = datasetAll[Math.floor(Math.random()*datasetAll.length)];
     maybePush(r);
-    if(out.length === 1 && datasetAll.length === 1) break;
+    if(datasetAll.length === 1) break;
   }
 
-  // shuffle
   out.sort(()=>Math.random()-0.5);
   return out;
 }
 
 /* =========================
-   BUILD POOL
+   UI BUILD
 ========================= */
-function filterDataset(){
-  const dedupOn = $("dedupToggle").checked;
-  const base = dedupOn ? dedupDataset(DATASET) : DATASET;
-
-  const pack = $("packSelect").value;
-  const type = $("typeSelect").value;
-
-  let list = base;
-
-  if(type !== "all"){
-    list = list.filter(x => x.type === type);
-  }
-  if(pack !== "all"){
-    list = list.filter(x => x.pack === pack);
-  }
-  return { base, list };
+function applySettingsToControls(){
+  $("typeSelect").value = settings.type;
+  $("dirSelect").value = settings.dir;
+  $("modeSelect").value = settings.mode;
+  $("dueOnlyToggle").checked = !!settings.dueOnly;
+  $("dedupToggle").checked = !!settings.dedup;
+  $("autoNextToggle").checked = !!settings.autoNext;
+  $("goalInput").value = settings.goal;
 }
-
-function buildPoolAndUI(){
-  const { base, list } = filterDataset();
-  const dueOnly = $("dueOnlyToggle").checked;
-
-  // ensure srs records exist (fast enough for ~800 items)
-  for(const it of base) ensureSrs(it);
-  saveSrs();
-
-  pool = dueOnly ? list.filter(isDue) : list.slice();
-
-  updatePills(base, list, pool);
-  updatePackList(base);
-  updateDashboard();
+function readControlsToSettings(){
+  settings.pack = $("packSelect").value;
+  settings.type = $("typeSelect").value;
+  settings.dir = $("dirSelect").value;
+  settings.mode = $("modeSelect").value;
+  settings.dueOnly = $("dueOnlyToggle").checked;
+  settings.dedup = $("dedupToggle").checked;
+  settings.autoNext = $("autoNextToggle").checked;
+  settings.goal = Number($("goalInput").value || 20);
+  saveSettings();
 }
-
-function countDue(list){
-  let n = 0;
-  for(const it of list) if(isDue(it)) n++;
-  return n;
-}
-
-function updatePills(base, list, pool){
-  $("pillDataset").textContent = `Položky: ${DATASET.length}`;
-  const unique = dedupDataset(DATASET).length;
-  $("pillUnique").textContent = `Unikátne: ${unique}`;
-  const due = countDue(list);
-  $("pillDue").textContent = `Na dnes: ${due}`;
-}
-
-function updatePackList(base){
-  const packs = buildPackIndex(base);
-  const ul = $("packList");
-  ul.innerHTML = "";
-  const typeFilter = $("typeSelect").value;
-
-  packs.forEach(p => {
-    // count due in this pack (respect type filter & dedup)
-    const dedupOn = $("dedupToggle").checked;
-    const base2 = dedupOn ? dedupDataset(DATASET) : DATASET;
-    let items = base2.filter(x => x.pack === p.pack);
-    if(typeFilter !== "all") items = items.filter(x => x.type === typeFilter);
-    const due = countDue(items);
-
-    const li = document.createElement("li");
-    li.className = "li";
-    li.innerHTML = `
-      <div class="name">${p.title}</div>
-      <div class="count">spolu ${items.length} • dnes ${due}</div>
-    `;
-    li.addEventListener("click", () => {
-      $("packSelect").value = p.pack;
-      settings.pack = p.pack;
-      saveSettings();
-      buildPoolAndUI();
-    });
-    ul.appendChild(li);
-  });
-}
-
-/* =========================
-   UI: PACK SELECT
-========================= */
 function buildPackSelect(){
   const sel = $("packSelect");
   sel.innerHTML = "";
 
-  const dedupOn = $("dedupToggle").checked;
-  const base = dedupOn ? dedupDataset(DATASET) : DATASET;
+  const base = settings.dedup ? dedupDataset(DATASET) : DATASET;
   const packs = buildPackIndex(base);
 
   const oAll = document.createElement("option");
@@ -692,86 +536,121 @@ function buildPackSelect(){
   oAll.textContent = "Všetko";
   sel.appendChild(oAll);
 
-  packs.forEach(p => {
+  for(const p of packs){
     const o = document.createElement("option");
     o.value = p.pack;
     o.textContent = `${p.title} (${p.count})`;
     sel.appendChild(o);
-  });
+  }
+
+  // restore
+  const exists = settings.pack === "all" || base.some(x => x.pack === settings.pack);
+  sel.value = exists ? settings.pack : "all";
+}
+function updatePills(){
+  $("pillDataset").textContent = `Položky: ${DATASET.length}`;
+  const unique = dedupDataset(DATASET).length;
+  $("pillUnique").textContent = `Unikátne: ${unique}`;
+
+  const list = getFilteredList();
+  $("pillDue").textContent = `Na dnes: ${countDue(list)}`;
+}
+function updatePackList(){
+  const ul = $("packList");
+  ul.innerHTML = "";
+
+  const base = settings.dedup ? dedupDataset(DATASET) : DATASET;
+  const packs = buildPackIndex(base);
+  const typeFilter = settings.type;
+
+  for(const p of packs){
+    let items = base.filter(x => x.pack === p.pack);
+    if(typeFilter !== "all") items = items.filter(x => x.type === typeFilter);
+    const due = countDue(items);
+
+    const li = document.createElement("li");
+    li.className = "li";
+    li.innerHTML = `<div class="name">${p.title}</div><div class="count">spolu ${items.length} • dnes ${due}</div>`;
+    li.addEventListener("click", () => {
+      $("packSelect").value = p.pack;
+      readControlsToSettings();
+      buildPool();
+      pickNext();
+    });
+    ul.appendChild(li);
+  }
+}
+
+/* =========================
+   FILTER + POOL
+========================= */
+function getFilteredList(){
+  const base = settings.dedup ? dedupDataset(DATASET) : DATASET;
+
+  let list = base;
+  if(settings.type !== "all") list = list.filter(x => x.type === settings.type);
+  if(settings.pack !== "all") list = list.filter(x => x.pack === settings.pack);
+
+  // ensure srs records exist for base
+  for(const it of base) ensureSrs(it);
+  saveSrs();
+
+  return list;
+}
+function countDue(list){
+  let n = 0;
+  for(const it of list) if(isDue(it)) n++;
+  return n;
+}
+function buildPool(){
+  const list = getFilteredList();
+  pool = settings.dueOnly ? list.filter(isDue) : list.slice();
+  updatePills();
+  updatePackList();
+  updateDashboard();
 }
 
 /* =========================
    STUDY FLOW
 ========================= */
+function showReveal(ans, info){
+  $("revealAnswer").textContent = ans;
+  $("revealInfo").textContent = info || "";
+  $("revealBox").classList.add("show");
+  $("rateRow").style.display = "flex";
+  revealed = true;
+}
+function hideReveal(){
+  $("revealBox").classList.remove("show");
+  $("rateRow").style.display = "none";
+  revealed = false;
+}
+function setModeUI(){
+  const mode = settings.mode;
+  $("options").style.display = (mode === "mc") ? "grid" : "none";
+  $("typingRow").style.display = (mode === "typing") ? "flex" : "none";
+}
 function setBadges(it){
   $("badgePack").textContent = `Pack: ${packTitle(it.pack)}`;
   $("badgeType").textContent = `Type: ${it.type}`;
   const rec = ensureSrs(it);
-  $("badgeBox").textContent = `Box: ${rec.box} • due ${rec.dueTs ? new Date(rec.dueTs).toLocaleDateString('sk-SK') : 'today'}`;
+  $("badgeBox").textContent = `Box: ${rec.box}`;
 }
-function setProgressBadges(){
-  const dueOnly = $("dueOnlyToggle").checked;
-  const { list } = filterDataset();
-  const dueCount = countDue(list);
-  const done = session.doneToday;
-  $("badgeProgress").textContent = `Dnes: ${Math.min(done, settings.goal)}/${settings.goal} • due ${dueCount}${dueOnly ? '' : ''}`;
-  $("badgeScore").textContent = `Skóre: ${session.correct}/${session.answered || 0}`;
-}
-function showReveal(answer, mini){
-  $("revealAnswer").textContent = answer;
-  $("revealMini").textContent = mini || "";
-  $("revealBox").classList.add("show");
-  revealed = true;
-  $("srRow").style.display = "flex";
-}
-function hideReveal(){
-  $("revealBox").classList.remove("show");
-  revealed = false;
-  $("srRow").style.display = "none";
-}
+function updateDashboard(){
+  $("statGoal").textContent = settings.goal;
 
-function renderModeUI(){
-  const mode = $("studyModeSelect").value;
-  $("options").style.display = (mode === "mc") ? "grid" : "none";
-  $("typingRow").style.display = (mode === "typing") ? "flex" : "none";
-  // flip uses reveal + sr buttons
-}
+  $("statDone").textContent = session.doneToday;
+  $("statDoneMini").textContent = `z cieľa ${settings.goal}`;
 
-function pickNext(){
-  buildPoolAndUI();
-  if(pool.length === 0){
-    $("question").textContent = "V tomto výbere nemáš nič „na dnes“. Vypni „Len na dnes“ alebo zmeň pack/typ.";
-    $("options").innerHTML = "";
-    $("typingInput").value = "";
-    hideReveal();
-    return;
-  }
-  current = pool[Math.floor(Math.random()*pool.length)];
-  currentQA = getQA(current, $("dirSelect").value);
-  hideReveal();
-  renderModeUI();
+  const list = getFilteredList();
+  $("statDue").textContent = countDue(list);
 
-  setBadges(current);
-  setProgressBadges();
+  const acc = session.answered ? Math.round((session.correct/session.answered)*100) : 0;
+  $("statAcc").textContent = `${acc}%`;
+  $("statAccMini").textContent = `${session.correct}/${session.answered || 0}`;
 
-  $("question").textContent = currentQA.q;
-
-  const mode = $("studyModeSelect").value;
-  if(mode === "mc"){
-    options = pickDistractors(currentQA.a, ( $("dedupToggle").checked ? dedupDataset(DATASET) : DATASET ), current, currentQA.dirUsed);
-    renderOptions(options, currentQA.a);
-  } else if(mode === "typing"){
-    $("typingInput").value = "";
-    $("typingInput").focus();
-    $("options").innerHTML = "";
-  } else {
-    // flip
-    $("options").innerHTML = "";
-    showReveal("Klikni Space alebo „Ukáž odpoveď“ (v typing), potom ohodnoť.", `Smer: ${currentQA.dirUsed.toUpperCase()}`);
-    // but for flip we prefer reveal actual answer only when user flips
-    $("revealAnswer").textContent = "—";
-    $("revealMini").textContent = "Space = flip (ukáž odpoveď), potom Again/Hard/Good/Easy.";
-  }
+  $("badgeProgress").textContent = `Dnes: ${Math.min(session.doneToday, settings.goal)}/${settings.goal}`;
+  $("badgeAcc").textContent = `Presnosť: ${acc}%`;
 }
 
 function renderOptions(opts, correct){
@@ -785,9 +664,41 @@ function renderOptions(opts, correct){
     box.appendChild(btn);
   });
 }
-
 function lockOptions(){
   Array.from(document.querySelectorAll(".opt")).forEach(b => b.disabled = true);
+}
+function pickNext(){
+  readControlsToSettings();
+  buildPool();
+  setModeUI();
+  hideReveal();
+
+  if(pool.length === 0){
+    $("question").textContent = "V tomto výbere nie je nič „na dnes“. Vypni „Len na dnes“ alebo zmeň pack/typ.";
+    $("qMini").textContent = "";
+    $("options").innerHTML = "";
+    $("typingInput").value = "";
+    return;
+  }
+
+  current = pool[Math.floor(Math.random()*pool.length)];
+  currentQA = getQA(current, settings.dir);
+
+  $("question").textContent = currentQA.q;
+  $("qMini").textContent = `Smer: ${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)}`;
+
+  setBadges(current);
+
+  const baseAll = settings.dedup ? dedupDataset(DATASET) : DATASET;
+
+  if(settings.mode === "mc"){
+    const opts = pickDistractors(currentQA.a, baseAll, current, currentQA.dirUsed);
+    renderOptions(opts, currentQA.a);
+  } else {
+    $("options").innerHTML = "";
+    $("typingInput").value = "";
+    $("typingInput").focus();
+  }
 }
 
 function checkMC(btn, choice, correct){
@@ -798,30 +709,27 @@ function checkMC(btn, choice, correct){
     btn.classList.add("correct");
     session.correct += 1;
     incDaily(1);
-    // MC correct -> Good
-    schedule(current, "good");
-    showReveal(correct, `Správne • ${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)} • ${current.type}`);
+    schedule(current, "good"); // default “good” za správnu
+    showReveal(correct, `Správne • ${currentQA.dirUsed.toUpperCase()} • ${current.type}`);
   } else {
     btn.classList.add("wrong");
-    // highlight correct
     Array.from(document.querySelectorAll(".opt")).forEach(b => {
-      if(b.textContent.replace(/^\d\s*/,'').trim() === correct) b.classList.add("correct");
+      const txt = b.textContent.replace(/^\d\s*/,'').trim();
+      if(txt === correct) b.classList.add("correct");
     });
-    // MC wrong -> Again
     schedule(current, "again");
-    showReveal(correct, `Nesprávne • ${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)} • ${current.type}`);
+    showReveal(correct, `Nesprávne • ${currentQA.dirUsed.toUpperCase()} • ${current.type}`);
   }
 
   updateDashboard();
-  setProgressBadges();
 
-  if($("autoNextToggle").checked){
-    setTimeout(() => pickNext(), 800);
+  if(settings.autoNext){
+    setTimeout(() => pickNext(), 850);
   }
 }
 
+/* tolerant typing */
 function levenshtein(a, b){
-  // small & fast for short strings
   a = normCompare(a); b = normCompare(b);
   const m = a.length, n = b.length;
   if(m === 0) return n;
@@ -851,67 +759,35 @@ function checkTyping(){
 
   const ua = normCompare(user);
   const ta = normCompare(target);
-
-  // tolerate minor typos
   const dist = levenshtein(ua, ta);
+
+  // tolerancia: 12% dĺžky alebo min 1 znak
   const ok = (ua === ta) || (dist <= Math.max(1, Math.floor(ta.length * 0.12)));
 
   if(ok){
     session.correct += 1;
     incDaily(1);
     schedule(current, "good");
-    showReveal(target, `OK (tolerant) • vzdialenosť ${dist} • ${currentQA.dirUsed.toUpperCase()} • ${current.type}`);
+    showReveal(target, `OK • vzdialenosť ${dist} • ${currentQA.dirUsed.toUpperCase()} • ${current.type}`);
   } else {
     schedule(current, "again");
-    showReveal(target, `Nesedí • vzdialenosť ${dist} • Skús znova zajtra`);
+    showReveal(target, `Nesedí • vzdialenosť ${dist} • ${currentQA.dirUsed.toUpperCase()} • ${current.type}`);
   }
 
   updateDashboard();
-  setProgressBadges();
 
-  if($("autoNextToggle").checked){
+  if(settings.autoNext){
     setTimeout(() => pickNext(), 950);
   }
 }
 
-function flipReveal(){
-  if(!current) return;
-  // show real answer now
-  showReveal(currentQA.a, `${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)} • ${current.type}`);
-}
-
 function rate(r){
   if(!current) return;
-  // If in flip mode, rating is explicit.
-  // If in typing mode and user requested show answer, rating required.
   schedule(current, r);
-  if(r === "good" || r === "easy") incDaily(1); // counts as done
+  // pri explicitnom hodnotení Good/Easy rátame ako “done”
+  if(r === "good" || r === "easy") incDaily(1);
   updateDashboard();
-  setProgressBadges();
-  if($("autoNextToggle").checked){
-    setTimeout(() => pickNext(), 500);
-  }
-}
-
-/* =========================
-   DASHBOARD
-========================= */
-function updateDashboard(){
-  settings.goal = Number($("goalInput").value || 20);
-  $("statGoal").textContent = settings.goal;
-
-  $("statDone").textContent = session.doneToday;
-  $("statDoneMini").textContent = `z cieľa ${settings.goal}`;
-
-  const { list } = filterDataset();
-  const due = countDue(list);
-  $("statDue").textContent = due;
-  $("statDueMini").textContent = `v aktuálnom výbere`;
-
-  const acc = session.answered ? Math.round((session.correct/session.answered)*100) : 0;
-  $("statAcc").textContent = `${acc}%`;
-  $("statAccMini").textContent = `${session.correct}/${session.answered || 0} odpovedí v relácii`;
-  setProgressBadges();
+  if(settings.autoNext) setTimeout(() => pickNext(), 450);
 }
 
 /* =========================
@@ -920,19 +796,33 @@ function updateDashboard(){
 function ttsSpeak(text){
   const t = normalize(text);
   if(!t) return;
-  if(!("speechSynthesis" in window)) { alert("TTS nie je podporované v tomto prehliadači."); return; }
+  if(!("speechSynthesis" in window)){ alert("TTS nie je podporované v tomto prehliadači."); return; }
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(t);
-  // heuristika: EN alebo SK podľa obsahu
-  const hasCaron = /[áäčďéíĺľňóôŕšťúýž]/i.test(t);
-  u.lang = hasCaron ? "sk-SK" : "en-US";
+  const hasSK = /[áäčďéíĺľňóôŕšťúýž]/i.test(t);
+  u.lang = hasSK ? "sk-SK" : "en-US";
   u.rate = 0.95;
-  u.pitch = 1.0;
   window.speechSynthesis.speak(u);
 }
 
 /* =========================
-   INIT / EVENTS
+   ACTIONS
+========================= */
+function resetSession(){
+  session.answered = 0;
+  session.correct = 0;
+  hideReveal();
+  updateDashboard();
+}
+function wipeProgress(){
+  localStorage.removeItem(STORAGE_SRS);
+  loadSrs();
+  buildPool();
+  pickNext();
+}
+
+/* =========================
+   LOAD DATASET
 ========================= */
 async function loadDataset(){
   try{
@@ -941,113 +831,72 @@ async function loadDataset(){
     const raw = await res.json();
     if(!Array.isArray(raw)) throw new Error("JSON nie je pole");
     DATASET = cleanDataset(raw);
-    if(DATASET.length === 0) throw new Error("Dataset je prázdny po čistení");
+    if(DATASET.length === 0) throw new Error("Dataset prázdny po čistení");
   } catch(e){
-    console.warn("Dataset load failed, using fallback", e);
+    console.warn("Dataset load failed -> fallback", e);
     DATASET = cleanDataset(DATASET_FALLBACK);
   }
 }
 
-function syncControlsFromSettings(){
-  $("dedupToggle").checked = !!settings.dedup;
-  $("dueOnlyToggle").checked = !!settings.dueOnly;
-  $("autoNextToggle").checked = !!settings.autoNext;
-  $("typeSelect").value = settings.type;
-  $("dirSelect").value = settings.dir;
-  $("studyModeSelect").value = settings.studyMode;
-  $("goalInput").value = settings.goal;
-}
+/* =========================
+   INIT / EVENTS
+========================= */
+function wire(){
+  $("startBtn").addEventListener("click", () => pickNext());
+  $("nextBtn").addEventListener("click", () => pickNext());
 
-function syncSettingsFromControls(){
-  settings.pack = $("packSelect").value;
-  settings.type = $("typeSelect").value;
-  settings.dir = $("dirSelect").value;
-  settings.studyMode = $("studyModeSelect").value;
-  settings.dedup = $("dedupToggle").checked;
-  settings.dueOnly = $("dueOnlyToggle").checked;
-  settings.autoNext = $("autoNextToggle").checked;
-  settings.goal = Number($("goalInput").value || 20);
-  saveSettings();
-}
+  $("ttsBtn").addEventListener("click", () => { if(currentQA) ttsSpeak(currentQA.q); });
 
-function wireEvents(){
-  $("startBtn").addEventListener("click", () => { syncSettingsFromControls(); pickNext(); });
-  $("nextBtn").addEventListener("click", () => { syncSettingsFromControls(); pickNext(); });
+  $("typeSelect").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
+  $("dirSelect").addEventListener("change", () => { readControlsToSettings(); });
+  $("modeSelect").addEventListener("change", () => { readControlsToSettings(); setModeUI(); hideReveal(); });
+  $("packSelect").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
 
-  $("ttsBtn").addEventListener("click", () => {
-    if(!currentQA) return;
-    ttsSpeak(currentQA.q);
-  });
+  $("dueOnlyToggle").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
+  $("dedupToggle").addEventListener("change", () => { readControlsToSettings(); buildPackSelect(); buildPool(); });
+  $("autoNextToggle").addEventListener("change", () => { readControlsToSettings(); });
 
-  $("typeSelect").addEventListener("change", () => { syncSettingsFromControls(); buildPoolAndUI(); });
-  $("dirSelect").addEventListener("change", () => { syncSettingsFromControls(); });
-  $("studyModeSelect").addEventListener("change", () => { syncSettingsFromControls(); renderModeUI(); hideReveal(); });
-
-  $("packSelect").addEventListener("change", () => { syncSettingsFromControls(); buildPoolAndUI(); });
-
-  $("dedupToggle").addEventListener("change", () => {
-    syncSettingsFromControls();
-    buildPackSelect();
-    // keep selected pack if exists
-    if(settings.pack !== "all") $("packSelect").value = settings.pack;
-    buildPoolAndUI();
-  });
-
-  $("dueOnlyToggle").addEventListener("change", () => { syncSettingsFromControls(); buildPoolAndUI(); });
-  $("autoNextToggle").addEventListener("change", () => { syncSettingsFromControls(); });
-
-  $("goalInput").addEventListener("change", () => { syncSettingsFromControls(); updateDashboard(); });
+  $("goalInput").addEventListener("change", () => { readControlsToSettings(); updateDashboard(); });
 
   $("resetSessionBtn").addEventListener("click", () => resetSession());
   $("wipeProgressBtn").addEventListener("click", () => {
-    if(confirm("Zmazať SRS progres pre všetky karty? (boxy a due dátumy)")) wipeProgress();
+    if(confirm("Zmazať SRS progres (boxy/due) pre všetky karty?")) wipeProgress();
   });
 
   $("checkTypingBtn").addEventListener("click", () => checkTyping());
   $("showAnswerBtn").addEventListener("click", () => {
     if(!current) return;
-    showReveal(currentQA.a, `${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)} • ${current.type}`);
+    showReveal(currentQA.a, `Ukázané • teraz ohodnoť Again/Hard/Good/Easy`);
   });
 
   $("typingInput").addEventListener("keydown", (e) => {
-    if(e.key === "Enter"){ checkTyping(); }
+    if(e.key === "Enter") checkTyping();
   });
 
-  $("btnAgain").addEventListener("click", ()=>rate("again"));
-  $("btnHard").addEventListener("click", ()=>rate("hard"));
-  $("btnGood").addEventListener("click", ()=>rate("good"));
-  $("btnEasy").addEventListener("click", ()=>rate("easy"));
+  $("btnAgain").addEventListener("click", () => rate("again"));
+  $("btnHard").addEventListener("click", () => rate("hard"));
+  $("btnGood").addEventListener("click", () => rate("good"));
+  $("btnEasy").addEventListener("click", () => rate("easy"));
 
-  // Keyboard shortcuts
+  // keyboard shortcuts
   document.addEventListener("keydown", (e) => {
     if(e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
-
-    const mode = $("studyModeSelect").value;
 
     if(e.key === "s" || e.key === "S"){
       if(currentQA) ttsSpeak(currentQA.q);
     }
-    if(e.key === " "){
-      e.preventDefault();
-      if(mode === "flip"){
-        if(!revealed || $("revealAnswer").textContent === "—") flipReveal();
-      } else if(mode === "typing"){
-        // show answer in typing
-        if(current) showReveal(currentQA.a, `${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)} • ${current.type}`);
-      }
+
+    if(settings.mode === "mc" && ["1","2","3","4"].includes(e.key)){
+      const idx = Number(e.key) - 1;
+      const btns = Array.from(document.querySelectorAll(".opt"));
+      if(btns[idx] && !btns[idx].disabled) btns[idx].click();
     }
-    if(mode === "mc"){
-      if(["1","2","3","4"].includes(e.key)){
-        const idx = Number(e.key) - 1;
-        const btns = Array.from(document.querySelectorAll(".opt"));
-        if(btns[idx] && !btns[idx].disabled) btns[idx].click();
-      }
-      if(e.key === "Enter"){
-        // next
-        pickNext();
-      }
-    } else {
-      if(e.key === "Enter"){
+
+    if(e.key === "Enter"){
+      // in mc: next; in typing: next if revealed (otherwise focus typing)
+      if(settings.mode === "typing" && !revealed){
+        $("typingInput").focus();
+      } else {
         pickNext();
       }
     }
@@ -1059,26 +908,19 @@ function wireEvents(){
   await loadDataset();
   loadSrs();
   loadDaily();
-  loadSession();
 
-  syncControlsFromSettings();
+  // enforce Mix defaults on first run only: if no saved settings existed
+  // (we don't know; but we keep user settings if present)
+  // settings.mode already defaults to mc.
+
+  applySettingsToControls();
   buildPackSelect();
+  readControlsToSettings(); // sync pack select into settings
 
-  // set saved pack if possible
-  if(settings.pack && settings.pack !== "all"){
-    // if pack doesn't exist, fallback to all
-    const exists = DATASET.some(x => x.pack === settings.pack);
-    $("packSelect").value = exists ? settings.pack : "all";
-  } else {
-    $("packSelect").value = "all";
-  }
-
-  buildPoolAndUI();
-  renderModeUI();
-  wireEvents();
-
-  // Initial pills/dashboard
+  buildPool();
+  setModeUI();
   updateDashboard();
+  wire();
 })();
 </script>
 </body>
