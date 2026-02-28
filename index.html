@@ -54,295 +54,34 @@
 <script>
 /**
  * DATASET = zdroj pravdy
- * Index (packs) sa generuje automaticky z datasetu.
+ * - primárne načítame z externého JSON súboru
+ * - ak zlyhá, použijeme FALLBACK (vstavané minimum), aby appka fungovala vždy
+ *
+ * DÔLEŽITÉ:
+ * - JSON musí byť pole objektov: [{type, pack, en, sk}, ...]
+ * - Súbor ulož vedľa index.html (napr. /wordflip_dataset_en_sk.json)
  */
-const DATASET = [
+const DATASET_URL = "./wordflip_dataset_en_sk.json";
+
+/* ====== FALLBACK dataset (minimálny) ======
+   Ak chceš, môžeš sem nechať tvoj pôvodný veľký dataset.
+   Ja dávam len krátky, aby bol súbor čitateľný; po deployi
+   sa načíta JSON a fallback sa nebude používať.
+*/
+const DATASET_FALLBACK = [
   {"type":"vocab","pack":"colors","en":"red","sk":"červená"},
   {"type":"vocab","pack":"colors","en":"blue","sk":"modrá"},
-  {"type":"vocab","pack":"colors","en":"yellow","sk":"žltá"},
-  {"type":"vocab","pack":"colors","en":"green","sk":"zelená"},
-  {"type":"vocab","pack":"colors","en":"orange","sk":"oranžová"},
-  {"type":"vocab","pack":"colors","en":"pink","sk":"ružová"},
-  {"type":"vocab","pack":"colors","en":"purple","sk":"fialová"},
-  {"type":"vocab","pack":"colors","en":"brown","sk":"hnedá"},
-  {"type":"vocab","pack":"colors","en":"black","sk":"čierna"},
-  {"type":"vocab","pack":"colors","en":"white","sk":"biela"},
-  {"type":"vocab","pack":"colors","en":"grey","sk":"sivá"},
-
   {"type":"vocab","pack":"numbers","en":"one","sk":"jeden"},
   {"type":"vocab","pack":"numbers","en":"two","sk":"dva"},
-  {"type":"vocab","pack":"numbers","en":"three","sk":"tri"},
-  {"type":"vocab","pack":"numbers","en":"four","sk":"štyri"},
-  {"type":"vocab","pack":"numbers","en":"five","sk":"päť"},
-  {"type":"vocab","pack":"numbers","en":"six","sk":"šesť"},
-  {"type":"vocab","pack":"numbers","en":"seven","sk":"sedem"},
-  {"type":"vocab","pack":"numbers","en":"eight","sk":"osem"},
-  {"type":"vocab","pack":"numbers","en":"nine","sk":"deväť"},
-  {"type":"vocab","pack":"numbers","en":"ten","sk":"desať"},
-  {"type":"vocab","pack":"numbers","en":"eleven","sk":"jedenásť"},
-  {"type":"vocab","pack":"numbers","en":"twelve","sk":"dvanásť"},
-  {"type":"vocab","pack":"numbers","en":"thirteen","sk":"trinásť"},
-  {"type":"vocab","pack":"numbers","en":"fourteen","sk":"štrnásť"},
-  {"type":"vocab","pack":"numbers","en":"fifteen","sk":"pätnásť"},
-  {"type":"vocab","pack":"numbers","en":"sixteen","sk":"šestnásť"},
-  {"type":"vocab","pack":"numbers","en":"seventeen","sk":"sedemnásť"},
-  {"type":"vocab","pack":"numbers","en":"eighteen","sk":"osemnásť"},
-  {"type":"vocab","pack":"numbers","en":"nineteen","sk":"devätnásť"},
-  {"type":"vocab","pack":"numbers","en":"twenty","sk":"dvadsať"},
-
-  {"type":"vocab","pack":"family","en":"mum","sk":"mama"},
-  {"type":"vocab","pack":"family","en":"dad","sk":"otec"},
-  {"type":"vocab","pack":"family","en":"mother","sk":"mamička"},
-  {"type":"vocab","pack":"family","en":"father","sk":"otecko"},
-  {"type":"vocab","pack":"family","en":"brother","sk":"brat"},
-  {"type":"vocab","pack":"family","en":"sister","sk":"sestra"},
-  {"type":"vocab","pack":"family","en":"grandma","sk":"babička"},
-  {"type":"vocab","pack":"family","en":"grandpa","sk":"dedko"},
-  {"type":"vocab","pack":"family","en":"aunt","sk":"teta"},
-  {"type":"vocab","pack":"family","en":"uncle","sk":"ujo"},
-  {"type":"vocab","pack":"family","en":"cousin","sk":"bratranec / sesternica"},
-  {"type":"vocab","pack":"family","en":"baby","sk":"bábätko"},
-
-  {"type":"vocab","pack":"school","en":"book","sk":"kniha"},
-  {"type":"vocab","pack":"school","en":"pen","sk":"pero"},
-  {"type":"vocab","pack":"school","en":"pencil","sk":"ceruzka"},
-  {"type":"vocab","pack":"school","en":"rubber","sk":"guma"},
-  {"type":"vocab","pack":"school","en":"ruler","sk":"pravítko"},
-  {"type":"vocab","pack":"school","en":"pencil case","sk":"peračník"},
-  {"type":"vocab","pack":"school","en":"bag","sk":"taška"},
-  {"type":"vocab","pack":"school","en":"desk","sk":"lavica"},
-  {"type":"vocab","pack":"school","en":"chair","sk":"stolička"},
-  {"type":"vocab","pack":"school","en":"board","sk":"tabuľa"},
-  {"type":"vocab","pack":"school","en":"teacher","sk":"učiteľ"},
-  {"type":"vocab","pack":"school","en":"classroom","sk":"trieda"},
-  {"type":"vocab","pack":"school","en":"playground","sk":"ihrisko"},
-  {"type":"vocab","pack":"school","en":"library","sk":"knižnica"},
-  {"type":"vocab","pack":"school","en":"gym","sk":"telocvičňa"},
-  {"type":"vocab","pack":"school","en":"computer room","sk":"počítačová učebňa"},
-  {"type":"vocab","pack":"school","en":"English","sk":"angličtina"},
-  {"type":"vocab","pack":"school","en":"Maths","sk":"matematika"},
-  {"type":"vocab","pack":"school","en":"Science","sk":"prírodoveda"},
-  {"type":"vocab","pack":"school","en":"Art","sk":"výtvarná"},
-  {"type":"vocab","pack":"school","en":"Music","sk":"hudobná"},
-  {"type":"vocab","pack":"school","en":"PE","sk":"telesná výchova"},
-
-  {"type":"vocab","pack":"toys","en":"ball","sk":"lopta"},
-  {"type":"vocab","pack":"toys","en":"doll","sk":"bábika"},
-  {"type":"vocab","pack":"toys","en":"teddy","sk":"plyšák"},
-  {"type":"vocab","pack":"toys","en":"car","sk":"auto"},
-  {"type":"vocab","pack":"toys","en":"kite","sk":"šarkan"},
-  {"type":"vocab","pack":"toys","en":"bike","sk":"bicykel"},
-  {"type":"vocab","pack":"toys","en":"train","sk":"vlak"},
-  {"type":"vocab","pack":"toys","en":"plane","sk":"lietadlo"},
-  {"type":"vocab","pack":"toys","en":"computer game","sk":"počítačová hra"},
-  {"type":"vocab","pack":"toys","en":"guitar","sk":"gitara"},
-  {"type":"vocab","pack":"toys","en":"piano","sk":"klavír"},
-
-  {"type":"vocab","pack":"food","en":"apple","sk":"jablko"},
-  {"type":"vocab","pack":"food","en":"banana","sk":"banán"},
-  {"type":"vocab","pack":"food","en":"orange","sk":"pomaranč"},
-  {"type":"vocab","pack":"food","en":"pear","sk":"hruška"},
-  {"type":"vocab","pack":"food","en":"grapes","sk":"hrozno"},
-  {"type":"vocab","pack":"food","en":"melon","sk":"melón"},
-  {"type":"vocab","pack":"food","en":"lemon","sk":"citrón"},
-  {"type":"vocab","pack":"food","en":"carrot","sk":"mrkva"},
-  {"type":"vocab","pack":"food","en":"potato","sk":"zemiak"},
-  {"type":"vocab","pack":"food","en":"tomato","sk":"paradajka"},
-  {"type":"vocab","pack":"food","en":"cucumber","sk":"uhorka"},
-  {"type":"vocab","pack":"food","en":"rice","sk":"ryža"},
-  {"type":"vocab","pack":"food","en":"pasta","sk":"cestoviny"},
-  {"type":"vocab","pack":"food","en":"sandwich","sk":"sendvič"},
-  {"type":"vocab","pack":"food","en":"pizza","sk":"pizza"},
-  {"type":"vocab","pack":"food","en":"egg","sk":"vajce"},
-  {"type":"vocab","pack":"food","en":"cheese","sk":"syr"},
-  {"type":"vocab","pack":"food","en":"chicken","sk":"kurča"},
-  {"type":"vocab","pack":"food","en":"fish","sk":"ryba"},
-  {"type":"vocab","pack":"food","en":"bread","sk":"chlieb"},
-  {"type":"vocab","pack":"food","en":"cereal","sk":"cereálie"},
-  {"type":"vocab","pack":"food","en":"milk","sk":"mlieko"},
-  {"type":"vocab","pack":"food","en":"juice","sk":"džús"},
-  {"type":"vocab","pack":"food","en":"water","sk":"voda"},
-
-  {"type":"vocab","pack":"animals","en":"dog","sk":"pes"},
-  {"type":"vocab","pack":"animals","en":"cat","sk":"mačka"},
-  {"type":"vocab","pack":"animals","en":"fish","sk":"ryba"},
-  {"type":"vocab","pack":"animals","en":"bird","sk":"vták"},
-  {"type":"vocab","pack":"animals","en":"rabbit","sk":"zajac"},
-  {"type":"vocab","pack":"animals","en":"duck","sk":"kačka"},
-  {"type":"vocab","pack":"animals","en":"cow","sk":"krava"},
-  {"type":"vocab","pack":"animals","en":"horse","sk":"kôň"},
-  {"type":"vocab","pack":"animals","en":"sheep","sk":"ovca"},
-  {"type":"vocab","pack":"animals","en":"goat","sk":"koza"},
-  {"type":"vocab","pack":"animals","en":"pig","sk":"prasa"},
-  {"type":"vocab","pack":"animals","en":"chicken","sk":"sliepka"},
-  {"type":"vocab","pack":"animals","en":"elephant","sk":"slon"},
-  {"type":"vocab","pack":"animals","en":"tiger","sk":"tiger"},
-  {"type":"vocab","pack":"animals","en":"lion","sk":"lev"},
-  {"type":"vocab","pack":"animals","en":"giraffe","sk":"žirafa"},
-  {"type":"vocab","pack":"animals","en":"crocodile","sk":"krokodíl"},
-  {"type":"vocab","pack":"animals","en":"monkey","sk":"opica"},
-  {"type":"vocab","pack":"animals","en":"parrot","sk":"papagáj"},
-  {"type":"vocab","pack":"animals","en":"kangaroo","sk":"klokán"},
-  {"type":"vocab","pack":"animals","en":"zebra","sk":"zebra"},
-  {"type":"vocab","pack":"animals","en":"bear","sk":"medveď"},
-  {"type":"vocab","pack":"animals","en":"snake","sk":"had"},
-  {"type":"vocab","pack":"animals","en":"mouse","sk":"myš"},
-
-  {"type":"vocab","pack":"places","en":"house","sk":"dom"},
-  {"type":"vocab","pack":"places","en":"room","sk":"izba"},
-  {"type":"vocab","pack":"places","en":"kitchen","sk":"kuchyňa"},
-  {"type":"vocab","pack":"places","en":"bathroom","sk":"kúpeľňa"},
-  {"type":"vocab","pack":"places","en":"living room","sk":"obývačka"},
-  {"type":"vocab","pack":"places","en":"garden","sk":"záhrada"},
-  {"type":"vocab","pack":"places","en":"bed","sk":"posteľ"},
-  {"type":"vocab","pack":"places","en":"table","sk":"stôl"},
-  {"type":"vocab","pack":"places","en":"door","sk":"dvere"},
-  {"type":"vocab","pack":"places","en":"window","sk":"okno"},
-  {"type":"vocab","pack":"places","en":"cinema","sk":"kino"},
-  {"type":"vocab","pack":"places","en":"supermarket","sk":"supermarket"},
-  {"type":"vocab","pack":"places","en":"hospital","sk":"nemocnica"},
-  {"type":"vocab","pack":"places","en":"post office","sk":"pošta"},
-  {"type":"vocab","pack":"places","en":"park","sk":"park"},
-  {"type":"vocab","pack":"places","en":"street","sk":"ulica"},
-  {"type":"vocab","pack":"places","en":"shop","sk":"obchod"},
-  {"type":"vocab","pack":"places","en":"bus stop","sk":"autobusová zastávka"},
-  {"type":"vocab","pack":"places","en":"train station","sk":"vlaková stanica"},
-  {"type":"vocab","pack":"places","en":"mountain","sk":"hora"},
-  {"type":"vocab","pack":"places","en":"river","sk":"rieka"},
-  {"type":"vocab","pack":"places","en":"beach","sk":"pláž"},
-  {"type":"vocab","pack":"places","en":"sea","sk":"more"},
-  {"type":"vocab","pack":"places","en":"lake","sk":"jazero"},
-
-  {"type":"vocab","pack":"clothes","en":"shirt","sk":"košeľa"},
-  {"type":"vocab","pack":"clothes","en":"T-shirt","sk":"tričko"},
-  {"type":"vocab","pack":"clothes","en":"trousers","sk":"nohavice"},
-  {"type":"vocab","pack":"clothes","en":"skirt","sk":"sukňa"},
-  {"type":"vocab","pack":"clothes","en":"dress","sk":"šaty"},
-  {"type":"vocab","pack":"clothes","en":"shorts","sk":"kraťasy"},
-  {"type":"vocab","pack":"clothes","en":"shoes","sk":"topánky"},
-  {"type":"vocab","pack":"clothes","en":"trainers","sk":"tenisky"},
-  {"type":"vocab","pack":"clothes","en":"boots","sk":"čižmy"},
-  {"type":"vocab","pack":"clothes","en":"socks","sk":"ponožky"},
-  {"type":"vocab","pack":"clothes","en":"coat","sk":"kabát"},
-  {"type":"vocab","pack":"clothes","en":"jacket","sk":"bunda"},
-  {"type":"vocab","pack":"clothes","en":"hat","sk":"klobúk"},
-  {"type":"vocab","pack":"clothes","en":"cap","sk":"šiltovka"},
-  {"type":"vocab","pack":"clothes","en":"scarf","sk":"šál"},
-  {"type":"vocab","pack":"clothes","en":"gloves","sk":"rukavice"},
-
-  {"type":"vocab","pack":"weather","en":"sun","sk":"slnko"},
-  {"type":"vocab","pack":"weather","en":"cloud","sk":"oblak"},
-  {"type":"vocab","pack":"weather","en":"rain","sk":"dážď"},
-  {"type":"vocab","pack":"weather","en":"snow","sk":"sneh"},
-  {"type":"vocab","pack":"weather","en":"wind","sk":"vietor"},
-  {"type":"vocab","pack":"weather","en":"spring","sk":"jar"},
-  {"type":"vocab","pack":"weather","en":"summer","sk":"leto"},
-  {"type":"vocab","pack":"weather","en":"autumn","sk":"jeseň"},
-  {"type":"vocab","pack":"weather","en":"winter","sk":"zima"},
-  {"type":"vocab","pack":"weather","en":"sunny","sk":"slnečno"},
-  {"type":"vocab","pack":"weather","en":"cloudy","sk":"oblačno"},
-  {"type":"vocab","pack":"weather","en":"rainy","sk":"daždivo"},
-  {"type":"vocab","pack":"weather","en":"snowy","sk":"snežno"},
-  {"type":"vocab","pack":"weather","en":"windy","sk":"veterno"},
-  {"type":"vocab","pack":"weather","en":"hot","sk":"horúco"},
-  {"type":"vocab","pack":"weather","en":"cold","sk":"zima"},
-  {"type":"vocab","pack":"weather","en":"warm","sk":"teplo"},
-
   {"type":"phrase","pack":"phrases","en":"Hello!","sk":"Ahoj!"},
-  {"type":"phrase","pack":"phrases","en":"Goodbye!","sk":"Dovidenia!"},
-  {"type":"phrase","pack":"phrases","en":"How are you?","sk":"Ako sa máš?"},
-  {"type":"phrase","pack":"phrases","en":"I'm fine, thank you.","sk":"Mám sa dobre, ďakujem."},
-  {"type":"phrase","pack":"phrases","en":"This is my sister.","sk":"Toto je moja sestra."},
-  {"type":"phrase","pack":"phrases","en":"He's my uncle.","sk":"On je môj ujo."},
-  {"type":"phrase","pack":"phrases","en":"Have you got a brother?","sk":"Máš brata?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, I have.","sk":"Áno, mám."},
-  {"type":"phrase","pack":"phrases","en":"No, I haven't.","sk":"Nie, nemám."},
-  {"type":"phrase","pack":"phrases","en":"This is my classroom.","sk":"Toto je moja trieda."},
-  {"type":"phrase","pack":"phrases","en":"We've got English on Monday.","sk":"V pondelok máme angličtinu."},
-  {"type":"phrase","pack":"phrases","en":"What's your favourite subject?","sk":"Aký je tvoj obľúbený predmet?"},
-  {"type":"phrase","pack":"phrases","en":"My favourite subject is Art.","sk":"Môj obľúbený predmet je výtvarná."},
-  {"type":"phrase","pack":"phrases","en":"I get up at seven o'clock.","sk":"Vstávam o siedmej."},
-  {"type":"phrase","pack":"phrases","en":"Do you do your homework in the afternoon?","sk":"Robíš si úlohy popoludní?"},
-  {"type":"phrase","pack":"phrases","en":"I usually watch TV.","sk":"Zvyčajne pozerám televíziu."},
-  {"type":"phrase","pack":"phrases","en":"I like apples.","sk":"Mám rád jablká."},
-  {"type":"phrase","pack":"phrases","en":"I don't like fish.","sk":"Nemám rád rybu."},
-  {"type":"phrase","pack":"phrases","en":"What would you like?","sk":"Čo by si chcel?"},
-  {"type":"phrase","pack":"phrases","en":"I'd like a sandwich, please.","sk":"Prosím si sendvič."},
-  {"type":"phrase","pack":"phrases","en":"Have you got any milk?","sk":"Máte mlieko?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, we have.","sk":"Áno, máme."},
-  {"type":"phrase","pack":"phrases","en":"No, we haven't.","sk":"Nie, nemáme."},
-  {"type":"phrase","pack":"phrases","en":"Can you play football?","sk":"Vieš hrať futbal?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, I can.","sk":"Áno, viem."},
-  {"type":"phrase","pack":"phrases","en":"No, I can't.","sk":"Nie, neviem."},
-  {"type":"phrase","pack":"phrases","en":"I like drawing and singing.","sk":"Rád kreslím a spievam."},
-  {"type":"phrase","pack":"phrases","en":"The lion is big.","sk":"Lev je veľký."},
-  {"type":"phrase","pack":"phrases","en":"Monkeys can jump.","sk":"Opice vedia skákať."},
-  {"type":"phrase","pack":"phrases","en":"Have you got a pet?","sk":"Máš domáce zvieratko?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, I've got a cat.","sk":"Áno, mám mačku."},
-  {"type":"phrase","pack":"phrases","en":"Where's the park?","sk":"Kde je park?"},
-  {"type":"phrase","pack":"phrases","en":"It's next to the cinema.","sk":"Je vedľa kina."},
-  {"type":"phrase","pack":"phrases","en":"Go straight and turn left.","sk":"Choď rovno a zaboč doľava."},
-  {"type":"phrase","pack":"phrases","en":"What's the weather like?","sk":"Aké je počasie?"},
-  {"type":"phrase","pack":"phrases","en":"It's sunny.","sk":"Je slnečno."},
-  {"type":"phrase","pack":"phrases","en":"It's cold and windy.","sk":"Je zima a veterno."},
-  {"type":"phrase","pack":"phrases","en":"I'm wearing a T-shirt.","sk":"Mám na sebe tričko."},
-  {"type":"phrase","pack":"phrases","en":"What are you wearing?","sk":"Čo máš oblečené?"},
-  {"type":"phrase","pack":"phrases","en":"She's my cousin.","sk":"Ona je moja sesternica."},
-  {"type":"phrase","pack":"phrases","en":"They're my parents.","sk":"To sú moji rodičia."},
-  {"type":"phrase","pack":"phrases","en":"Where's the teacher?","sk":"Kde je učiteľ?"},
-  {"type":"phrase","pack":"phrases","en":"We're in the library.","sk":"Sme v knižnici."},
-  {"type":"phrase","pack":"phrases","en":"I brush my teeth in the morning.","sk":"Ráno si umývam zuby."},
-  {"type":"phrase","pack":"phrases","en":"She goes to school at eight o'clock.","sk":"Ona chodí do školy o ôsmej."},
-  {"type":"phrase","pack":"phrases","en":"I'm hungry.","sk":"Som hladný."},
-  {"type":"phrase","pack":"phrases","en":"He's thirsty.","sk":"On je smädný."},
-  {"type":"phrase","pack":"phrases","en":"Let's have some juice.","sk":"Dajme si džús."},
-  {"type":"phrase","pack":"phrases","en":"We play football at the weekend.","sk":"Cez víkend hráme futbal."},
-  {"type":"phrase","pack":"phrases","en":"She can ride a bike.","sk":"Ona vie jazdiť na bicykli."},
-  {"type":"phrase","pack":"phrases","en":"There's a supermarket in my town.","sk":"V mojom meste je supermarket."},
-  {"type":"phrase","pack":"phrases","en":"Is there a cinema in your street?","sk":"Je v tvojej ulici kino?"},
-  {"type":"phrase","pack":"phrases","en":"Go straight and turn right.","sk":"Choď rovno a zaboč doprava."},
-  {"type":"phrase","pack":"phrases","en":"The hospital is next to the post office.","sk":"Nemocnica je vedľa pošty."},
-  {"type":"phrase","pack":"phrases","en":"It's very hot today.","sk":"Dnes je veľmi horúco."},
-  {"type":"phrase","pack":"phrases","en":"I like snowy days.","sk":"Mám rád zasnežené dni."},
-  {"type":"phrase","pack":"phrases","en":"It isn't windy today.","sk":"Dnes nie je veterno."},
-  {"type":"phrase","pack":"phrases","en":"It's raining. Take your umbrella!","sk":"Prší. Zober si dáždnik!"},
-  {"type":"phrase","pack":"phrases","en":"He's my grandpa.","sk":"On je môj dedko."},
-  {"type":"phrase","pack":"phrases","en":"Is she your sister?","sk":"Je to tvoja sestra?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, she is.","sk":"Áno."},
-  {"type":"phrase","pack":"phrases","en":"No, she isn't.","sk":"Nie."},
-  {"type":"phrase","pack":"phrases","en":"This is my school.","sk":"Toto je moja škola."},
-  {"type":"phrase","pack":"phrases","en":"The teacher is in the classroom.","sk":"Učiteľ je v triede."},
-  {"type":"phrase","pack":"phrases","en":"Do you like Maths?","sk":"Máš rád matematiku?"},
-  {"type":"phrase","pack":"phrases","en":"Do you get up early?","sk":"Vstávaš skoro?"},
-  {"type":"phrase","pack":"phrases","en":"No, I don't.","sk":"Nie."},
-  {"type":"phrase","pack":"phrases","en":"What time do you go to bed?","sk":"O koľkej chodíš spať?"},
-  {"type":"phrase","pack":"phrases","en":"Do you like cheese?","sk":"Máš rád syr?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, I do.","sk":"Áno."},
-  {"type":"phrase","pack":"phrases","en":"Can you swim fast?","sk":"Vieš rýchlo plávať?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, I can.","sk":"Áno."},
-  {"type":"phrase","pack":"phrases","en":"I don't like playing tennis.","sk":"Nemám rád tenis."},
-  {"type":"phrase","pack":"phrases","en":"The crocodile is dangerous.","sk":"Krokodíl je nebezpečný."},
-  {"type":"phrase","pack":"phrases","en":"The giraffe is tall.","sk":"Žirafa je vysoká."},
-  {"type":"phrase","pack":"phrases","en":"Do you like monkeys?","sk":"Máš rád opice?"},
-  {"type":"phrase","pack":"phrases","en":"Have you got a dog?","sk":"Máš psa?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, there is.","sk":"Áno."},
-  {"type":"phrase","pack":"phrases","en":"No, there isn't.","sk":"Nie."},
-  {"type":"phrase","pack":"phrases","en":"Is it cold in winter?","sk":"Je v zime zima?"},
-  {"type":"phrase","pack":"phrases","en":"Yes, it is.","sk":"Áno."},
-  {"type":"phrase","pack":"phrases","en":"We've got PE on Tuesday.","sk":"V utorok máme telesnú."},
-  {"type":"phrase","pack":"phrases","en":"She likes Art, but she doesn't like Maths.","sk":"Má rada výtvarnú, ale nemá rada matematiku."},
-  {"type":"phrase","pack":"phrases","en":"Is this your book?","sk":"Je toto tvoja kniha?"},
-  {"type":"phrase","pack":"phrases","en":"No, it isn't.","sk":"Nie."},
-  {"type":"phrase","pack":"phrases","en":"I usually have lunch at school.","sk":"Zvyčajne obedujem v škole."},
-  {"type":"phrase","pack":"phrases","en":"They always do their homework in the evening.","sk":"Oni si vždy robia úlohy večer."},
-  {"type":"phrase","pack":"phrases","en":"Do you go to bed late?","sk":"Chodíš spať neskoro?"},
-  {"type":"phrase","pack":"phrases","en":"I'd like some rice, please.","sk":"Prosím si ryžu."},
-  {"type":"phrase","pack":"phrases","en":"Is there any milk?","sk":"Je tu mlieko?"},
-  {"type":"phrase","pack":"phrases","en":"No, there isn't.","sk":"Nie, nie je."}
+  {"type":"phrase","pack":"phrases","en":"How are you?","sk":"Ako sa máš?"}
 ];
 
+// POZOR: už to nie je const, lebo ho prepíšeme po načítaní z JSON
+let DATASET = [...DATASET_FALLBACK];
+
 /* ====== Nastavenia + storage ====== */
-const STORAGE_MISTAKES = 'wordflip_mistakes_v3'; // nové, lebo sme zmenili formát
+const STORAGE_MISTAKES = 'wordflip_mistakes_v3';
 const OPTION_COUNT = 4;
 
 let pool = [];
@@ -356,7 +95,6 @@ function normalize(s){
 }
 
 function packTitle(pack){
-  // jednoduché: urob ľahší čitateľný názov z "ff3-foo-bar" / "colors"
   return pack
     .replace(/^ff3-/, 'FF3 – ')
     .replace(/-/g, ' ')
@@ -395,7 +133,7 @@ function validateDataset(dataset){
     }
   });
 
-  // duplicitné EN v rámci packu+type (môže byť OK, ale často je to chyba)
+  // duplicitné EN v rámci packu+type (často je to chyba v dátach)
   const seen = new Map();
   dataset.forEach((it, i) => {
     const key = `${normalize(it.type)}|${normalize(it.pack)}|${normalize(it.en).toLowerCase()}`;
@@ -425,6 +163,48 @@ function clearMistakes(){
   localStorage.removeItem(STORAGE_MISTAKES);
 }
 
+/* ====== Dataset loader ====== */
+async function loadDataset(){
+  setStatus("Načítavam dataset…");
+
+  try{
+    const res = await fetch(DATASET_URL, { cache: "no-store" });
+    if(!res.ok){
+      throw new Error(`HTTP ${res.status} ${res.statusText}`);
+    }
+    const data = await res.json();
+    if(!Array.isArray(data)){
+      throw new Error("JSON nie je pole (array). Očakávam: [{type,pack,en,sk}, ...]");
+    }
+
+    // jemné čistenie (trimy)
+    const cleaned = data.map(x => ({
+      type: normalize(x.type),
+      pack: normalize(x.pack),
+      en: normalize(x.en),
+      sk: normalize(x.sk),
+    })).filter(x => x.type && x.pack && x.en && x.sk);
+
+    if(cleaned.length === 0){
+      throw new Error("Dataset je prázdny po čistení (skontroluj type/pack/en/sk).");
+    }
+
+    DATASET = cleaned;
+
+    const issues = validateDataset(DATASET);
+    if(issues.length){
+      console.warn("Dataset issues:", issues);
+      setStatus(`Dataset načítaný (${DATASET.length}). Upozornenia: ${issues.length} (pozri konzolu).`);
+    } else {
+      setStatus(`Dataset načítaný OK (${DATASET.length}).`);
+    }
+  } catch(err){
+    console.warn("Dataset load failed, using fallback:", err);
+    DATASET = [...DATASET_FALLBACK];
+    setStatus(`Nepodarilo sa načítať JSON (${DATASET_URL}). Bežím na fallback datasete (${DATASET.length}).`);
+  }
+}
+
 /* ====== Generovanie otázky a možností ====== */
 function getQA(item, mode){
   if(mode === 'mix'){
@@ -440,7 +220,6 @@ function pickDistractors(correctAnswer, items, mode, pack){
   const used = new Set([correctAnswer]);
   const options = [correctAnswer];
 
-  // 1) priorita: distractory z rovnakého packu (aby to bolo zmysluplné)
   const samePack = items.filter(x => normalize(x.pack) === pack);
   while(options.length < OPTION_COUNT && samePack.length > 0){
     const r = samePack[Math.floor(Math.random() * samePack.length)];
@@ -452,7 +231,6 @@ function pickDistractors(correctAnswer, items, mode, pack){
     }
   }
 
-  // 2) doplň zo všetkého (ak pack nemá dosť položiek)
   while(options.length < OPTION_COUNT){
     const r = items[Math.floor(Math.random() * items.length)];
     const cand = (mode === 'en2sk') ? r.sk : r.en;
@@ -463,7 +241,6 @@ function pickDistractors(correctAnswer, items, mode, pack){
     }
   }
 
-  // zamiešaj
   options.sort(()=>Math.random()-0.5);
   return options;
 }
@@ -476,7 +253,6 @@ function renderOptions(options, correct){
     const btn = document.createElement("button");
     btn.className = "opt";
     btn.textContent = opt;
-
     btn.addEventListener("click", () => checkAnswer(btn, opt, correct));
     box.appendChild(btn);
   });
@@ -522,7 +298,6 @@ function startGame(){
 
   if(pack === "mistakes"){
     const mistakes = loadMistakes();
-    // v tréningu chýb berieme len uložené itemy; mode sa môže líšiť od aktuálneho
     pool = mistakes.map(m => m.item);
     setStatus(`Chyby: ${pool.length}`);
   } else if(pack === "all"){
@@ -544,7 +319,6 @@ function nextQuestion(){
 
   current = pool[Math.floor(Math.random() * pool.length)];
 
-  // pri tréningu chýb: ak bol uložený item bez packu (nemalo by), stále funguje
   const qa = getQA(current, currentMode);
   const qText = normalize(qa.q);
   const aText = normalize(qa.a);
@@ -556,7 +330,6 @@ function nextQuestion(){
 }
 
 function checkAnswer(btn, choice, correct){
-  // zablokuj viac klikov v tom istom kole
   const buttons = Array.from(document.querySelectorAll(".opt"));
   buttons.forEach(b => b.disabled = true);
 
@@ -566,7 +339,6 @@ function checkAnswer(btn, choice, correct){
   } else {
     btn.classList.add("wrong");
     saveMistake(current, currentMode);
-    // ukáž správnu odpoveď jemne
     buttons.forEach(b => {
       if(b.textContent === correct) b.classList.add("correct");
     });
@@ -577,16 +349,8 @@ function checkAnswer(btn, choice, correct){
 }
 
 /* ====== Init ====== */
-(function init(){
-  // dataset validation (len info, nezastavujeme appku)
-  const issues = validateDataset(DATASET);
-  if(issues.length){
-    console.warn("Dataset issues:", issues);
-    setStatus(`Pozor: dataset má ${issues.length} upozornení (pozri konzolu).`);
-  } else {
-    setStatus(`Dataset OK (${DATASET.length} položiek).`);
-  }
-
+(async function init(){
+  await loadDataset();
   buildPackSelect();
 
   document.getElementById("startBtn").addEventListener("click", startGame);
