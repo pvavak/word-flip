@@ -1,1 +1,3956 @@
-[{"type":"vocab","pack":"colors","en":"red","sk":"červená"},{"type":"vocab","pack":"colors","en":"blue","sk":"modrá"},{"type":"vocab","pack":"colors","en":"yellow","sk":"žltá"},{"type":"vocab","pack":"colors","en":"green","sk":"zelená"},{"type":"vocab","pack":"colors","en":"orange","sk":"oranžová"},{"type":"vocab","pack":"colors","en":"pink","sk":"ružová"},{"type":"vocab","pack":"colors","en":"purple","sk":"fialová"},{"type":"vocab","pack":"colors","en":"brown","sk":"hnedá"},{"type":"vocab","pack":"colors","en":"black","sk":"čierna"},{"type":"vocab","pack":"colors","en":"white","sk":"biela"},{"type":"vocab","pack":"colors","en":"grey","sk":"sivá"},{"type":"vocab","pack":"numbers","en":"one","sk":"jeden"},{"type":"vocab","pack":"numbers","en":"two","sk":"dva"},{"type":"vocab","pack":"numbers","en":"three","sk":"tri"},{"type":"vocab","pack":"numbers","en":"four","sk":"štyri"},{"type":"vocab","pack":"numbers","en":"five","sk":"päť"},{"type":"vocab","pack":"numbers","en":"six","sk":"šesť"},{"type":"vocab","pack":"numbers","en":"seven","sk":"sedem"},{"type":"vocab","pack":"numbers","en":"eight","sk":"osem"},{"type":"vocab","pack":"numbers","en":"nine","sk":"deväť"},{"type":"vocab","pack":"numbers","en":"ten","sk":"desať"},{"type":"vocab","pack":"numbers","en":"eleven","sk":"jedenásť"},{"type":"vocab","pack":"numbers","en":"twelve","sk":"dvanásť"},{"type":"vocab","pack":"numbers","en":"thirteen","sk":"trinásť"},{"type":"vocab","pack":"numbers","en":"fourteen","sk":"štrnásť"},{"type":"vocab","pack":"numbers","en":"fifteen","sk":"pätnásť"},{"type":"vocab","pack":"numbers","en":"sixteen","sk":"šestnásť"},{"type":"vocab","pack":"numbers","en":"seventeen","sk":"sedemnásť"},{"type":"vocab","pack":"numbers","en":"eighteen","sk":"osemnásť"},{"type":"vocab","pack":"numbers","en":"nineteen","sk":"devätnásť"},{"type":"vocab","pack":"numbers","en":"twenty","sk":"dvadsať"},{"type":"vocab","pack":"family","en":"mum","sk":"mama"},{"type":"vocab","pack":"family","en":"dad","sk":"otec"},{"type":"vocab","pack":"family","en":"mother","sk":"mamička"},{"type":"vocab","pack":"family","en":"father","sk":"otecko"},{"type":"vocab","pack":"family","en":"brother","sk":"brat"},{"type":"vocab","pack":"family","en":"sister","sk":"sestra"},{"type":"vocab","pack":"family","en":"grandma","sk":"babička"},{"type":"vocab","pack":"family","en":"grandpa","sk":"dedko"},{"type":"vocab","pack":"family","en":"aunt","sk":"teta"},{"type":"vocab","pack":"family","en":"uncle","sk":"ujo"},{"type":"vocab","pack":"family","en":"cousin","sk":"bratranec \/ sesternica"},{"type":"vocab","pack":"family","en":"baby","sk":"bábätko"},{"type":"vocab","pack":"school","en":"book","sk":"kniha"},{"type":"vocab","pack":"school","en":"pen","sk":"pero"},{"type":"vocab","pack":"school","en":"pencil","sk":"ceruzka"},{"type":"vocab","pack":"school","en":"rubber","sk":"guma"},{"type":"vocab","pack":"school","en":"ruler","sk":"pravítko"},{"type":"vocab","pack":"school","en":"pencil case","sk":"peračník"},{"type":"vocab","pack":"school","en":"bag","sk":"taška"},{"type":"vocab","pack":"school","en":"desk","sk":"lavica"},{"type":"vocab","pack":"school","en":"chair","sk":"stolička"},{"type":"vocab","pack":"school","en":"board","sk":"tabuľa"},{"type":"vocab","pack":"school","en":"teacher","sk":"učiteľ"},{"type":"vocab","pack":"school","en":"classroom","sk":"trieda"},{"type":"vocab","pack":"school","en":"playground","sk":"ihrisko"},{"type":"vocab","pack":"school","en":"library","sk":"knižnica"},{"type":"vocab","pack":"school","en":"gym","sk":"telocvičňa"},{"type":"vocab","pack":"school","en":"computer room","sk":"počítačová učebňa"},{"type":"vocab","pack":"school","en":"English","sk":"angličtina"},{"type":"vocab","pack":"school","en":"Maths","sk":"matematika"},{"type":"vocab","pack":"school","en":"Science","sk":"prírodoveda"},{"type":"vocab","pack":"school","en":"Art","sk":"výtvarná"},{"type":"vocab","pack":"school","en":"Music","sk":"hudobná"},{"type":"vocab","pack":"school","en":"PE","sk":"telesná výchova"},{"type":"vocab","pack":"toys","en":"ball","sk":"lopta"},{"type":"vocab","pack":"toys","en":"doll","sk":"bábika"},{"type":"vocab","pack":"toys","en":"teddy","sk":"plyšák"},{"type":"vocab","pack":"toys","en":"car","sk":"auto"},{"type":"vocab","pack":"toys","en":"kite","sk":"šarkan"},{"type":"vocab","pack":"toys","en":"bike","sk":"bicykel"},{"type":"vocab","pack":"toys","en":"train","sk":"vlak"},{"type":"vocab","pack":"toys","en":"plane","sk":"lietadlo"},{"type":"vocab","pack":"toys","en":"computer game","sk":"počítačová hra"},{"type":"vocab","pack":"toys","en":"guitar","sk":"gitara"},{"type":"vocab","pack":"toys","en":"piano","sk":"klavír"},{"type":"vocab","pack":"food","en":"apple","sk":"jablko"},{"type":"vocab","pack":"food","en":"banana","sk":"banán"},{"type":"vocab","pack":"food","en":"orange","sk":"pomaranč"},{"type":"vocab","pack":"food","en":"pear","sk":"hruška"},{"type":"vocab","pack":"food","en":"grapes","sk":"hrozno"},{"type":"vocab","pack":"food","en":"melon","sk":"melón"},{"type":"vocab","pack":"food","en":"lemon","sk":"citrón"},{"type":"vocab","pack":"food","en":"carrot","sk":"mrkva"},{"type":"vocab","pack":"food","en":"potato","sk":"zemiak"},{"type":"vocab","pack":"food","en":"tomato","sk":"paradajka"},{"type":"vocab","pack":"food","en":"cucumber","sk":"uhorka"},{"type":"vocab","pack":"food","en":"rice","sk":"ryža"},{"type":"vocab","pack":"food","en":"pasta","sk":"cestoviny"},{"type":"vocab","pack":"food","en":"sandwich","sk":"sendvič"},{"type":"vocab","pack":"food","en":"pizza","sk":"pizza"},{"type":"vocab","pack":"food","en":"egg","sk":"vajce"},{"type":"vocab","pack":"food","en":"cheese","sk":"syr"},{"type":"vocab","pack":"food","en":"chicken","sk":"kurča"},{"type":"vocab","pack":"food","en":"fish","sk":"ryba"},{"type":"vocab","pack":"food","en":"bread","sk":"chlieb"},{"type":"vocab","pack":"food","en":"cereal","sk":"cereálie"},{"type":"vocab","pack":"food","en":"milk","sk":"mlieko"},{"type":"vocab","pack":"food","en":"juice","sk":"džús"},{"type":"vocab","pack":"food","en":"water","sk":"voda"},{"type":"vocab","pack":"animals","en":"dog","sk":"pes"},{"type":"vocab","pack":"animals","en":"cat","sk":"mačka"},{"type":"vocab","pack":"animals","en":"fish","sk":"ryba"},{"type":"vocab","pack":"animals","en":"bird","sk":"vták"},{"type":"vocab","pack":"animals","en":"rabbit","sk":"zajac"},{"type":"vocab","pack":"animals","en":"duck","sk":"kačka"},{"type":"vocab","pack":"animals","en":"cow","sk":"krava"},{"type":"vocab","pack":"animals","en":"horse","sk":"kôň"},{"type":"vocab","pack":"animals","en":"sheep","sk":"ovca"},{"type":"vocab","pack":"animals","en":"goat","sk":"koza"},{"type":"vocab","pack":"animals","en":"pig","sk":"prasa"},{"type":"vocab","pack":"animals","en":"chicken","sk":"sliepka"},{"type":"vocab","pack":"animals","en":"elephant","sk":"slon"},{"type":"vocab","pack":"animals","en":"tiger","sk":"tiger"},{"type":"vocab","pack":"animals","en":"lion","sk":"lev"},{"type":"vocab","pack":"animals","en":"giraffe","sk":"žirafa"},{"type":"vocab","pack":"animals","en":"crocodile","sk":"krokodíl"},{"type":"vocab","pack":"animals","en":"monkey","sk":"opica"},{"type":"vocab","pack":"animals","en":"parrot","sk":"papagáj"},{"type":"vocab","pack":"animals","en":"kangaroo","sk":"klokán"},{"type":"vocab","pack":"animals","en":"zebra","sk":"zebra"},{"type":"vocab","pack":"animals","en":"bear","sk":"medveď"},{"type":"vocab","pack":"animals","en":"snake","sk":"had"},{"type":"vocab","pack":"animals","en":"mouse","sk":"myš"},{"type":"vocab","pack":"places","en":"house","sk":"dom"},{"type":"vocab","pack":"places","en":"room","sk":"izba"},{"type":"vocab","pack":"places","en":"kitchen","sk":"kuchyňa"},{"type":"vocab","pack":"places","en":"bathroom","sk":"kúpeľňa"},{"type":"vocab","pack":"places","en":"living room","sk":"obývačka"},{"type":"vocab","pack":"places","en":"garden","sk":"záhrada"},{"type":"vocab","pack":"places","en":"bed","sk":"posteľ"},{"type":"vocab","pack":"places","en":"table","sk":"stôl"},{"type":"vocab","pack":"places","en":"door","sk":"dvere"},{"type":"vocab","pack":"places","en":"window","sk":"okno"},{"type":"vocab","pack":"places","en":"cinema","sk":"kino"},{"type":"vocab","pack":"places","en":"supermarket","sk":"supermarket"},{"type":"vocab","pack":"places","en":"hospital","sk":"nemocnica"},{"type":"vocab","pack":"places","en":"post office","sk":"pošta"},{"type":"vocab","pack":"places","en":"park","sk":"park"},{"type":"vocab","pack":"places","en":"street","sk":"ulica"},{"type":"vocab","pack":"places","en":"shop","sk":"obchod"},{"type":"vocab","pack":"places","en":"bus stop","sk":"autobusová zastávka"},{"type":"vocab","pack":"places","en":"train station","sk":"vlaková stanica"},{"type":"vocab","pack":"places","en":"mountain","sk":"hora"},{"type":"vocab","pack":"places","en":"river","sk":"rieka"},{"type":"vocab","pack":"places","en":"beach","sk":"pláž"},{"type":"vocab","pack":"places","en":"sea","sk":"more"},{"type":"vocab","pack":"places","en":"lake","sk":"jazero"},{"type":"vocab","pack":"clothes","en":"shirt","sk":"košeľa"},{"type":"vocab","pack":"clothes","en":"T-shirt","sk":"tričko"},{"type":"vocab","pack":"clothes","en":"trousers","sk":"nohavice"},{"type":"vocab","pack":"clothes","en":"skirt","sk":"sukňa"},{"type":"vocab","pack":"clothes","en":"dress","sk":"šaty"},{"type":"vocab","pack":"clothes","en":"shorts","sk":"kraťasy"},{"type":"vocab","pack":"clothes","en":"shoes","sk":"topánky"},{"type":"vocab","pack":"clothes","en":"trainers","sk":"tenisky"},{"type":"vocab","pack":"clothes","en":"boots","sk":"čižmy"},{"type":"vocab","pack":"clothes","en":"socks","sk":"ponožky"},{"type":"vocab","pack":"clothes","en":"coat","sk":"kabát"},{"type":"vocab","pack":"clothes","en":"jacket","sk":"bunda"},{"type":"vocab","pack":"clothes","en":"hat","sk":"klobúk"},{"type":"vocab","pack":"clothes","en":"cap","sk":"šiltovka"},{"type":"vocab","pack":"clothes","en":"scarf","sk":"šál"},{"type":"vocab","pack":"clothes","en":"gloves","sk":"rukavice"},{"type":"vocab","pack":"weather","en":"sun","sk":"slnko"},{"type":"vocab","pack":"weather","en":"cloud","sk":"oblak"},{"type":"vocab","pack":"weather","en":"rain","sk":"dážď"},{"type":"vocab","pack":"weather","en":"snow","sk":"sneh"},{"type":"vocab","pack":"weather","en":"wind","sk":"vietor"},{"type":"vocab","pack":"weather","en":"spring","sk":"jar"},{"type":"vocab","pack":"weather","en":"summer","sk":"leto"},{"type":"vocab","pack":"weather","en":"autumn","sk":"jeseň"},{"type":"vocab","pack":"weather","en":"winter","sk":"zima"},{"type":"vocab","pack":"weather","en":"sunny","sk":"slnečno"},{"type":"vocab","pack":"weather","en":"cloudy","sk":"oblačno"},{"type":"vocab","pack":"weather","en":"rainy","sk":"daždivo"},{"type":"vocab","pack":"weather","en":"snowy","sk":"snežno"},{"type":"vocab","pack":"weather","en":"windy","sk":"veterno"},{"type":"vocab","pack":"weather","en":"hot","sk":"horúco"},{"type":"vocab","pack":"weather","en":"cold","sk":"zima"},{"type":"vocab","pack":"weather","en":"warm","sk":"teplo"},{"type":"phrase","pack":"phrases","en":"Hello!","sk":"Ahoj!"},{"type":"phrase","pack":"phrases","en":"Goodbye!","sk":"Dovidenia!"},{"type":"phrase","pack":"phrases","en":"How are you?","sk":"Ako sa máš?"},{"type":"phrase","pack":"phrases","en":"I’m fine, thank you.","sk":"Mám sa dobre, ďakujem."},{"type":"phrase","pack":"phrases","en":"This is my sister.","sk":"Toto je moja sestra."},{"type":"phrase","pack":"phrases","en":"He’s my uncle.","sk":"On je môj ujo."},{"type":"phrase","pack":"phrases","en":"Have you got a brother?","sk":"Máš brata?"},{"type":"phrase","pack":"phrases","en":"Yes, I have.","sk":"Áno, mám."},{"type":"phrase","pack":"phrases","en":"No, I haven’t.","sk":"Nie, nemám."},{"type":"phrase","pack":"phrases","en":"This is my classroom.","sk":"Toto je moja trieda."},{"type":"phrase","pack":"phrases","en":"We’ve got English on Monday.","sk":"V pondelok máme angličtinu."},{"type":"phrase","pack":"phrases","en":"What’s your favourite subject?","sk":"Aký je tvoj obľúbený predmet?"},{"type":"phrase","pack":"phrases","en":"My favourite subject is Art.","sk":"Môj obľúbený predmet je výtvarná."},{"type":"phrase","pack":"phrases","en":"I get up at seven o’clock.","sk":"Vstávam o siedmej."},{"type":"phrase","pack":"phrases","en":"Do you do your homework in the afternoon?","sk":"Robíš si úlohy popoludní?"},{"type":"phrase","pack":"phrases","en":"I usually watch TV.","sk":"Zvyčajne pozerám televíziu."},{"type":"phrase","pack":"phrases","en":"I like apples.","sk":"Mám rád jablká."},{"type":"phrase","pack":"phrases","en":"I don’t like fish.","sk":"Nemám rád rybu."},{"type":"phrase","pack":"phrases","en":"What would you like?","sk":"Čo by si chcel?"},{"type":"phrase","pack":"phrases","en":"I’d like a sandwich, please.","sk":"Prosím si sendvič."},{"type":"phrase","pack":"phrases","en":"Have you got any milk?","sk":"Máte mlieko?"},{"type":"phrase","pack":"phrases","en":"Yes, we have.","sk":"Áno, máme."},{"type":"phrase","pack":"phrases","en":"No, we haven’t.","sk":"Nie, nemáme."},{"type":"phrase","pack":"phrases","en":"Can you play football?","sk":"Vieš hrať futbal?"},{"type":"phrase","pack":"phrases","en":"Yes, I can.","sk":"Áno, viem."},{"type":"phrase","pack":"phrases","en":"No, I can’t.","sk":"Nie, neviem."},{"type":"phrase","pack":"phrases","en":"I like drawing and singing.","sk":"Rád kreslím a spievam."},{"type":"phrase","pack":"phrases","en":"The lion is big.","sk":"Lev je veľký."},{"type":"phrase","pack":"phrases","en":"Monkeys can jump.","sk":"Opice vedia skákať."},{"type":"phrase","pack":"phrases","en":"Have you got a pet?","sk":"Máš domáce zvieratko?"},{"type":"phrase","pack":"phrases","en":"Yes, I’ve got a cat.","sk":"Áno, mám mačku."},{"type":"phrase","pack":"phrases","en":"Where’s the park?","sk":"Kde je park?"},{"type":"phrase","pack":"phrases","en":"It’s next to the cinema.","sk":"Je vedľa kina."},{"type":"phrase","pack":"phrases","en":"Go straight and turn left.","sk":"Choď rovno a zaboč doľava."},{"type":"phrase","pack":"phrases","en":"What’s the weather like?","sk":"Aké je počasie?"},{"type":"phrase","pack":"phrases","en":"It’s sunny.","sk":"Je slnečno."},{"type":"phrase","pack":"phrases","en":"It’s cold and windy.","sk":"Je zima a veterno."},{"type":"phrase","pack":"phrases","en":"I’m wearing a T-shirt.","sk":"Mám na sebe tričko."},{"type":"phrase","pack":"phrases","en":"What are you wearing?","sk":"Čo máš oblečené?"},{"type":"phrase","pack":"phrases","en":"She’s my cousin.","sk":"Ona je moja sesternica."},{"type":"phrase","pack":"phrases","en":"They’re my parents.","sk":"To sú moji rodičia."},{"type":"phrase","pack":"phrases","en":"Where’s the teacher?","sk":"Kde je učiteľ?"},{"type":"phrase","pack":"phrases","en":"We’re in the library.","sk":"Sme v knižnici."},{"type":"phrase","pack":"phrases","en":"I brush my teeth in the morning.","sk":"Ráno si umývam zuby."},{"type":"phrase","pack":"phrases","en":"She goes to school at eight o’clock.","sk":"Ona chodí do školy o ôsmej."},{"type":"phrase","pack":"phrases","en":"I’m hungry.","sk":"Som hladný."},{"type":"phrase","pack":"phrases","en":"He’s thirsty.","sk":"On je smädný."},{"type":"phrase","pack":"phrases","en":"Let’s have some juice.","sk":"Dajme si džús."},{"type":"phrase","pack":"phrases","en":"We play football at the weekend.","sk":"Cez víkend hráme futbal."},{"type":"phrase","pack":"phrases","en":"She can ride a bike.","sk":"Ona vie jazdiť na bicykli."},{"type":"phrase","pack":"phrases","en":"There’s a supermarket in my town.","sk":"V mojom meste je supermarket."},{"type":"phrase","pack":"phrases","en":"Is there a cinema in your street?","sk":"Je v tvojej ulici kino?"},{"type":"phrase","pack":"phrases","en":"Go straight and turn right.","sk":"Choď rovno a zaboč doprava."},{"type":"phrase","pack":"phrases","en":"The hospital is next to the post office.","sk":"Nemocnica je vedľa pošty."},{"type":"phrase","pack":"phrases","en":"It’s very hot today.","sk":"Dnes je veľmi horúco."},{"type":"phrase","pack":"phrases","en":"I like snowy days.","sk":"Mám rád zasnežené dni."},{"type":"phrase","pack":"phrases","en":"It isn’t windy today.","sk":"Dnes nie je veterno."},{"type":"phrase","pack":"phrases","en":"It’s raining. Take your umbrella!","sk":"Prší. Zober si dáždnik!"},{"type":"phrase","pack":"phrases","en":"He’s my grandpa.","sk":"On je môj dedko."},{"type":"phrase","pack":"phrases","en":"Is she your sister?","sk":"Je to tvoja sestra?"},{"type":"phrase","pack":"phrases","en":"Yes, she is.","sk":"Áno."},{"type":"phrase","pack":"phrases","en":"No, she isn’t.","sk":"Nie."},{"type":"phrase","pack":"phrases","en":"This is my school.","sk":"Toto je moja škola."},{"type":"phrase","pack":"phrases","en":"The teacher is in the classroom.","sk":"Učiteľ je v triede."},{"type":"phrase","pack":"phrases","en":"Do you like Maths?","sk":"Máš rád matematiku?"},{"type":"phrase","pack":"phrases","en":"Do you get up early?","sk":"Vstávaš skoro?"},{"type":"phrase","pack":"phrases","en":"No, I don’t.","sk":"Nie."},{"type":"phrase","pack":"phrases","en":"What time do you go to bed?","sk":"O koľkej chodíš spať?"},{"type":"phrase","pack":"phrases","en":"Do you like cheese?","sk":"Máš rád syr?"},{"type":"phrase","pack":"phrases","en":"Yes, I do.","sk":"Áno."},{"type":"phrase","pack":"phrases","en":"Can you swim fast?","sk":"Vieš rýchlo plávať?"},{"type":"phrase","pack":"phrases","en":"Yes, I can.","sk":"Áno."},{"type":"phrase","pack":"phrases","en":"I don’t like playing tennis.","sk":"Nemám rád tenis."},{"type":"phrase","pack":"phrases","en":"The crocodile is dangerous.","sk":"Krokodíl je nebezpečný."},{"type":"phrase","pack":"phrases","en":"The giraffe is tall.","sk":"Žirafa je vysoká."},{"type":"phrase","pack":"phrases","en":"Do you like monkeys?","sk":"Máš rád opice?"},{"type":"phrase","pack":"phrases","en":"Have you got a dog?","sk":"Máš psa?"},{"type":"phrase","pack":"phrases","en":"Yes, there is.","sk":"Áno."},{"type":"phrase","pack":"phrases","en":"No, there isn’t.","sk":"Nie."},{"type":"phrase","pack":"phrases","en":"Is it cold in winter?","sk":"Je v zime zima?"},{"type":"phrase","pack":"phrases","en":"Yes, it is.","sk":"Áno."},{"type":"phrase","pack":"phrases","en":"We’ve got PE on Tuesday.","sk":"V utorok máme telesnú."},{"type":"phrase","pack":"phrases","en":"She likes Art, but she doesn’t like Maths.","sk":"Má rada výtvarnú, ale nemá rada matematiku."},{"type":"phrase","pack":"phrases","en":"Is this your book?","sk":"Je toto tvoja kniha?"},{"type":"phrase","pack":"phrases","en":"No, it isn’t.","sk":"Nie."},{"type":"phrase","pack":"phrases","en":"I usually have lunch at school.","sk":"Zvyčajne obedujem v škole."},{"type":"phrase","pack":"phrases","en":"They always do their homework in the evening.","sk":"Oni si vždy robia úlohy večer."},{"type":"phrase","pack":"phrases","en":"Do you go to bed late?","sk":"Chodíš spať neskoro?"},{"type":"phrase","pack":"phrases","en":"I’d like some rice, please.","sk":"Prosím si ryžu."},{"type":"phrase","pack":"phrases","en":"Is there any milk?","sk":"Je tu mlieko?"},{"type":"phrase","pack":"phrases","en":"No, there isn’t.","sk":"Nie, nie je."}]
+[
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "red",
+    "sk": "červená"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "blue",
+    "sk": "modrá"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "yellow",
+    "sk": "žltá"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "green",
+    "sk": "zelená"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "orange",
+    "sk": "oranžová"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "pink",
+    "sk": "ružová"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "purple",
+    "sk": "fialová"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "brown",
+    "sk": "hnedá"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "black",
+    "sk": "čierna"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "white",
+    "sk": "biela"
+  },
+  {
+    "type": "vocab",
+    "pack": "colors",
+    "en": "grey",
+    "sk": "sivá"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "one",
+    "sk": "jeden"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "two",
+    "sk": "dva"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "three",
+    "sk": "tri"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "four",
+    "sk": "štyri"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "five",
+    "sk": "päť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "six",
+    "sk": "šesť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "seven",
+    "sk": "sedem"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "eight",
+    "sk": "osem"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "nine",
+    "sk": "deväť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "ten",
+    "sk": "desať"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "eleven",
+    "sk": "jedenásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "twelve",
+    "sk": "dvanásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "thirteen",
+    "sk": "trinásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "fourteen",
+    "sk": "štrnásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "fifteen",
+    "sk": "pätnásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "sixteen",
+    "sk": "šestnásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "seventeen",
+    "sk": "sedemnásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "eighteen",
+    "sk": "osemnásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "nineteen",
+    "sk": "devätnásť"
+  },
+  {
+    "type": "vocab",
+    "pack": "numbers",
+    "en": "twenty",
+    "sk": "dvadsať"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "mum",
+    "sk": "mama"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "dad",
+    "sk": "otec"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "mother",
+    "sk": "mamička"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "father",
+    "sk": "otecko"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "brother",
+    "sk": "brat"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "sister",
+    "sk": "sestra"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "grandma",
+    "sk": "babička"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "grandpa",
+    "sk": "dedko"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "aunt",
+    "sk": "teta"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "uncle",
+    "sk": "ujo"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "cousin",
+    "sk": "bratranec / sesternica"
+  },
+  {
+    "type": "vocab",
+    "pack": "family",
+    "en": "baby",
+    "sk": "bábätko"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "book",
+    "sk": "kniha"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "pen",
+    "sk": "pero"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "pencil",
+    "sk": "ceruzka"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "rubber",
+    "sk": "guma"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "ruler",
+    "sk": "pravítko"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "pencil case",
+    "sk": "peračník"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "bag",
+    "sk": "taška"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "desk",
+    "sk": "lavica"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "chair",
+    "sk": "stolička"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "board",
+    "sk": "tabuľa"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "teacher",
+    "sk": "učiteľ"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "classroom",
+    "sk": "trieda"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "playground",
+    "sk": "ihrisko"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "library",
+    "sk": "knižnica"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "gym",
+    "sk": "telocvičňa"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "computer room",
+    "sk": "počítačová učebňa"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "English",
+    "sk": "angličtina"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "Maths",
+    "sk": "matematika"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "Science",
+    "sk": "prírodoveda"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "Art",
+    "sk": "výtvarná"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "Music",
+    "sk": "hudobná"
+  },
+  {
+    "type": "vocab",
+    "pack": "school",
+    "en": "PE",
+    "sk": "telesná výchova"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "ball",
+    "sk": "lopta"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "doll",
+    "sk": "bábika"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "teddy",
+    "sk": "plyšák"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "car",
+    "sk": "auto"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "kite",
+    "sk": "šarkan"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "bike",
+    "sk": "bicykel"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "train",
+    "sk": "vlak"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "plane",
+    "sk": "lietadlo"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "computer game",
+    "sk": "počítačová hra"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "guitar",
+    "sk": "gitara"
+  },
+  {
+    "type": "vocab",
+    "pack": "toys",
+    "en": "piano",
+    "sk": "klavír"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "apple",
+    "sk": "jablko"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "banana",
+    "sk": "banán"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "orange",
+    "sk": "pomaranč"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "pear",
+    "sk": "hruška"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "grapes",
+    "sk": "hrozno"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "melon",
+    "sk": "melón"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "lemon",
+    "sk": "citrón"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "carrot",
+    "sk": "mrkva"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "potato",
+    "sk": "zemiak"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "tomato",
+    "sk": "paradajka"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "cucumber",
+    "sk": "uhorka"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "rice",
+    "sk": "ryža"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "pasta",
+    "sk": "cestoviny"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "sandwich",
+    "sk": "sendvič"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "pizza",
+    "sk": "pizza"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "egg",
+    "sk": "vajce"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "cheese",
+    "sk": "syr"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "chicken",
+    "sk": "kurča"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "fish",
+    "sk": "ryba"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "bread",
+    "sk": "chlieb"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "cereal",
+    "sk": "cereálie"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "milk",
+    "sk": "mlieko"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "juice",
+    "sk": "džús"
+  },
+  {
+    "type": "vocab",
+    "pack": "food",
+    "en": "water",
+    "sk": "voda"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "dog",
+    "sk": "pes"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "cat",
+    "sk": "mačka"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "fish",
+    "sk": "ryba"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "bird",
+    "sk": "vták"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "rabbit",
+    "sk": "zajac"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "duck",
+    "sk": "kačka"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "cow",
+    "sk": "krava"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "horse",
+    "sk": "kôň"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "sheep",
+    "sk": "ovca"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "goat",
+    "sk": "koza"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "pig",
+    "sk": "prasa"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "chicken",
+    "sk": "sliepka"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "elephant",
+    "sk": "slon"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "tiger",
+    "sk": "tiger"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "lion",
+    "sk": "lev"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "giraffe",
+    "sk": "žirafa"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "crocodile",
+    "sk": "krokodíl"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "monkey",
+    "sk": "opica"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "parrot",
+    "sk": "papagáj"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "kangaroo",
+    "sk": "klokán"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "zebra",
+    "sk": "zebra"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "bear",
+    "sk": "medveď"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "snake",
+    "sk": "had"
+  },
+  {
+    "type": "vocab",
+    "pack": "animals",
+    "en": "mouse",
+    "sk": "myš"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "house",
+    "sk": "dom"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "room",
+    "sk": "izba"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "kitchen",
+    "sk": "kuchyňa"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "bathroom",
+    "sk": "kúpeľňa"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "living room",
+    "sk": "obývačka"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "garden",
+    "sk": "záhrada"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "bed",
+    "sk": "posteľ"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "table",
+    "sk": "stôl"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "door",
+    "sk": "dvere"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "window",
+    "sk": "okno"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "cinema",
+    "sk": "kino"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "supermarket",
+    "sk": "supermarket"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "hospital",
+    "sk": "nemocnica"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "post office",
+    "sk": "pošta"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "park",
+    "sk": "park"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "street",
+    "sk": "ulica"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "shop",
+    "sk": "obchod"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "bus stop",
+    "sk": "autobusová zastávka"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "train station",
+    "sk": "vlaková stanica"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "mountain",
+    "sk": "hora"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "river",
+    "sk": "rieka"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "beach",
+    "sk": "pláž"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "sea",
+    "sk": "more"
+  },
+  {
+    "type": "vocab",
+    "pack": "places",
+    "en": "lake",
+    "sk": "jazero"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "shirt",
+    "sk": "košeľa"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "T-shirt",
+    "sk": "tričko"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "trousers",
+    "sk": "nohavice"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "skirt",
+    "sk": "sukňa"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "dress",
+    "sk": "šaty"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "shorts",
+    "sk": "kraťasy"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "shoes",
+    "sk": "topánky"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "trainers",
+    "sk": "tenisky"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "boots",
+    "sk": "čižmy"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "socks",
+    "sk": "ponožky"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "coat",
+    "sk": "kabát"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "jacket",
+    "sk": "bunda"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "hat",
+    "sk": "klobúk"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "cap",
+    "sk": "šiltovka"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "scarf",
+    "sk": "šál"
+  },
+  {
+    "type": "vocab",
+    "pack": "clothes",
+    "en": "gloves",
+    "sk": "rukavice"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "sun",
+    "sk": "slnko"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "cloud",
+    "sk": "oblak"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "rain",
+    "sk": "dážď"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "snow",
+    "sk": "sneh"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "wind",
+    "sk": "vietor"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "spring",
+    "sk": "jar"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "summer",
+    "sk": "leto"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "autumn",
+    "sk": "jeseň"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "winter",
+    "sk": "zima"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "sunny",
+    "sk": "slnečno"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "cloudy",
+    "sk": "oblačno"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "rainy",
+    "sk": "daždivo"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "snowy",
+    "sk": "snežno"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "windy",
+    "sk": "veterno"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "hot",
+    "sk": "horúco"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "cold",
+    "sk": "zima"
+  },
+  {
+    "type": "vocab",
+    "pack": "weather",
+    "en": "warm",
+    "sk": "teplo"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Hello!",
+    "sk": "Ahoj!"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Goodbye!",
+    "sk": "Dovidenia!"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "How are you?",
+    "sk": "Ako sa máš?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I'm fine, thank you.",
+    "sk": "Mám sa dobre, ďakujem."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "This is my sister.",
+    "sk": "Toto je moja sestra."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "He's my uncle.",
+    "sk": "On je môj ujo."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Have you got a brother?",
+    "sk": "Máš brata?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, I have.",
+    "sk": "Áno, mám."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, I haven't.",
+    "sk": "Nie, nemám."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "This is my classroom.",
+    "sk": "Toto je moja trieda."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "We've got English on Monday.",
+    "sk": "V pondelok máme angličtinu."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "What's your favourite subject?",
+    "sk": "Aký je tvoj obľúbený predmet?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "My favourite subject is Art.",
+    "sk": "Môj obľúbený predmet je výtvarná."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I get up at seven o'clock.",
+    "sk": "Vstávam o siedmej."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Do you do your homework in the afternoon?",
+    "sk": "Robíš si úlohy popoludní?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I usually watch TV.",
+    "sk": "Zvyčajne pozerám televíziu."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I like apples.",
+    "sk": "Mám rád jablká."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I don't like fish.",
+    "sk": "Nemám rád rybu."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "What would you like?",
+    "sk": "Čo by si chcel?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I'd like a sandwich, please.",
+    "sk": "Prosím si sendvič."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Have you got any milk?",
+    "sk": "Máte mlieko?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, we have.",
+    "sk": "Áno, máme."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, we haven't.",
+    "sk": "Nie, nemáme."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Can you play football?",
+    "sk": "Vieš hrať futbal?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, I can.",
+    "sk": "Áno, viem."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, I can't.",
+    "sk": "Nie, neviem."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I like drawing and singing.",
+    "sk": "Rád kreslím a spievam."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "The lion is big.",
+    "sk": "Lev je veľký."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Monkeys can jump.",
+    "sk": "Opice vedia skákať."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Have you got a pet?",
+    "sk": "Máš domáce zvieratko?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, I've got a cat.",
+    "sk": "Áno, mám mačku."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Where's the park?",
+    "sk": "Kde je park?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "It's next to the cinema.",
+    "sk": "Je vedľa kina."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Go straight and turn left.",
+    "sk": "Choď rovno a zaboč doľava."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "What's the weather like?",
+    "sk": "Aké je počasie?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "It's sunny.",
+    "sk": "Je slnečno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "It's cold and windy.",
+    "sk": "Je zima a veterno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I'm wearing a T-shirt.",
+    "sk": "Mám na sebe tričko."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "What are you wearing?",
+    "sk": "Čo máš oblečené?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "She's my cousin.",
+    "sk": "Ona je moja sesternica."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "They're my parents.",
+    "sk": "To sú moji rodičia."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Where's the teacher?",
+    "sk": "Kde je učiteľ?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "We're in the library.",
+    "sk": "Sme v knižnici."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I brush my teeth in the morning.",
+    "sk": "Ráno si umývam zuby."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "She goes to school at eight o'clock.",
+    "sk": "Ona chodí do školy o ôsmej."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I'm hungry.",
+    "sk": "Som hladný."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "He's thirsty.",
+    "sk": "On je smädný."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Let's have some juice.",
+    "sk": "Dajme si džús."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "We play football at the weekend.",
+    "sk": "Cez víkend hráme futbal."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "She can ride a bike.",
+    "sk": "Ona vie jazdiť na bicykli."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "There's a supermarket in my town.",
+    "sk": "V mojom meste je supermarket."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Is there a cinema in your street?",
+    "sk": "Je v tvojej ulici kino?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Go straight and turn right.",
+    "sk": "Choď rovno a zaboč doprava."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "The hospital is next to the post office.",
+    "sk": "Nemocnica je vedľa pošty."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "It's very hot today.",
+    "sk": "Dnes je veľmi horúco."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I like snowy days.",
+    "sk": "Mám rád zasnežené dni."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "It isn't windy today.",
+    "sk": "Dnes nie je veterno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "It's raining. Take your umbrella!",
+    "sk": "Prší. Zober si dáždnik!"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "He's my grandpa.",
+    "sk": "On je môj dedko."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Is she your sister?",
+    "sk": "Je to tvoja sestra?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, she is.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, she isn't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "This is my school.",
+    "sk": "Toto je moja škola."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "The teacher is in the classroom.",
+    "sk": "Učiteľ je v triede."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Do you like Maths?",
+    "sk": "Máš rád matematiku?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Do you get up early?",
+    "sk": "Vstávaš skoro?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, I don't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "What time do you go to bed?",
+    "sk": "O koľkej chodíš spať?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Do you like cheese?",
+    "sk": "Máš rád syr?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, I do.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Can you swim fast?",
+    "sk": "Vieš rýchlo plávať?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, I can.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I don't like playing tennis.",
+    "sk": "Nemám rád tenis."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "The crocodile is dangerous.",
+    "sk": "Krokodíl je nebezpečný."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "The giraffe is tall.",
+    "sk": "Žirafa je vysoká."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Do you like monkeys?",
+    "sk": "Máš rád opice?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Have you got a dog?",
+    "sk": "Máš psa?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, there is.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, there isn't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Is it cold in winter?",
+    "sk": "Je v zime zima?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Yes, it is.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "We've got PE on Tuesday.",
+    "sk": "V utorok máme telesnú."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "She likes Art, but she doesn't like Maths.",
+    "sk": "Má rada výtvarnú, ale nemá rada matematiku."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Is this your book?",
+    "sk": "Je toto tvoja kniha?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, it isn't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I usually have lunch at school.",
+    "sk": "Zvyčajne obedujem v škole."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "They always do their homework in the evening.",
+    "sk": "Oni si vždy robia úlohy večer."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Do you go to bed late?",
+    "sk": "Chodíš spať neskoro?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "I'd like some rice, please.",
+    "sk": "Prosím si ryžu."
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "Is there any milk?",
+    "sk": "Je tu mlieko?"
+  },
+  {
+    "type": "phrase",
+    "pack": "phrases",
+    "en": "No, there isn't.",
+    "sk": "Nie, nie je."
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "Australia",
+    "sk": "Austrália"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "Brazil",
+    "sk": "Brazília"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "Egypt",
+    "sk": "Egypt"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "Russia",
+    "sk": "Rusko"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "Spain",
+    "sk": "Španielsko"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "Thailand",
+    "sk": "Thajsko"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "the UK",
+    "sk": "Spojené kráľovstvo"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "the USA",
+    "sk": "USA"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "country",
+    "sk": "krajina"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-countries",
+    "en": "world",
+    "sk": "svet"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "January",
+    "sk": "január"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "February",
+    "sk": "február"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "March",
+    "sk": "marec"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "April",
+    "sk": "apríl"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "May",
+    "sk": "máj"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "June",
+    "sk": "jún"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "July",
+    "sk": "júl"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "August",
+    "sk": "august"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "September",
+    "sk": "september"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "October",
+    "sk": "október"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "November",
+    "sk": "november"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-months",
+    "en": "December",
+    "sk": "december"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "twenty",
+    "sk": "dvadsať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "thirty",
+    "sk": "tridsať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "forty",
+    "sk": "štyridsať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "fifty",
+    "sk": "päťdesiat"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "sixty",
+    "sk": "šesťdesiat"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "seventy",
+    "sk": "sedemdesiat"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "eighty",
+    "sk": "osemdesiat"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "ninety",
+    "sk": "deväťdesiat"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-numbers",
+    "en": "one hundred",
+    "sk": "sto"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "fishing",
+    "sk": "rybárčenie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "reading",
+    "sk": "čítanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "skateboarding",
+    "sk": "skateboarding"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "cooking",
+    "sk": "varenie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "painting",
+    "sk": "maľovanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "shopping",
+    "sk": "nakupovanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "drawing",
+    "sk": "kreslenie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "taking photos",
+    "sk": "fotenie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing chess",
+    "sk": "hranie šachu"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing basketball",
+    "sk": "hranie basketbalu"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing tennis",
+    "sk": "hranie tenisu"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing volleyball",
+    "sk": "hranie volejbalu"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing the guitar",
+    "sk": "hranie na gitare"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing the piano",
+    "sk": "hranie na klavíri"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "reading comics",
+    "sk": "čítanie komixov"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "watching TV",
+    "sk": "pozeranie TV"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "playing computer games",
+    "sk": "hranie počítačových hier"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "riding a bike",
+    "sk": "jazda na bicykli"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "flying a kite",
+    "sk": "púšťanie šarkana"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-hobbies",
+    "en": "surfing the Internet",
+    "sk": "surfovanie na internete"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "CD player",
+    "sk": "CD prehrávač"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "DVD player",
+    "sk": "DVD prehrávač"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "computer",
+    "sk": "počítač"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "camera",
+    "sk": "fotoaparát"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "television",
+    "sk": "televízia"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "MP3 player",
+    "sk": "MP3 prehrávač"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "stickers",
+    "sk": "nálepky"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "badges",
+    "sk": "odznaky"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "comics",
+    "sk": "komiksy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-things",
+    "en": "shells",
+    "sk": "mušle"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "swimming",
+    "sk": "plávanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "surfing",
+    "sk": "surfovanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "snorkelling",
+    "sk": "šnorchlovanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "diving",
+    "sk": "potápanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "waterskiing",
+    "sk": "vodné lyžovanie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "windsurfing",
+    "sk": "windsurfing"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "sailing",
+    "sk": "plavba plachetnicou"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-water-sports",
+    "en": "kayaking",
+    "sk": "kajak"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "penguin",
+    "sk": "tučniak"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "monkey",
+    "sk": "opica"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "camel",
+    "sk": "ťava"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "kangaroo",
+    "sk": "kengura"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "crocodile",
+    "sk": "krokodíl"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "lizard",
+    "sk": "jašterica"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "flamingo",
+    "sk": "plameniak"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "zebra",
+    "sk": "zebra"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "lion",
+    "sk": "lev"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "parrot",
+    "sk": "papagáj"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-zoo-animals",
+    "en": "tiger",
+    "sk": "tiger"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "funny",
+    "sk": "vtipný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "kind",
+    "sk": "milý / láskavý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "scared",
+    "sk": "vystrašený"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "sorry",
+    "sk": "je mi ľúto"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "angry",
+    "sk": "nahnevaný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "happy",
+    "sk": "šťastný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "sad",
+    "sk": "smutný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "hungry",
+    "sk": "hladný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "thirsty",
+    "sk": "smädný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "tired",
+    "sk": "unavený"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-emotions",
+    "en": "excited",
+    "sk": "nadšený"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "get up",
+    "sk": "vstať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "have a shower",
+    "sk": "osprchovať sa"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "get dressed",
+    "sk": "obliecť sa"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "have breakfast",
+    "sk": "raňajkovať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "brush my teeth",
+    "sk": "čistiť si zuby"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "catch the bus",
+    "sk": "chytiť autobus"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "walk to school",
+    "sk": "ísť pešo do školy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "start school",
+    "sk": "začať školu"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "finish school",
+    "sk": "skončiť školu"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "have lunch",
+    "sk": "obedovať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "have dinner",
+    "sk": "večerať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "do homework",
+    "sk": "robiť úlohy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "go to bed",
+    "sk": "ísť spať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "have lessons",
+    "sk": "mať hodiny"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "ride a horse",
+    "sk": "jazdiť na koni"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-daily-routine",
+    "en": "look after",
+    "sk": "starať sa o"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "playground",
+    "sk": "ihrisko"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "sports centre",
+    "sk": "športové centrum"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "library",
+    "sk": "knižnica"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "shopping mall",
+    "sk": "nákupné centrum"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "cinema",
+    "sk": "kino"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "café",
+    "sk": "kaviareň"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "swimming pool",
+    "sk": "bazén"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "museum",
+    "sk": "múzeum"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "supermarket",
+    "sk": "supermarket"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-places",
+    "en": "town",
+    "sk": "mesto"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "bread",
+    "sk": "chlieb"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "pasta",
+    "sk": "cestoviny"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "rice",
+    "sk": "ryža"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "meat",
+    "sk": "mäso"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "egg",
+    "sk": "vajce"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "fries",
+    "sk": "hranolky"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "salad",
+    "sk": "šalát"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "biscuit",
+    "sk": "sušienka"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "apple",
+    "sk": "jablko"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "melon",
+    "sk": "melón"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "orange",
+    "sk": "pomaranč"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "lemon",
+    "sk": "citrón"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "onion",
+    "sk": "cibuľa"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "cucumber",
+    "sk": "uhorka"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "water",
+    "sk": "voda"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "milkshake",
+    "sk": "mliečny koktail"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "sandwich",
+    "sk": "sendvič"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "potato",
+    "sk": "zemiak"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "cheese",
+    "sk": "syr"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "butter",
+    "sk": "maslo"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "milk",
+    "sk": "mlieko"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "salt",
+    "sk": "soľ"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "pepper",
+    "sk": "korenie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "peas",
+    "sk": "hrášok"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "fish",
+    "sk": "ryba"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "cereal",
+    "sk": "cereálie"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-food",
+    "en": "tomato",
+    "sk": "paradajka"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "cook",
+    "sk": "variť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "mash",
+    "sk": "rozdrviť / rozmiešať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "mix",
+    "sk": "zamiešať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "add",
+    "sk": "pridať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "oven",
+    "sk": "rúra"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "pot",
+    "sk": "hrniec"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "dish",
+    "sk": "misa / jedlo"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-cooking",
+    "en": "piece",
+    "sk": "kúsok"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "country",
+    "sk": "krajina"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "mountain",
+    "sk": "hora"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "river",
+    "sk": "rieka"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "ocean",
+    "sk": "oceán"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "lake",
+    "sk": "jazero"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "bridge",
+    "sk": "most"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "temple",
+    "sk": "chrám"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "building",
+    "sk": "budova"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "island",
+    "sk": "ostrov"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "desert",
+    "sk": "púšť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-geography",
+    "en": "forest",
+    "sk": "les"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "big",
+    "sk": "veľký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "small",
+    "sk": "malý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "tall",
+    "sk": "vysoký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "short",
+    "sk": "nízky / krátky"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "fast",
+    "sk": "rýchly"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "slow",
+    "sk": "pomalý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "long",
+    "sk": "dlhý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "wide",
+    "sk": "široký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "deep",
+    "sk": "hlboký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "old",
+    "sk": "starý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "new",
+    "sk": "nový"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "clean",
+    "sk": "čistý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "dangerous",
+    "sk": "nebezpečný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "safe",
+    "sk": "bezpečný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "friendly",
+    "sk": "priateľský"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "beautiful",
+    "sk": "krásny"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "polluted",
+    "sk": "znečistený"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "selfish",
+    "sk": "sebecký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "boring",
+    "sk": "nudný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "exciting",
+    "sk": "vzrušujúci"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "easy",
+    "sk": "ľahký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "difficult",
+    "sk": "ťažký"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "great",
+    "sk": "skvelý"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-adjectives",
+    "en": "wonderful",
+    "sk": "úžasný"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "bigger",
+    "sk": "väčší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "smaller",
+    "sk": "menší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "taller",
+    "sk": "vyšší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "shorter",
+    "sk": "nižší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "faster",
+    "sk": "rýchlejší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "slower",
+    "sk": "pomalší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "longer",
+    "sk": "dlhší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "wider",
+    "sk": "širší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "older",
+    "sk": "starší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the biggest",
+    "sk": "najväčší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the smallest",
+    "sk": "najmenší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the tallest",
+    "sk": "najvyšší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the fastest",
+    "sk": "najrýchlejší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the slowest",
+    "sk": "najpomalší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the longest",
+    "sk": "najdlhší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the highest",
+    "sk": "najvyšší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the widest",
+    "sk": "najširší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the deepest",
+    "sk": "najhlbší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-comparatives",
+    "en": "the oldest",
+    "sk": "najstarší"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "climb",
+    "sk": "liezť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "eat",
+    "sk": "jesť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "sleep",
+    "sk": "spať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "run",
+    "sk": "bežať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "fly",
+    "sk": "lietať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "walk",
+    "sk": "kráčať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "jump",
+    "sk": "skákať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "swim",
+    "sk": "plávať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "read",
+    "sk": "čítať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "write",
+    "sk": "písať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "draw",
+    "sk": "kresliť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "sing",
+    "sk": "spievať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "play",
+    "sk": "hrať sa"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "watch",
+    "sk": "pozerať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "listen",
+    "sk": "počúvať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "open",
+    "sk": "otvoriť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "close",
+    "sk": "zavrieť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "turn on",
+    "sk": "zapnúť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "turn off",
+    "sk": "vypnúť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "help",
+    "sk": "pomôcť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "find",
+    "sk": "nájsť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "hide",
+    "sk": "skryť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "give",
+    "sk": "dať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "take",
+    "sk": "vziať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "make",
+    "sk": "vyrobiť / urobiť"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "live",
+    "sk": "žiť / bývať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "grow",
+    "sk": "rásť / pestovať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "build",
+    "sk": "stavať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-actions",
+    "en": "use",
+    "sk": "používať"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "always",
+    "sk": "vždy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "sometimes",
+    "sk": "niekedy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "never",
+    "sk": "nikdy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "usually",
+    "sk": "zvyčajne"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "every day",
+    "sk": "každý deň"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "every morning",
+    "sk": "každé ráno"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "early",
+    "sk": "skoro"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "late",
+    "sk": "neskoro"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "yesterday",
+    "sk": "včera"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "last week",
+    "sk": "minulý týždeň"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "last year",
+    "sk": "minulý rok"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "ago",
+    "sk": "pred (časom)"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "then",
+    "sk": "vtedy"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "tomorrow",
+    "sk": "zajtra"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "next week",
+    "sk": "budúci týždeň"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "today",
+    "sk": "dnes"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "now",
+    "sk": "teraz"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-time-words",
+    "en": "o'clock",
+    "sk": "hodín"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-camping",
+    "en": "tent",
+    "sk": "stan"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-camping",
+    "en": "sleeping bag",
+    "sk": "spacák"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-camping",
+    "en": "torch",
+    "sk": "baterka"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-camping",
+    "en": "campfire",
+    "sk": "táborák"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-camping",
+    "en": "map",
+    "sk": "mapa"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-camping",
+    "en": "rucksack",
+    "sk": "ruksak"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-possessives",
+    "en": "my",
+    "sk": "môj"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-possessives",
+    "en": "your",
+    "sk": "tvoj"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-possessives",
+    "en": "his",
+    "sk": "jeho"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-possessives",
+    "en": "her",
+    "sk": "jej"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-possessives",
+    "en": "our",
+    "sk": "náš"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-possessives",
+    "en": "their",
+    "sk": "ich"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "in",
+    "sk": "v"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "on",
+    "sk": "na"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "at",
+    "sk": "pri / o (čas)"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "next to",
+    "sk": "vedľa"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "between",
+    "sk": "medzi"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "under",
+    "sk": "pod"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "behind",
+    "sk": "za"
+  },
+  {
+    "type": "vocab",
+    "pack": "ff3-prepositions",
+    "en": "in front of",
+    "sk": "pred"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-greetings",
+    "en": "Hello, I'm Max.",
+    "sk": "Ahoj, ja som Max."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-greetings",
+    "en": "How are you today?",
+    "sk": "Ako sa máš dnes?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-greetings",
+    "en": "Nice to meet you!",
+    "sk": "Teší ma!"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-greetings",
+    "en": "Nice to meet you, too.",
+    "sk": "Aj mňa teší."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-greetings",
+    "en": "This is my friend.",
+    "sk": "Toto je môj kamarát."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "Where are you from?",
+    "sk": "Odkiaľ si?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "I'm from Egypt.",
+    "sk": "Som z Egypta."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "He's from the UK.",
+    "sk": "Je z Veľkej Británie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "She's from Brazil.",
+    "sk": "Je z Brazílie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "They're from Australia.",
+    "sk": "Sú z Austrálie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "We're from Spain.",
+    "sk": "Sme zo Španielska."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "Where is he from?",
+    "sk": "Odkiaľ je?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "How old are you?",
+    "sk": "Koľko máš rokov?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-where-from",
+    "en": "I'm ten.",
+    "sk": "Mám desať rokov."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "I like reading.",
+    "sk": "Rád/rada čítam."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "I don't like fishing.",
+    "sk": "Nerád/nerada rybárčim."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "Do you like playing chess?",
+    "sk": "Rád hráš šach?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "Yes, I do.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "No, I don't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "Does he like skateboarding?",
+    "sk": "Má rád skateboarding?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "Yes, he does.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "No, he doesn't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "She doesn't like shopping.",
+    "sk": "Nemá rada nakupovanie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "Dad likes playing basketball.",
+    "sk": "Otec rád hrá basketbal."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "I love taking photos.",
+    "sk": "Milujem fotenie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-hobbies-phrases",
+    "en": "I hate shopping. It's boring!",
+    "sk": "Neznášam nákupy. Je to nudné!"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Can I use your computer?",
+    "sk": "Môžem použiť tvoj počítač?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Yes, you can.",
+    "sk": "Áno, môžeš."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "No, you can't.",
+    "sk": "Nie, nemôžeš."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Can we turn on the television?",
+    "sk": "Môžeme zapnúť televíziu?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Can we watch a DVD?",
+    "sk": "Môžeme sa pozerať na DVD?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Can we listen to our CD?",
+    "sk": "Môžeme počúvať naše CD?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Can you open the window, please?",
+    "sk": "Môžeš otvoriť okno, prosím?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-permission",
+    "en": "Can you help me with my homework?",
+    "sk": "Môžeš mi pomôcť s úlohami?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "I'm swimming.",
+    "sk": "Práve plávam."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "He's surfing.",
+    "sk": "Práve surfuje."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "She isn't snorkelling.",
+    "sk": "Práve nešnorchluje."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "We're sailing.",
+    "sk": "Práve sa plavíme."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "They aren't waterskiing.",
+    "sk": "Nelyzujú na vode."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "Is the zebra eating?",
+    "sk": "Je zebra práve?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "Yes, it is.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "No, it isn't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "Are the monkeys climbing?",
+    "sk": "Lezú opice?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "Yes, they are.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "No, they aren't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "The monkey is taking your sandwich!",
+    "sk": "Opica ti berie sendvič!"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "Are the penguins swimming?",
+    "sk": "Plávajú tučniaky?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-present-continuous",
+    "en": "Are the parrots talking?",
+    "sk": "Rozprávajú sa papagáje?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "I get up at seven o'clock.",
+    "sk": "Vstávam o siedmej."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "He has a shower every morning.",
+    "sk": "Každé ráno sa sprchuje."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "I have breakfast with my family.",
+    "sk": "Raňajkujem s rodinou."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "She brushes her teeth every morning.",
+    "sk": "Každé ráno si čistí zuby."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "We catch the bus to school.",
+    "sk": "Chytíme autobus do školy."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "They don't catch the train.",
+    "sk": "Nechytajú vlak."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "What time do you start school?",
+    "sk": "O koľkej začínaš školu?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "Do they live in a big house?",
+    "sk": "Bývajú vo veľkom dome?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "He doesn't get up late.",
+    "sk": "Nevstáva neskoro."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-daily-routine-phrases",
+    "en": "Does she have breakfast?",
+    "sk": "Raňajkuje?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "I always ride my bike.",
+    "sk": "Vždy jazdím na bicykli."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "She sometimes plays tennis.",
+    "sk": "Niekedy hrá tenis."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "He never goes to the shopping mall.",
+    "sk": "Nikdy nechodí do nákupného centra."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "I sometimes go to the library.",
+    "sk": "Niekedy chodím do knižnice."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "We always have breakfast in the morning.",
+    "sk": "Vždy ráno raňajkujeme."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "My birthday is in May.",
+    "sk": "Moje narodeniny sú v máji."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "He plays football on Fridays.",
+    "sk": "V piatok hrá futbal."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-frequency",
+    "en": "We get up at eight o'clock.",
+    "sk": "Vstávame o ôsmej."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "I'd like a melon.",
+    "sk": "Chcel/a by som melón."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "Would you like some bread?",
+    "sk": "Chcel/a by si chlieb?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "Yes, please.",
+    "sk": "Áno, prosím."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "No, thanks.",
+    "sk": "Nie, ďakujem."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "Would you like some cereal?",
+    "sk": "Chceli by ste cereálie?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "I'd like some rice, please.",
+    "sk": "Prosím si ryžu."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "She would like an apple.",
+    "sk": "Chcela by jablko."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-food-phrases",
+    "en": "He'd like some meat and a cucumber.",
+    "sk": "Chcel by mäso a uhorku."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "Russia is bigger than the UK.",
+    "sk": "Rusko je väčšie ako Spojené kráľovstvo."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "The Nile is longer than the Volga.",
+    "sk": "Níl je dlhší ako Volga."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "The Pacific Ocean is wider than the Atlantic.",
+    "sk": "Tichý oceán je širší ako Atlantický."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "The highest mountain in the world is Mount Everest.",
+    "sk": "Najvyššia hora sveta je Mount Everest."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "The fastest animal is the cheetah.",
+    "sk": "Najrýchlejšie zviera je gepard."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "What's the biggest country in the world?",
+    "sk": "Aká je najväčšia krajina na svete?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "Lake Baikal is the deepest lake in the world.",
+    "sk": "Bajkal je najhlbšie jazero na svete."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-comparisons",
+    "en": "My sandcastle is bigger than your sandcastle!",
+    "sk": "Môj hrad z piesku je väčší ako tvoj!"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-rules",
+    "en": "You must turn off your mobile phone.",
+    "sk": "Musíš si vypnúť telefón."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-rules",
+    "en": "You mustn't walk on the grass.",
+    "sk": "Nesmieš chodiť po tráve."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-rules",
+    "en": "You must be quiet in the library.",
+    "sk": "V knižnici musíš byť ticho."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-rules",
+    "en": "You mustn't eat in the classroom.",
+    "sk": "V triede sa nesmie jesť."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-rules",
+    "en": "You must listen to the teacher.",
+    "sk": "Musíš počúvať učiteľa."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-rules",
+    "en": "You mustn't run in the corridor.",
+    "sk": "Nesmieš behať na chodbe."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "There was a park in our town.",
+    "sk": "V našom meste bol park."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "There were some trains a hundred years ago.",
+    "sk": "Pred sto rokmi boli vlaky."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "There wasn't a cinema.",
+    "sk": "Nebolo kino."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "There weren't any computers.",
+    "sk": "Neboli žiadne počítače."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "I wasn't tall when I was five.",
+    "sk": "Nebol som vysoký, keď som mal päť."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "You were happy on holiday.",
+    "sk": "Na prázdninách si bol šťastný."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "I had a maths lesson last week.",
+    "sk": "Minulý týždeň som mal hodinu matematiky."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-was-were",
+    "en": "When my grandpa was a boy, he had lots of friends.",
+    "sk": "Keď bol môj dedko chlapec, mal veľa kamarátov."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "They lived 5,000 years ago.",
+    "sk": "Žili pred 5000 rokmi."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "They didn't cook pizza.",
+    "sk": "Nevarili pizzu."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "She played games.",
+    "sk": "Hrala hry."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "He walked to school.",
+    "sk": "Chodil pešo do školy."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "I watched TV last night.",
+    "sk": "Včera večer som pozeral TV."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "She listened to music.",
+    "sk": "Počúvala hudbu."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "Did you have a good day?",
+    "sk": "Mal si dobrý deň?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "Yes, I did.",
+    "sk": "Áno."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "No, I didn't.",
+    "sk": "Nie."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "What did you watch last night?",
+    "sk": "Čo si pozeral včera večer?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "Where did you go?",
+    "sk": "Kam si šiel?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-past-regular",
+    "en": "When did you play football?",
+    "sk": "Kedy si hral futbal?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-going-to",
+    "en": "He's going to play basketball tomorrow.",
+    "sk": "Zajtra sa chystá hrať basketbal."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-going-to",
+    "en": "Are you going to swim in the sea?",
+    "sk": "Chystáš sa plávať v mori?"
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-going-to",
+    "en": "We're going to visit grandma.",
+    "sk": "Chystáme sa navštíviť babičku."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-going-to",
+    "en": "She isn't going to watch TV.",
+    "sk": "Nechystá sa pozerať TV."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-going-to",
+    "en": "I'm going to read a book.",
+    "sk": "Chystám sa čítať knihu."
+  },
+  {
+    "type": "phrase",
+    "pack": "ff3-going-to",
+    "en": "What are you going to do tomorrow?",
+    "sk": "Čo budeš zajtra robiť?"
+  }
+]
