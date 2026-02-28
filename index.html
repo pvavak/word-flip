@@ -152,7 +152,7 @@
   <div class="top">
     <div>
       <h1>Word Flip – EN↔SK tréning</h1>
-      <div class="sub">Mix (vyvážené): SRS + MC default + prepínač Písanie + TTS.</div>
+      <div class="sub">Mix (vyvážené): SRS + MC default + prepínač Písanie + TTS (auto čítanie po prvom kliknutí).</div>
     </div>
     <div class="pillrow">
       <div class="pill" id="pillDataset">Položky: …</div>
@@ -191,6 +191,11 @@
         <button class="btn primary" id="startBtn">Štart / Pokračovať</button>
         <button class="btn" id="nextBtn">Ďalšia</button>
         <button class="btn" id="ttsBtn" title="Prečítať nahlas (S)">🔊 TTS</button>
+
+        <div class="toggle" title="Automaticky čítať každú novú otázku (po prvom kliknutí v appke)">
+          <input type="checkbox" id="autoTtsToggle" checked />
+          <label for="autoTtsToggle">Auto TTS</label>
+        </div>
 
         <div class="toggle" title="Učiť len karty, ktoré sú na dnes (SRS)">
           <input type="checkbox" id="dueOnlyToggle" checked />
@@ -249,7 +254,7 @@
       </div>
 
       <div class="hints">
-        Skratky: <span class="kbd">1–4</span> výber • <span class="kbd">Enter</span> potvrď (písanie) / ďalšia • <span class="kbd">S</span> TTS
+        Skratky: <span class="kbd">1–4</span> výber • <span class="kbd">Enter</span> potvrď (písanie) / ďalšia • <span class="kbd">S</span> TTS • Auto čítanie: zapni „Auto TTS“
       </div>
     </div>
 
@@ -332,7 +337,8 @@ let settings = {
   pack: "all",
   type: "all",
   dir: "en2sk",
-  mode: "mc",          // default MC
+  mode: "mc",
+  autoTts: true,        // NEW
   dueOnly: true,
   dedup: true,
   autoNext: true,
@@ -340,7 +346,7 @@ let settings = {
 };
 
 let session = { answered: 0, correct: 0, doneToday: 0 };
-let srsMap = {}; // key -> {box, dueTs, lastTs, streak}
+let srsMap = {};
 
 let pool = [];
 let current = null;
@@ -367,6 +373,28 @@ function packTitle(pack){
 }
 function itemKey(it){
   return `${normalize(it.type)}|${normalize(it.pack)}|${normalize(it.en)}|${normalize(it.sk)}`;
+}
+
+/* =========================
+   AUTO TTS (browser policy)
+========================= */
+let ttsUnlocked = false;
+
+function unlockTtsOnce(){
+  ttsUnlocked = true;
+  document.removeEventListener("pointerdown", unlockTtsOnce);
+  document.removeEventListener("keydown", unlockTtsOnce);
+}
+document.addEventListener("pointerdown", unlockTtsOnce);
+document.addEventListener("keydown", unlockTtsOnce);
+
+function speakIfAuto(){
+  const autoOn = $("autoTtsToggle")?.checked;
+  if(!autoOn) return;
+  if(!ttsUnlocked) return;
+  if(!currentQA) return;
+  // malé oneskorenie: aby UI stihlo vykresliť text
+  setTimeout(() => ttsSpeak(currentQA.q), 60);
 }
 
 /* =========================
@@ -415,7 +443,7 @@ function schedule(it, rating){
   rec.lastTs = now();
 
   if(rating === "again"){ rec.box = 1; rec.streak = 0; }
-  else if(rating === "hard"){ /* box stays */ rec.streak = Math.max(0, rec.streak || 0); }
+  else if(rating === "hard"){ rec.streak = Math.max(0, rec.streak || 0); }
   else if(rating === "good"){ rec.box = Math.min(5, rec.box + 1); rec.streak = (rec.streak||0) + 1; }
   else if(rating === "easy"){ rec.box = Math.min(5, rec.box + 2); rec.streak = (rec.streak||0) + 1; }
 
@@ -508,6 +536,7 @@ function applySettingsToControls(){
   $("typeSelect").value = settings.type;
   $("dirSelect").value = settings.dir;
   $("modeSelect").value = settings.mode;
+  $("autoTtsToggle").checked = settings.autoTts !== false;
   $("dueOnlyToggle").checked = !!settings.dueOnly;
   $("dedupToggle").checked = !!settings.dedup;
   $("autoNextToggle").checked = !!settings.autoNext;
@@ -518,6 +547,7 @@ function readControlsToSettings(){
   settings.type = $("typeSelect").value;
   settings.dir = $("dirSelect").value;
   settings.mode = $("modeSelect").value;
+  settings.autoTts = $("autoTtsToggle").checked;
   settings.dueOnly = $("dueOnlyToggle").checked;
   settings.dedup = $("dedupToggle").checked;
   settings.autoNext = $("autoNextToggle").checked;
@@ -543,7 +573,6 @@ function buildPackSelect(){
     sel.appendChild(o);
   }
 
-  // restore
   const exists = settings.pack === "all" || base.some(x => x.pack === settings.pack);
   sel.value = exists ? settings.pack : "all";
 }
@@ -591,7 +620,6 @@ function getFilteredList(){
   if(settings.type !== "all") list = list.filter(x => x.type === settings.type);
   if(settings.pack !== "all") list = list.filter(x => x.pack === settings.pack);
 
-  // ensure srs records exist for base
   for(const it of base) ensureSrs(it);
   saveSrs();
 
@@ -699,6 +727,9 @@ function pickNext(){
     $("typingInput").value = "";
     $("typingInput").focus();
   }
+
+  // AUTO TTS on every new question (after first interaction)
+  speakIfAuto();
 }
 
 function checkMC(btn, choice, correct){
@@ -709,7 +740,7 @@ function checkMC(btn, choice, correct){
     btn.classList.add("correct");
     session.correct += 1;
     incDaily(1);
-    schedule(current, "good"); // default “good” za správnu
+    schedule(current, "good");
     showReveal(correct, `Správne • ${currentQA.dirUsed.toUpperCase()} • ${current.type}`);
   } else {
     btn.classList.add("wrong");
@@ -761,7 +792,6 @@ function checkTyping(){
   const ta = normCompare(target);
   const dist = levenshtein(ua, ta);
 
-  // tolerancia: 12% dĺžky alebo min 1 znak
   const ok = (ua === ta) || (dist <= Math.max(1, Math.floor(ta.length * 0.12)));
 
   if(ok){
@@ -784,7 +814,6 @@ function checkTyping(){
 function rate(r){
   if(!current) return;
   schedule(current, r);
-  // pri explicitnom hodnotení Good/Easy rátame ako “done”
   if(r === "good" || r === "easy") incDaily(1);
   updateDashboard();
   if(settings.autoNext) setTimeout(() => pickNext(), 450);
@@ -842,11 +871,23 @@ async function loadDataset(){
    INIT / EVENTS
 ========================= */
 function wire(){
-  $("startBtn").addEventListener("click", () => pickNext());
-  $("nextBtn").addEventListener("click", () => pickNext());
+  $("startBtn").addEventListener("click", () => {
+    // click = interaction => unlock; then pick and auto-speak
+    ttsUnlocked = true;
+    pickNext();
+  });
 
-  $("ttsBtn").addEventListener("click", () => { if(currentQA) ttsSpeak(currentQA.q); });
+  $("nextBtn").addEventListener("click", () => {
+    ttsUnlocked = true;
+    pickNext();
+  });
 
+  $("ttsBtn").addEventListener("click", () => {
+    ttsUnlocked = true;
+    if(currentQA) ttsSpeak(currentQA.q);
+  });
+
+  $("autoTtsToggle").addEventListener("change", () => { readControlsToSettings(); });
   $("typeSelect").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
   $("dirSelect").addEventListener("change", () => { readControlsToSettings(); });
   $("modeSelect").addEventListener("change", () => { readControlsToSettings(); setModeUI(); hideReveal(); });
@@ -878,11 +919,11 @@ function wire(){
   $("btnGood").addEventListener("click", () => rate("good"));
   $("btnEasy").addEventListener("click", () => rate("easy"));
 
-  // keyboard shortcuts
   document.addEventListener("keydown", (e) => {
     if(e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
 
     if(e.key === "s" || e.key === "S"){
+      ttsUnlocked = true;
       if(currentQA) ttsSpeak(currentQA.q);
     }
 
@@ -893,10 +934,10 @@ function wire(){
     }
 
     if(e.key === "Enter"){
-      // in mc: next; in typing: next if revealed (otherwise focus typing)
       if(settings.mode === "typing" && !revealed){
         $("typingInput").focus();
       } else {
+        ttsUnlocked = true;
         pickNext();
       }
     }
@@ -909,13 +950,9 @@ function wire(){
   loadSrs();
   loadDaily();
 
-  // enforce Mix defaults on first run only: if no saved settings existed
-  // (we don't know; but we keep user settings if present)
-  // settings.mode already defaults to mc.
-
   applySettingsToControls();
   buildPackSelect();
-  readControlsToSettings(); // sync pack select into settings
+  readControlsToSettings();
 
   buildPool();
   setModeUI();
