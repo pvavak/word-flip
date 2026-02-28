@@ -31,51 +31,19 @@
     line-height:1.35;
   }
   .wrap{max-width:1100px;margin:0 auto;padding:22px}
-  .top{
-    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;
-    margin-bottom:14px;
-  }
+  .top{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;margin-bottom:14px;}
   h1{margin:0;font-size:26px;letter-spacing:.2px}
   .sub{margin-top:6px;color:var(--muted);font-size:13px}
   .pillrow{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-  .pill{
-    padding:8px 10px;border-radius:999px;border:1px solid var(--line);
-    background:rgba(255,255,255,0.05);
-    color:var(--muted);font-size:12px;
-  }
+  .pill{padding:8px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,0.05);color:var(--muted);font-size:12px;}
   .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
   @media (max-width:980px){.grid{grid-template-columns:1fr}}
-  .card{
-    background:linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));
-    border:1px solid var(--line);
-    border-radius:var(--r);
-    box-shadow:var(--shadow);
-    padding:14px;
-  }
-  .card h2{
-    margin:0 0 10px 0;
-    font-size:14px;color:var(--muted);
-    font-weight:600;letter-spacing:.4px;text-transform:uppercase;
-  }
+  .card{background:linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.05));border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:14px;}
+  .card h2{margin:0 0 10px 0;font-size:14px;color:var(--muted);font-weight:600;letter-spacing:.4px;text-transform:uppercase;}
   .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  select,input{
-    background:rgba(255,255,255,0.06);
-    border:1px solid var(--line);
-    color:var(--text);
-    border-radius:12px;
-    padding:10px 12px;
-    outline:none;
-  }
+  select,input{background:rgba(255,255,255,0.06);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:10px 12px;outline:none;}
   select:focus,input:focus{box-shadow:0 0 0 4px rgba(99,102,241,0.18);border-color:rgba(99,102,241,0.6)}
-  .btn{
-    background:rgba(255,255,255,0.10);
-    border:1px solid var(--line);
-    color:var(--text);
-    padding:10px 12px;border-radius:12px;
-    cursor:pointer;
-    transition:transform .06s ease, background .15s ease;
-    user-select:none;
-  }
+  .btn{background:rgba(255,255,255,0.10);border:1px solid var(--line);color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;transition:transform .06s ease, background .15s ease;user-select:none;}
   .btn:hover{background:rgba(255,255,255,0.14)}
   .btn:active{transform:translateY(1px)}
   .btn.primary{background:var(--pri);border-color:rgba(99,102,241,0.55)}
@@ -83,50 +51,24 @@
   .btn.small{padding:8px 10px;font-size:12px;border-radius:999px}
   .btn.good{background:rgba(34,197,94,.18);border-color:rgba(34,197,94,.35)}
   .btn.danger{background:rgba(239,68,68,.18);border-color:rgba(239,68,68,.35)}
-  .toggle{
-    display:flex;align-items:center;gap:10px;
-    padding:8px 10px;border-radius:12px;border:1px solid var(--line);
-    background:rgba(255,255,255,0.05);
-  }
+  .toggle{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,0.05);}
   .toggle label{font-size:12px;color:var(--muted);cursor:pointer}
   .toggle input{accent-color:rgb(99,102,241)}
   .sep{height:1px;background:var(--line);margin:12px 0}
-  .qbox{
-    background:rgba(255,255,255,0.05);
-    border:1px solid var(--line);
-    border-radius:16px;padding:14px;
-    min-height:120px;
-  }
+  .qbox{background:rgba(255,255,255,0.05);border:1px solid var(--line);border-radius:16px;padding:14px;min-height:120px;}
   .qmeta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
-  .badge{
-    font-size:12px;color:var(--muted);
-    border:1px solid var(--line);
-    padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.04);
-  }
+  .badge{font-size:12px;color:var(--muted);border:1px solid var(--line);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.04);}
   .question{font-size:22px;font-weight:700;letter-spacing:.2px;margin:0}
   .mini{font-size:12px;color:var(--muted);margin-top:8px}
   .options{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
-  .opt{
-    text-align:left;
-    padding:12px 12px;border-radius:14px;
-    border:1px solid var(--line);
-    background:rgba(255,255,255,0.05);
-    color:var(--text);
-    cursor:pointer;
-    transition:background .12s ease, transform .06s ease;
-  }
+  .opt{text-align:left;padding:12px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.05);color:var(--text);cursor:pointer;transition:background .12s ease, transform .06s ease;}
   .opt:hover{background:rgba(255,255,255,0.08)}
   .opt:active{transform:translateY(1px)}
   .opt.correct{background:var(--good);border-color:rgba(34,197,94,0.55)}
   .opt.wrong{background:var(--bad);border-color:rgba(239,68,68,0.55)}
   .typingRow{display:none;gap:10px;flex-wrap:wrap;margin-top:12px}
   .typingRow input{flex:1 1 260px}
-  .reveal{
-    margin-top:10px;
-    padding:12px;border-radius:14px;border:1px solid var(--line);
-    background:rgba(255,255,255,0.04);
-    display:none;
-  }
+  .reveal{margin-top:10px;padding:12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.04);display:none;}
   .reveal.show{display:block}
   .rateRow{display:none;gap:10px;flex-wrap:wrap;margin-top:12px}
   .statsGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -137,12 +79,7 @@
   .li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,0.04);cursor:pointer}
   .li .name{font-size:13px}
   .li .count{font-size:12px;color:var(--muted)}
-  .kbd{
-    border:1px solid var(--line);
-    background:rgba(255,255,255,0.05);
-    padding:2px 6px;border-radius:8px;
-    font-size:12px;color:var(--muted);
-  }
+  .kbd{border:1px solid var(--line);background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:8px;font-size:12px;color:var(--muted);}
   .hints{margin-top:10px;color:rgba(255,255,255,.42);font-size:12px}
 </style>
 </head>
@@ -152,7 +89,7 @@
   <div class="top">
     <div>
       <h1>Word Flip – EN↔SK tréning</h1>
-      <div class="sub">Mix (vyvážené): SRS + MC default + prepínač Písanie + TTS (auto čítanie po prvom kliknutí).</div>
+      <div class="sub">Mix: MC default + občasné písanie pri slovíčkach + Auto TTS + 🎤 len pre EN odpovede + podobné možnosti.</div>
     </div>
     <div class="pillrow">
       <div class="pill" id="pillDataset">Položky: …</div>
@@ -197,6 +134,19 @@
           <label for="autoTtsToggle">Auto TTS</label>
         </div>
 
+        <div class="toggle" title="V MC režime občas prepnúť slovíčko na písanie">
+          <input type="checkbox" id="vocabTypingToggle" checked />
+          <label for="vocabTypingToggle">Občas písanie (vocab)</label>
+        </div>
+
+        <select id="vocabTypingChanceSelect" title="Ako často písanie pri vocab">
+          <option value="0.10">10%</option>
+          <option value="0.20">20%</option>
+          <option value="0.25" selected>25%</option>
+          <option value="0.33">33%</option>
+          <option value="0.50">50%</option>
+        </select>
+
         <div class="toggle" title="Učiť len karty, ktoré sú na dnes (SRS)">
           <input type="checkbox" id="dueOnlyToggle" checked />
           <label for="dueOnlyToggle">Len na dnes</label>
@@ -221,6 +171,7 @@
             <span class="badge" id="badgePack">Pack: –</span>
             <span class="badge" id="badgeType">Type: –</span>
             <span class="badge" id="badgeBox">Box: –</span>
+            <span class="badge" id="badgeModeNow">Mode: –</span>
           </div>
           <div class="row">
             <span class="badge" id="badgeProgress">Dnes: 0/20</span>
@@ -243,6 +194,7 @@
           <input type="text" id="typingInput" placeholder="Napíš odpoveď a Enter…" autocomplete="off" />
           <button class="btn" id="checkTypingBtn">Skontroluj</button>
           <button class="btn" id="showAnswerBtn">Ukáž odpoveď</button>
+          <button class="btn" id="speechBtn" title="Hlasová odpoveď (len EN, beta)">🎤 EN hlasom</button>
         </div>
 
         <div class="rateRow" id="rateRow">
@@ -254,7 +206,7 @@
       </div>
 
       <div class="hints">
-        Skratky: <span class="kbd">1–4</span> výber • <span class="kbd">Enter</span> potvrď (písanie) / ďalšia • <span class="kbd">S</span> TTS • Auto čítanie: zapni „Auto TTS“
+        Skratky: <span class="kbd">1–4</span> výber • <span class="kbd">Enter</span> potvrď (písanie) / ďalšia • <span class="kbd">S</span> TTS
       </div>
     </div>
 
@@ -323,9 +275,9 @@ let DATASET = [...DATASET_FALLBACK];
 /* =========================
    STORAGE
 ========================= */
-const STORAGE_SRS = "wordflip_srs_v2";
-const STORAGE_SETTINGS = "wordflip_settings_v2";
-const STORAGE_DAILY = "wordflip_daily_v2";
+const STORAGE_SRS = "wordflip_srs_v4";
+const STORAGE_SETTINGS = "wordflip_settings_v4";
+const STORAGE_DAILY = "wordflip_daily_v4";
 
 /* SRS intervals (days) */
 const BOX_INTERVAL_DAYS = {1:0, 2:1, 3:3, 4:7, 5:14};
@@ -338,7 +290,9 @@ let settings = {
   type: "all",
   dir: "en2sk",
   mode: "mc",
-  autoTts: true,        // NEW
+  autoTts: true,
+  vocabTyping: true,
+  vocabTypingChance: 0.25,
   dueOnly: true,
   dedup: true,
   autoNext: true,
@@ -352,6 +306,9 @@ let pool = [];
 let current = null;
 let currentQA = null;
 let revealed = false;
+
+let modeNow = "mc";
+let forcedTypingThisQuestion = false;
 
 /* =========================
    HELPERS
@@ -379,7 +336,6 @@ function itemKey(it){
    AUTO TTS (browser policy)
 ========================= */
 let ttsUnlocked = false;
-
 function unlockTtsOnce(){
   ttsUnlocked = true;
   document.removeEventListener("pointerdown", unlockTtsOnce);
@@ -393,7 +349,6 @@ function speakIfAuto(){
   if(!autoOn) return;
   if(!ttsUnlocked) return;
   if(!currentQA) return;
-  // malé oneskorenie: aby UI stihlo vykresliť text
   setTimeout(() => ttsSpeak(currentQA.q), 60);
 }
 
@@ -485,7 +440,61 @@ function buildPackIndex(list){
 }
 
 /* =========================
-   QA + DISTRACTORS
+   SMART SIMILARITY (distractors)
+========================= */
+const STOP_EN = new Set(["the","a","an","and","or","to","of","in","on","at","for","with","is","are","was","were","be","been","being","am","i","you","he","she","it","we","they","my","your","his","her","their","our","this","that","these","those","as","than"]);
+const STOP_SK = new Set(["a","aj","alebo","že","sa","si","je","sú","bol","bola","bolo","boli","by","aby","na","v","vo","do","z","zo","k","ku","o","od","pri","pre","pod","nad","za","u","som","sme","ste","s","so","ako","nech","nie","to","tá","ten","toto","tam","tu"]);
+
+function tokensLang(text, lang){
+  const t = normCompare(text).replace(/[^\p{L}\p{N}\s]/gu, " ");
+  const parts = t.split(/\s+/).filter(Boolean);
+  const stop = (lang === "en") ? STOP_EN : STOP_SK;
+  return parts.filter(w => w.length >= 3 && !stop.has(w));
+}
+
+function jaccard(a, b){
+  if(a.length === 0 || b.length === 0) return 0;
+  const A = new Set(a), B = new Set(b);
+  let inter = 0;
+  for(const x of A) if(B.has(x)) inter++;
+  const uni = A.size + B.size - inter;
+  return uni ? inter/uni : 0;
+}
+
+function lengthBonus(s1, s2){
+  const a = normalize(s1).length, b = normalize(s2).length;
+  if(!a || !b) return 0;
+  const r = Math.min(a,b)/Math.max(a,b);
+  return 0.10 * r; // max 0.10
+}
+
+function similarityScore(currItem, candItem){
+  // Compare EN with EN and SK with SK (we have both in dataset)
+  const enC = tokensLang(currItem.en, "en");
+  const enR = tokensLang(candItem.en, "en");
+  const skC = tokensLang(currItem.sk, "sk");
+  const skR = tokensLang(candItem.sk, "sk");
+
+  const enSim = jaccard(enC, enR);
+  const skSim = jaccard(skC, skR);
+
+  // weight: structure words are filtered, so overlap indicates topic/keywords
+  let score = 0;
+  score += 0.55 * enSim;
+  score += 0.55 * skSim;
+
+  // bonus for similar length on the side that's shown as options
+  score += lengthBonus(currItem.en, candItem.en);
+  score += lengthBonus(currItem.sk, candItem.sk);
+
+  // small bonus if same pack
+  if(currItem.pack === candItem.pack) score += 0.08;
+
+  return score;
+}
+
+/* =========================
+   QA
 ========================= */
 function getQA(it, dir){
   let used = dir;
@@ -495,33 +504,52 @@ function getQA(it, dir){
   return { q, a, dirUsed: used };
 }
 
-function pickDistractors(correctAnswer, datasetAll, it, dirUsed){
+function pickDistractorsSmart(correctAnswer, datasetAll, currItem, dirUsed){
   const need = 4;
   const used = new Set([correctAnswer]);
   const out = [correctAnswer];
 
-  const sameType = datasetAll.filter(x => x.type === it.type);
-  const samePackSameType = sameType.filter(x => x.pack === it.pack);
+  const candPoolSameType = datasetAll.filter(x => x.type === currItem.type && itemKey(x) !== itemKey(currItem));
+  const candPoolSamePack = candPoolSameType.filter(x => x.pack === currItem.pack);
 
-  function maybePush(x){
-    const cand = (dirUsed === "en2sk") ? x.sk : x.en;
-    const v = normalize(cand);
-    if(!v || used.has(v)) return;
-    used.add(v);
+  // sort candidates by similarity (descending)
+  function topBySim(pool, take){
+    const scored = pool.map(x => ({x, s: similarityScore(currItem, x)}));
+    scored.sort((a,b)=>b.s - a.s);
+    const chosen = [];
+    for(const it of scored){
+      const cand = (dirUsed === "en2sk") ? it.x.sk : it.x.en;
+      const v = normalize(cand);
+      if(!v || used.has(v)) continue;
+      used.add(v);
+      chosen.push(v);
+      if(chosen.length >= take) break;
+    }
+    return chosen;
+  }
+
+  // 1) best matches in same pack
+  for(const v of topBySim(candPoolSamePack, need-1)){
     out.push(v);
+    if(out.length >= need) break;
   }
 
-  while(out.length < need && samePackSameType.length){
-    const r = samePackSameType[Math.floor(Math.random()*samePackSameType.length)];
-    maybePush(r);
+  // 2) if still missing, best matches in same type (global)
+  if(out.length < need){
+    for(const v of topBySim(candPoolSameType, need - out.length)){
+      out.push(v);
+      if(out.length >= need) break;
+    }
   }
-  while(out.length < need && sameType.length){
-    const r = sameType[Math.floor(Math.random()*sameType.length)];
-    maybePush(r);
-  }
+
+  // 3) final fallback random (rare)
   while(out.length < need){
     const r = datasetAll[Math.floor(Math.random()*datasetAll.length)];
-    maybePush(r);
+    const cand = (dirUsed === "en2sk") ? r.sk : r.en;
+    const v = normalize(cand);
+    if(!v || used.has(v)) continue;
+    used.add(v);
+    out.push(v);
     if(datasetAll.length === 1) break;
   }
 
@@ -536,7 +564,15 @@ function applySettingsToControls(){
   $("typeSelect").value = settings.type;
   $("dirSelect").value = settings.dir;
   $("modeSelect").value = settings.mode;
+
   $("autoTtsToggle").checked = settings.autoTts !== false;
+  $("vocabTypingToggle").checked = settings.vocabTyping !== false;
+
+  const val = String(settings.vocabTypingChance ?? 0.25);
+  if([...$("vocabTypingChanceSelect").options].some(o => o.value === val)){
+    $("vocabTypingChanceSelect").value = val;
+  }
+
   $("dueOnlyToggle").checked = !!settings.dueOnly;
   $("dedupToggle").checked = !!settings.dedup;
   $("autoNextToggle").checked = !!settings.autoNext;
@@ -547,7 +583,11 @@ function readControlsToSettings(){
   settings.type = $("typeSelect").value;
   settings.dir = $("dirSelect").value;
   settings.mode = $("modeSelect").value;
+
   settings.autoTts = $("autoTtsToggle").checked;
+  settings.vocabTyping = $("vocabTypingToggle").checked;
+  settings.vocabTypingChance = Number($("vocabTypingChanceSelect").value || 0.25);
+
   settings.dueOnly = $("dueOnlyToggle").checked;
   settings.dedup = $("dedupToggle").checked;
   settings.autoNext = $("autoNextToggle").checked;
@@ -578,8 +618,7 @@ function buildPackSelect(){
 }
 function updatePills(){
   $("pillDataset").textContent = `Položky: ${DATASET.length}`;
-  const unique = dedupDataset(DATASET).length;
-  $("pillUnique").textContent = `Unikátne: ${unique}`;
+  $("pillUnique").textContent = `Unikátne: ${dedupDataset(DATASET).length}`;
 
   const list = getFilteredList();
   $("pillDue").textContent = `Na dnes: ${countDue(list)}`;
@@ -653,20 +692,29 @@ function hideReveal(){
   $("rateRow").style.display = "none";
   revealed = false;
 }
-function setModeUI(){
-  const mode = settings.mode;
-  $("options").style.display = (mode === "mc") ? "grid" : "none";
-  $("typingRow").style.display = (mode === "typing") ? "flex" : "none";
-}
 function setBadges(it){
   $("badgePack").textContent = `Pack: ${packTitle(it.pack)}`;
   $("badgeType").textContent = `Type: ${it.type}`;
-  const rec = ensureSrs(it);
-  $("badgeBox").textContent = `Box: ${rec.box}`;
+  $("badgeBox").textContent = `Box: ${ensureSrs(it).box}`;
 }
+
+function updateSpeechButtonVisibility(){
+  // Mic only when the expected answer is EN => direction SK->EN
+  const isENAnswer = currentQA && currentQA.dirUsed === "sk2en";
+  const btn = $("speechBtn");
+  if(!btn) return;
+  btn.style.display = isENAnswer ? "inline-flex" : "none";
+}
+
+function setModeUI(){
+  $("options").style.display = (modeNow === "mc") ? "grid" : "none";
+  $("typingRow").style.display = (modeNow === "typing") ? "flex" : "none";
+  $("badgeModeNow").textContent = `Mode: ${modeNow}${forcedTypingThisQuestion ? " (auto)" : ""}`;
+  updateSpeechButtonVisibility();
+}
+
 function updateDashboard(){
   $("statGoal").textContent = settings.goal;
-
   $("statDone").textContent = session.doneToday;
   $("statDoneMini").textContent = `z cieľa ${settings.goal}`;
 
@@ -695,10 +743,25 @@ function renderOptions(opts, correct){
 function lockOptions(){
   Array.from(document.querySelectorAll(".opt")).forEach(b => b.disabled = true);
 }
+
+function decideModeForQuestion(it){
+  forcedTypingThisQuestion = false;
+
+  if(settings.mode === "typing"){
+    modeNow = "typing";
+    return;
+  }
+
+  modeNow = "mc";
+  if(it.type === "vocab" && settings.vocabTyping && Math.random() < (settings.vocabTypingChance || 0.25)){
+    modeNow = "typing";
+    forcedTypingThisQuestion = true;
+  }
+}
+
 function pickNext(){
   readControlsToSettings();
   buildPool();
-  setModeUI();
   hideReveal();
 
   if(pool.length === 0){
@@ -706,21 +769,26 @@ function pickNext(){
     $("qMini").textContent = "";
     $("options").innerHTML = "";
     $("typingInput").value = "";
+    modeNow = settings.mode;
+    forcedTypingThisQuestion = false;
+    setModeUI();
     return;
   }
 
   current = pool[Math.floor(Math.random()*pool.length)];
   currentQA = getQA(current, settings.dir);
 
+  decideModeForQuestion(current);
+  setModeUI();
+
   $("question").textContent = currentQA.q;
   $("qMini").textContent = `Smer: ${currentQA.dirUsed.toUpperCase()} • ${packTitle(current.pack)}`;
-
   setBadges(current);
 
   const baseAll = settings.dedup ? dedupDataset(DATASET) : DATASET;
 
-  if(settings.mode === "mc"){
-    const opts = pickDistractors(currentQA.a, baseAll, current, currentQA.dirUsed);
+  if(modeNow === "mc"){
+    const opts = pickDistractorsSmart(currentQA.a, baseAll, current, currentQA.dirUsed);
     renderOptions(opts, currentQA.a);
   } else {
     $("options").innerHTML = "";
@@ -728,7 +796,6 @@ function pickNext(){
     $("typingInput").focus();
   }
 
-  // AUTO TTS on every new question (after first interaction)
   speakIfAuto();
 }
 
@@ -753,10 +820,7 @@ function checkMC(btn, choice, correct){
   }
 
   updateDashboard();
-
-  if(settings.autoNext){
-    setTimeout(() => pickNext(), 850);
-  }
+  if(settings.autoNext) setTimeout(() => pickNext(), 850);
 }
 
 /* tolerant typing */
@@ -771,11 +835,7 @@ function levenshtein(a, b){
   for(let i=1;i<=m;i++){
     for(let j=1;j<=n;j++){
       const cost = a[i-1] === b[j-1] ? 0 : 1;
-      dp[i][j] = Math.min(
-        dp[i-1][j] + 1,
-        dp[i][j-1] + 1,
-        dp[i-1][j-1] + cost
-      );
+      dp[i][j] = Math.min(dp[i-1][j] + 1, dp[i][j-1] + 1, dp[i-1][j-1] + cost);
     }
   }
   return dp[m][n];
@@ -791,7 +851,6 @@ function checkTyping(){
   const ua = normCompare(user);
   const ta = normCompare(target);
   const dist = levenshtein(ua, ta);
-
   const ok = (ua === ta) || (dist <= Math.max(1, Math.floor(ta.length * 0.12)));
 
   if(ok){
@@ -805,10 +864,7 @@ function checkTyping(){
   }
 
   updateDashboard();
-
-  if(settings.autoNext){
-    setTimeout(() => pickNext(), 950);
-  }
+  if(settings.autoNext) setTimeout(() => pickNext(), 950);
 }
 
 function rate(r){
@@ -832,6 +888,56 @@ function ttsSpeak(text){
   u.lang = hasSK ? "sk-SK" : "en-US";
   u.rate = 0.95;
   window.speechSynthesis.speak(u);
+}
+
+/* =========================
+   SPEECH (Recognition) – EN ONLY (beta)
+========================= */
+function getSpeechRecognition(){
+  return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
+
+function speakAnswerToInput_EN_ONLY(){
+  // Only allow when answer is EN (dirUsed === sk2en)
+  if(!currentQA || currentQA.dirUsed !== "sk2en"){
+    alert("Hlasová odpoveď je zapnutá len pre EN odpovede (smer SK→EN).");
+    return;
+  }
+
+  const SR = getSpeechRecognition();
+  if(!SR){
+    alert("Hlasová odpoveď nie je podporovaná v tomto prehliadači. Skús Chrome.");
+    return;
+  }
+
+  const rec = new SR();
+  rec.lang = "en-US";
+  rec.interimResults = false;
+  rec.maxAlternatives = 1;
+
+  $("speechBtn").disabled = true;
+  $("speechBtn").textContent = "🎤 Počúvam…";
+
+  rec.onresult = (event) => {
+    const txt = event.results?.[0]?.[0]?.transcript || "";
+    $("typingInput").value = txt;
+    checkTyping();
+  };
+
+  rec.onerror = () => {
+    alert("Nepodarilo sa použiť rozpoznávanie reči. Skontroluj povolenie mikrofónu.");
+  };
+
+  rec.onend = () => {
+    $("speechBtn").disabled = false;
+    $("speechBtn").textContent = "🎤 EN hlasom";
+  };
+
+  try{ rec.start(); }
+  catch{
+    $("speechBtn").disabled = false;
+    $("speechBtn").textContent = "🎤 EN hlasom";
+  }
 }
 
 /* =========================
@@ -871,26 +977,18 @@ async function loadDataset(){
    INIT / EVENTS
 ========================= */
 function wire(){
-  $("startBtn").addEventListener("click", () => {
-    // click = interaction => unlock; then pick and auto-speak
-    ttsUnlocked = true;
-    pickNext();
-  });
+  $("startBtn").addEventListener("click", () => { ttsUnlocked = true; pickNext(); });
+  $("nextBtn").addEventListener("click", () => { ttsUnlocked = true; pickNext(); });
 
-  $("nextBtn").addEventListener("click", () => {
-    ttsUnlocked = true;
-    pickNext();
-  });
-
-  $("ttsBtn").addEventListener("click", () => {
-    ttsUnlocked = true;
-    if(currentQA) ttsSpeak(currentQA.q);
-  });
+  $("ttsBtn").addEventListener("click", () => { ttsUnlocked = true; if(currentQA) ttsSpeak(currentQA.q); });
 
   $("autoTtsToggle").addEventListener("change", () => { readControlsToSettings(); });
+  $("vocabTypingToggle").addEventListener("change", () => { readControlsToSettings(); });
+  $("vocabTypingChanceSelect").addEventListener("change", () => { readControlsToSettings(); });
+
   $("typeSelect").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
   $("dirSelect").addEventListener("change", () => { readControlsToSettings(); });
-  $("modeSelect").addEventListener("change", () => { readControlsToSettings(); setModeUI(); hideReveal(); });
+  $("modeSelect").addEventListener("change", () => { readControlsToSettings(); hideReveal(); });
   $("packSelect").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
 
   $("dueOnlyToggle").addEventListener("change", () => { readControlsToSettings(); buildPool(); });
@@ -910,6 +1008,8 @@ function wire(){
     showReveal(currentQA.a, `Ukázané • teraz ohodnoť Again/Hard/Good/Easy`);
   });
 
+  $("speechBtn").addEventListener("click", () => speakAnswerToInput_EN_ONLY());
+
   $("typingInput").addEventListener("keydown", (e) => {
     if(e.key === "Enter") checkTyping();
   });
@@ -927,14 +1027,14 @@ function wire(){
       if(currentQA) ttsSpeak(currentQA.q);
     }
 
-    if(settings.mode === "mc" && ["1","2","3","4"].includes(e.key)){
+    if(modeNow === "mc" && ["1","2","3","4"].includes(e.key)){
       const idx = Number(e.key) - 1;
       const btns = Array.from(document.querySelectorAll(".opt"));
       if(btns[idx] && !btns[idx].disabled) btns[idx].click();
     }
 
     if(e.key === "Enter"){
-      if(settings.mode === "typing" && !revealed){
+      if(modeNow === "typing" && !revealed){
         $("typingInput").focus();
       } else {
         ttsUnlocked = true;
@@ -955,6 +1055,8 @@ function wire(){
   readControlsToSettings();
 
   buildPool();
+  modeNow = settings.mode;
+  forcedTypingThisQuestion = false;
   setModeUI();
   updateDashboard();
   wire();
