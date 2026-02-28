@@ -12,6 +12,7 @@ button{padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
 .opt{display:block;width:100%;margin:6px 0;padding:12px;border:1px solid #ddd;border-radius:10px;background:#fff}
 .opt.correct{background:#d1fae5}
 .opt.wrong{background:#fee2e2}
+.btnSmall{font-size:12px;padding:6px 10px;margin-left:10px}
 </style>
 </head>
 <body>
@@ -21,6 +22,7 @@ button{padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
 <div class="card">
 <select id="packSelect">
 <option value="all">Všetko</option>
+<option value="mistakes">Tréning chýb</option>
 <option value="colors">Farby</option>
 <option value="numbers">Čísla</option>
 <option value="family">Rodina</option>
@@ -34,6 +36,7 @@ button{padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
 </select>
 
 <button onclick="startGame()">Spustiť hru</button>
+<button onclick="clearMistakes()" class="btnSmall">Vymaž chyby</button>
 <div id="scoreBox">Skóre: 0</div>
 </div>
 
@@ -46,87 +49,62 @@ button{padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
 
 <script>
 
-const VOCAB_PACKS = {
+const STORAGE_MISTAKES = 'wordflip_mistakes_v2';
 
-colors:[
-{en:'red',sk:'červená'},
-{en:'blue',sk:'modrá'},
-{en:'green',sk:'zelená'},
-{en:'yellow',sk:'žltá'}
-],
-
-numbers:[
-{en:'one',sk:'jeden'},
-{en:'two',sk:'dva'},
-{en:'three',sk:'tri'}
-],
-
-family:[
-{en:'mum',sk:'mama'},
-{en:'dad',sk:'otec'},
-{en:'cousin',sk:'bratranec / sesternica'}
-],
-
-school:[
-{en:'library',sk:'knižnica'},
-{en:'playground',sk:'ihrisko'},
-{en:'English',sk:'angličtina'}
-],
-
-food:[
-{en:'apple',sk:'jablko'},
-{en:'pizza',sk:'pizza'},
-{en:'rice',sk:'ryža'}
-],
-
-animals:[
-{en:'lion',sk:'lev'},
-{en:'tiger',sk:'tiger'},
-{en:'monkey',sk:'opica'}
-],
-
-travel:[
-{en:'airport',sk:'letisko'},
-{en:'ticket',sk:'lístok'},
-{en:'journey',sk:'cesta'},
-{en:'turn left',sk:'zabočiť doľava'}
-],
-
-jobs:[
-{en:'doctor',sk:'lekár'},
-{en:'firefighter',sk:'hasič'},
-{en:'pilot',sk:'pilot'},
-{en:'grow up',sk:'vyrásť'}
-],
-
-restaurant:[
-{en:'menu',sk:'jedálny lístok'},
-{en:'starter',sk:'predjedlo'},
-{en:'main course',sk:'hlavné jedlo'},
-{en:'dessert',sk:'dezert'},
-{en:'burger',sk:'burger'},
-{en:'fries',sk:'hranolky'},
-{en:'cola',sk:'kola'},
-{en:'milkshake',sk:'mliečny kokteil'}
-],
-
-description:[
-{en:'tall',sk:'vysoký'},
-{en:'short',sk:'nízky'},
-{en:'long hair',sk:'dlhé vlasy'},
-{en:'curly hair',sk:'kučeravé vlasy'},
-{en:'blue eyes',sk:'modré oči'},
-{en:'kind',sk:'milý'},
-{en:'friendly',sk:'priateľský'}
-]
-
+const CONFUSION_SETS = {
+cola:['color','cold'],
+burger:['pizza','pasta'],
+rice:['pasta','bread'],
+tall:['thin','short'],
+short:['tall','small'],
+curly:['straight','wavy'],
+left:['right'],
+doctor:['nurse','teacher']
 };
 
-const PHRASES = [
-{en:'I’d like a burger, please.',sk:'Dal by som si burger.'},
-{en:'Anything else?',sk:'Ešte niečo?'},
-{en:'He’s tall.',sk:'On je vysoký.'},
-{en:'What does he look like?',sk:'Ako vyzerá?'}
+function grammarVariants(text){
+let variants=[];
+if(text.includes("He’s")) variants.push(text.replace("He’s","He is"));
+if(text.includes("She’s")) variants.push(text.replace("She’s","She is"));
+if(text.includes("I’d")) variants.push(text.replace("I’d","I would"));
+return variants;
+}
+
+function singularPluralVariants(text){
+let variants=[];
+if(!text.includes(" ")){
+if(text.endsWith("s")) variants.push(text.slice(0,-1));
+else variants.push(text+"s");
+}
+return variants;
+}
+
+const VOCAB_PACKS = {
+colors:[
+{en:'red',sk:'červená',cat:'color'},
+{en:'blue',sk:'modrá',cat:'color'},
+{en:'green',sk:'zelená',cat:'color'},
+{en:'yellow',sk:'žltá',cat:'color'}
+],
+food:[
+{en:'burger',sk:'burger',cat:'main'},
+{en:'pizza',sk:'pizza',cat:'main'},
+{en:'pasta',sk:'cestoviny',cat:'main'},
+{en:'rice',sk:'ryža',cat:'main'},
+{en:'cola',sk:'kola',cat:'drink'},
+{en:'milkshake',sk:'mliečny kokteil',cat:'drink'}
+],
+description:[
+{en:'tall',sk:'vysoký',cat:'appearance'},
+{en:'short',sk:'nízky',cat:'appearance'},
+{en:'curly hair',sk:'kučeravé vlasy',cat:'hair'},
+{en:'long hair',sk:'dlhé vlasy',cat:'hair'}
+]
+};
+
+const PHRASES=[
+{en:'He’s tall.',sk:'On je vysoký.',cat:'sentence'},
+{en:'I’d like a burger, please.',sk:'Dal by som si burger.',cat:'sentence'}
 ];
 
 let pool=[];
@@ -137,12 +115,13 @@ score=0;
 document.getElementById("scoreBox").innerText="Skóre: 0";
 let pack=document.getElementById("packSelect").value;
 
-if(pack==="all"){
+if(pack==="mistakes"){
+pool=JSON.parse(localStorage.getItem(STORAGE_MISTAKES)||"[]");
+}else if(pack==="all"){
 pool=Object.values(VOCAB_PACKS).flat().concat(PHRASES);
 }else{
-pool=(VOCAB_PACKS[pack]||[]).concat(pack==="phr"?PHRASES:[]);
+pool=(VOCAB_PACKS[pack]||[]);
 }
-
 nextQuestion();
 }
 
@@ -152,16 +131,38 @@ let q=pool[Math.floor(Math.random()*pool.length)];
 current=q;
 document.getElementById("question").innerText=q.en;
 
-let options=[q.sk];
+let answer=q.sk;
+let options=[answer];
+let used=new Set([answer]);
+
+grammarVariants(answer).forEach(v=>{
+if(options.length<4 && !used.has(v)){options.push(v);used.add(v);}
+});
+
+singularPluralVariants(answer).forEach(v=>{
+if(options.length<4 && !used.has(v)){options.push(v);used.add(v);}
+});
+
+let key=q.en.toLowerCase();
+if(CONFUSION_SETS[key]){
+CONFUSION_SETS[key].forEach(v=>{
+if(options.length<4 && !used.has(v)){options.push(v);used.add(v);}
+});
+}
+
 while(options.length<4){
 let r=pool[Math.floor(Math.random()*pool.length)];
-if(!options.includes(r.sk)) options.push(r.sk);
+if(r.sk && !used.has(r.sk)){
+options.push(r.sk);
+used.add(r.sk);
 }
+}
+
 options.sort(()=>Math.random()-0.5);
 
 let html="";
 options.forEach(opt=>{
-html+=`<button class="opt" onclick="checkAnswer(this,'${opt}','${q.sk}')">${opt}</button>`;
+html+=`<button class="opt" onclick="checkAnswer(this,'${opt}','${answer}')">${opt}</button>`;
 });
 document.getElementById("options").innerHTML=html;
 }
@@ -172,9 +173,21 @@ btn.classList.add("correct");
 score++;
 }else{
 btn.classList.add("wrong");
+
+let saved=JSON.parse(localStorage.getItem(STORAGE_MISTAKES)||"[]");
+if(!saved.find(x=>x.en===current.en)){
+saved.push(current);
+localStorage.setItem(STORAGE_MISTAKES,JSON.stringify(saved));
 }
+}
+
 document.getElementById("scoreBox").innerText="Skóre: "+score;
 setTimeout(nextQuestion,1000);
+}
+
+function clearMistakes(){
+localStorage.removeItem(STORAGE_MISTAKES);
+alert("Chyby vymazané");
 }
 
 </script>
