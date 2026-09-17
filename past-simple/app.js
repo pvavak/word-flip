@@ -1,3 +1,21 @@
+const STUDENTS = [
+  {id:"veronika-b", name:"Veronika B."},
+  {id:"daniel-c", name:"Daniel C."},
+  {id:"ondrej-c", name:"Ondrej Č."},
+  {id:"matyas-g", name:"Matyas G."},
+  {id:"nina-h", name:"Nina H."},
+  {id:"david-h", name:"David H."},
+  {id:"alexander-i", name:"Alexander I."},
+  {id:"linda-k", name:"Linda K."},
+  {id:"jakub-l", name:"Jakub L."},
+  {id:"mia-m", name:"Mia M."},
+  {id:"jakub-m", name:"Jakub M."},
+  {id:"michaela-n", name:"Michaela N."},
+  {id:"simon-p", name:"Šimon P."},
+  {id:"jakub-s", name:"Jakub Š."},
+  {id:"jan-v", name:"Ján V."}
+];
+
 const VERBS = [
   {base:"play", past:"played", rule:"regular"},
   {base:"watch", past:"watched", rule:"regular"},
@@ -18,7 +36,6 @@ const VERBS = [
   {base:"use", past:"used", rule:"e"},
   {base:"like", past:"liked", rule:"e"},
   {base:"shop", past:"shopped", rule:"double"},
-
   {base:"go", past:"went", rule:"irregular"},
   {base:"see", past:"saw", rule:"irregular"},
   {base:"eat", past:"ate", rule:"irregular"},
@@ -42,14 +59,23 @@ const RULES = {
   irregular:{short:"irregular", label:"nepravidelný tvar", explain:"Toto sloveso je nepravidelné. Minulý tvar sa učíme ako dvojicu."}
 };
 
-let state = JSON.parse(localStorage.getItem("psq_state") || '{"correct":0,"attempts":0,"streak":0,"mastery":{}}');
+const emptyState = () => ({correct:0,attempts:0,streak:0,mastery:{}});
+let currentStudentId = localStorage.getItem("psq_student") || "";
+let state = emptyState();
 let mode = "form";
 let current = null;
 let answered = false;
 let challenge = {items:[], index:0, score:0, mistakes:[], answered:false};
 
+function studentById(id){ return STUDENTS.find(s=>s.id===id); }
+function stateKey(){ return currentStudentId ? `psq_state_${currentStudentId}` : "psq_state_guest"; }
+function loadStudentState(){
+  try { state = JSON.parse(localStorage.getItem(stateKey()) || JSON.stringify(emptyState())); }
+  catch(e){ state = emptyState(); }
+  updateStats();
+}
 function save(){
-  localStorage.setItem("psq_state", JSON.stringify(state));
+  localStorage.setItem(stateKey(), JSON.stringify(state));
   updateStats();
 }
 function updateStats(){
@@ -58,6 +84,37 @@ function updateStats(){
   document.getElementById("streakStat").textContent = state.streak || 0;
   document.getElementById("accuracyStat").textContent = state.attempts ? Math.round(state.correct/state.attempts*100)+"%" : "—";
 }
+
+function renderStudentGate(){
+  const grid = document.getElementById("studentGrid");
+  grid.innerHTML = "";
+  STUDENTS.forEach(s=>{
+    const b = document.createElement("button");
+    b.className = "student-choice";
+    b.textContent = s.name;
+    b.onclick = ()=>selectStudent(s.id);
+    grid.appendChild(b);
+  });
+}
+function selectStudent(id){
+  currentStudentId = id;
+  localStorage.setItem("psq_student", id);
+  loadStudentState();
+  updateStudentUI();
+  document.getElementById("studentGate").classList.add("hidden");
+}
+function updateStudentUI(){
+  const student = studentById(currentStudentId);
+  const name = student ? student.name : "—";
+  document.getElementById("activeStudent").textContent = name;
+  document.getElementById("challengeStudentStart").textContent = student ? `Hrá: ${name}` : "";
+  document.getElementById("challengeStudentResult").textContent = name;
+}
+function showStudentGate(){
+  document.getElementById("studentGate").classList.remove("hidden");
+}
+document.getElementById("switchStudent").onclick = showStudentGate;
+
 function openTab(id){
   document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===id));
   document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x.dataset.tab===id));
@@ -131,7 +188,7 @@ function checkForm(){
   record(correct,current);
   showFeedback(correct);
 }
-function checkRule(key,btn){
+function checkRule(key){
   if(answered) return;
   answered=true;
   const correct=key===current.rule;
@@ -184,6 +241,7 @@ function renderVerbs(filter=""){
 document.getElementById("searchInput").addEventListener("input",e=>renderVerbs(e.target.value));
 
 function startChallenge(){
+  if(!currentStudentId){ showStudentGate(); return; }
   challenge={items:sample(VERBS,10),index:0,score:0,mistakes:[],answered:false};
   document.getElementById("challengeStart").style.display="none";
   document.getElementById("challengeResult").style.display="none";
@@ -229,10 +287,47 @@ function nextChallenge(){
     showChallenge();
   }else finishChallenge();
 }
+function getLeaderboard(){
+  try { return JSON.parse(localStorage.getItem("psq_leaderboard") || "[]"); }
+  catch(e){ return []; }
+}
+function saveChallengeResult(){
+  const board = getLeaderboard();
+  board.push({
+    studentId: currentStudentId,
+    studentName: studentById(currentStudentId)?.name || currentStudentId,
+    score: challenge.score,
+    total: 10,
+    at: new Date().toISOString()
+  });
+  localStorage.setItem("psq_leaderboard", JSON.stringify(board.slice(-200)));
+}
+function renderLeaderboard(){
+  const all = getLeaderboard();
+  const best = new Map();
+  all.forEach(r=>{
+    const old = best.get(r.studentId);
+    if(!old || r.score > old.score || (r.score===old.score && r.at < old.at)) best.set(r.studentId, r);
+  });
+  const rows = [...best.values()].sort((a,b)=>b.score-a.score || a.at.localeCompare(b.at) || a.studentName.localeCompare(b.studentName,"sk"));
+  const wrap = document.getElementById("leaderboardRows");
+  wrap.innerHTML = "";
+  if(!rows.length){
+    wrap.innerHTML = '<div class="leader-empty">Zatiaľ tu nie je žiadny výsledok.</div>';
+    return;
+  }
+  rows.forEach((r,i)=>{
+    const row = document.createElement("div");
+    row.className = "leader-row" + (r.studentId===currentStudentId ? " me" : "");
+    row.innerHTML = `<span class="rank">${i+1}.</span><span class="leader-name">${r.studentName}</span><b>${r.score}/${r.total}</b>`;
+    wrap.appendChild(row);
+  });
+}
 function finishChallenge(){
   document.getElementById("challengeQ").style.display="none";
   document.getElementById("challengeResult").style.display="block";
   document.getElementById("challengeScore").textContent=`${challenge.score}/10`;
+  document.getElementById("challengeStudentResult").textContent=studentById(currentStudentId)?.name || "";
   const title = challenge.score===10 ? "Máš to." : challenge.score>=8 ? "Veľmi dobré." : challenge.score>=6 ? "Dobrá cesta." : "Ešte jeden tréning.";
   document.getElementById("challengeTitle").textContent=title;
   document.getElementById("challengeSummary").textContent=challenge.mistakes.length
@@ -245,7 +340,10 @@ function finishChallenge(){
     s.className="example"; s.textContent=`${v.base} → ${v.past}`;
     box.appendChild(s);
   });
+  saveChallengeResult();
+  renderLeaderboard();
 }
+
 document.getElementById("startChallenge").onclick=startChallenge;
 document.getElementById("restartChallenge").onclick=startChallenge;
 document.getElementById("challengeCheck").onclick=checkChallenge;
@@ -257,12 +355,21 @@ document.getElementById("challengeInput").addEventListener("keydown",e=>{
 });
 
 document.getElementById("resetBtn").onclick=()=>{
-  if(confirm("Naozaj chceš vynulovať uložený pokrok?")){
-    state={correct:0,attempts:0,streak:0,mastery:{}};
+  if(confirm("Vynulovať pokrok pre vybraného žiaka?")){
+    state=emptyState();
     save();
   }
 };
 
+renderStudentGate();
+if(currentStudentId && studentById(currentStudentId)){
+  document.getElementById("studentGate").classList.add("hidden");
+  loadStudentState();
+}else{
+  currentStudentId="";
+  showStudentGate();
+}
+updateStudentUI();
 renderVerbs();
 updateStats();
 newPractice();
