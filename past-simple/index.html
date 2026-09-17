@@ -8,13 +8,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="studentGate" class="student-gate">
+  <div class="student-gate-card">
+    <div class="gate-kicker">5.A • PAST SIMPLE</div>
+    <h1>Kto dnes trénuje?</h1>
+    <p>Vyber svoje meno. Výsledok výzvy sa uloží pod tvojím menom.</p>
+    <div id="studentGrid" class="student-grid"></div>
+    <p class="privacy-note">Na verejnej stránke používame iba krstné meno a iniciálu priezviska.</p>
+  </div>
+</div>
+
 <div class="app">
   <div class="top">
     <div class="brand">
       <h1>Past Simple Quest</h1>
       <p>Precvičuj minulé tvary iba so slovesami, ktoré už poznáš.</p>
     </div>
-    <div class="pill">Bez prihlasovania • funguje v mobile</div>
+    <div class="student-pill">
+      <span id="activeStudent">—</span>
+      <button id="switchStudent" type="button">zmeniť</button>
+    </div>
   </div>
 
   <div class="stats">
@@ -45,7 +58,7 @@
         <div class="examples">
           <span class="example">walk <span class="arrow">→</span> walked</span>
           <span class="example">watch <span class="arrow">→</span> watched</span>
-          <span class="example">clean <span class="arrow">→</span> cleaned</span>
+          <span class="example">play <span class="arrow">→</span> played</span>
         </div>
       </article>
 
@@ -55,8 +68,8 @@
         <p class="muted">Nepridávaj ďalšie e. Pridaj iba <b>-d</b>.</p>
         <div class="examples">
           <span class="example">like <span class="arrow">→</span> liked</span>
-          <span class="example">live <span class="arrow">→</span> lived</span>
-          <span class="example">dance <span class="arrow">→</span> danced</span>
+          <span class="example">use <span class="arrow">→</span> used</span>
+          <span class="example">dive <span class="arrow">→</span> dived</span>
         </div>
       </article>
 
@@ -109,7 +122,6 @@
         </div>
 
         <div id="choiceBlock" class="choices hidden"></div>
-
         <div id="feedback" class="feedback"></div>
         <button id="hintBtn" class="hint">Potrebujem nápovedu</button>
         <button id="nextBtn" class="secondary hidden" style="margin-top:12px">Ďalšie sloveso →</button>
@@ -123,6 +135,7 @@
         <div class="big">⏳</div>
         <h2>10-slovesová výzva</h2>
         <p class="muted">Mix pravidelných aj nepravidelných slovies. Dostaneš 10 otázok. Na konci uvidíš výsledok aj slovesá, ktoré si ešte potrebuješ precvičiť.</p>
+        <div id="challengeStudentStart" class="challenge-name"></div>
         <button id="startChallenge" class="primary">Spustiť výzvu</button>
       </div>
 
@@ -142,11 +155,17 @@
 
       <div id="challengeResult" class="challenge-result">
         <div class="q-type">VÝSLEDOK</div>
+        <div id="challengeStudentResult" class="result-student">—</div>
         <div id="challengeScore" class="score-big">8/10</div>
         <h2 id="challengeTitle">Výborne.</h2>
         <p id="challengeSummary" class="muted"></p>
         <div id="challengeMistakes" class="examples" style="justify-content:center;margin:18px 0"></div>
-        <button id="restartChallenge" class="primary">Skúsiť znova</button>
+        <div class="result-actions">
+          <button id="shareResult" class="primary">Zdieľať výsledok</button>
+          <button id="copyResult" class="secondary">Kopírovať výsledok</button>
+          <button id="restartChallenge" class="secondary">Skúsiť znova</button>
+        </div>
+        <div id="resultSavedNote" class="saved-note">Výsledok je uložený na tomto zariadení.</div>
       </div>
     </div>
   </section>
