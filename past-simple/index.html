@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <title>Past Simple Quest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">
+      <h1>Past Simple Quest</h1>
+      <p>Precvičuj minulé tvary iba so slovesami, ktoré už poznáš.</p>
+    </div>
+    <div class="pill">Bez prihlasovania • funguje v mobile</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b id="masteredStat">0</b><span>zvládnutých slovies</span></div>
+    <div class="stat"><b id="streakStat">0</b><span>séria správne</span></div>
+    <div class="stat"><b id="accuracyStat">—</b><span>úspešnosť</span></div>
+  </div>
+
+  <nav class="nav" aria-label="Hlavné menu">
+    <button data-tab="learn" class="active">1. Nauč sa</button>
+    <button data-tab="practice">2. Trénuj</button>
+    <button data-tab="challenge">3. Výzva</button>
+    <button data-tab="verbs">Slovesá</button>
+  </nav>
+
+  <section id="learn" class="panel active">
+    <div class="card hero">
+      <h2>Najprv si všimni, čo sa so slovesom stane</h2>
+      <p class="muted">Používame iba známe slovesá z predchádzajúceho učiva. Teraz sa učíme, ako sa zmenia v minulom čase.</p>
+      <div class="mini-note"><b>Tip:</b> Pri každom slovese si najprv povedz: „Je pravidelné alebo nepravidelné?“ Až potom rieš pravopis.</div>
+    </div>
+
+    <div class="rules">
+      <article class="rule">
+        <div class="tag">PRAVIDLO 1 • + ED</div>
+        <h3>Väčšina pravidelných slovies</h3>
+        <p class="muted">Jednoducho pridaj <b>-ed</b>.</p>
+        <div class="examples">
+          <span class="example">walk <span class="arrow">→</span> walked</span>
+          <span class="example">watch <span class="arrow">→</span> watched</span>
+          <span class="example">clean <span class="arrow">→</span> cleaned</span>
+        </div>
+      </article>
+
+      <article class="rule">
+        <div class="tag">PRAVIDLO 2 • + D</div>
+        <h3>Sloveso už končí na -e</h3>
+        <p class="muted">Nepridávaj ďalšie e. Pridaj iba <b>-d</b>.</p>
+        <div class="examples">
+          <span class="example">like <span class="arrow">→</span> liked</span>
+          <span class="example">live <span class="arrow">→</span> lived</span>
+          <span class="example">dance <span class="arrow">→</span> danced</span>
+        </div>
+      </article>
+
+      <article class="rule">
+        <div class="tag">PRAVIDLO 3 • ZDVOJENIE</div>
+        <h3>Krátke sloveso: C–V–C</h3>
+        <p class="muted">Pri krátkom tvare spoluhláska–samohláska–spoluhláska poslednú spoluhlásku zdvoj a pridaj <b>-ed</b>.</p>
+        <div class="examples">
+          <span class="example">shop <span class="arrow">→</span> shopped</span>
+        </div>
+      </article>
+
+      <article class="rule" style="grid-column:1/-1">
+        <div class="tag">PRAVIDLO 4 • IRREGULAR</div>
+        <h3>Nepravidelné slovesá</h3>
+        <p class="muted">Nemajú jedno pravopisné pravidlo. Minulý tvar sa treba naučiť ako dvojicu.</p>
+        <div class="examples">
+          <span class="example">go <span class="arrow">→</span> went</span>
+          <span class="example">see <span class="arrow">→</span> saw</span>
+          <span class="example">have <span class="arrow">→</span> had</span>
+          <span class="example">do <span class="arrow">→</span> did</span>
+          <span class="example">eat <span class="arrow">→</span> ate</span>
+          <span class="example">take <span class="arrow">→</span> took</span>
+        </div>
+      </article>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:16px">
+      <button class="primary" onclick="openTab('practice')">Idem trénovať →</button>
+    </div>
+  </section>
+
+  <section id="practice" class="panel">
+    <div class="practice-grid">
+      <aside class="card side">
+        <button class="mode active" data-mode="form">Napíš minulý tvar</button>
+        <button class="mode" data-mode="rule">Vyber pravidlo</button>
+        <button class="mode" data-mode="regular">Len pravidelné</button>
+        <button class="mode" data-mode="irregular">Len nepravidelné</button>
+      </aside>
+
+      <div class="card question">
+        <div id="practiceType" class="q-type">NAPÍŠ MINULÝ TVAR</div>
+        <div id="practiceVerb" class="verb">play</div>
+        <button id="speakBtn" class="speak" type="button">🔊 Prehrať sloveso</button>
+
+        <div id="textAnswerBlock" class="answer-row">
+          <input id="answerInput" class="answer" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="napr. played" aria-label="Tvoja odpoveď" />
+          <button id="checkBtn" class="primary">Skontrolovať</button>
+        </div>
+
+        <div id="choiceBlock" class="choices hidden"></div>
+
+        <div id="feedback" class="feedback"></div>
+        <button id="hintBtn" class="hint">Potrebujem nápovedu</button>
+        <button id="nextBtn" class="secondary hidden" style="margin-top:12px">Ďalšie sloveso →</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenge" class="panel">
+    <div class="card">
+      <div id="challengeStart" class="challenge-start">
+        <div class="big">⏳</div>
+        <h2>10-slovesová výzva</h2>
+        <p class="muted">Mix pravidelných aj nepravidelných slovies. Dostaneš 10 otázok. Na konci uvidíš výsledok aj slovesá, ktoré si ešte potrebuješ precvičiť.</p>
+        <button id="startChallenge" class="primary">Spustiť výzvu</button>
+      </div>
+
+      <div id="challengeQ" class="challenge-q question">
+        <div class="q-type"><span id="challengeCounter">1 / 10</span></div>
+        <div id="challengeVerb" class="verb">go</div>
+        <div class="answer-row">
+          <input id="challengeInput" class="answer" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="minulý tvar" />
+          <button id="challengeCheck" class="primary">OK</button>
+        </div>
+        <div id="challengeFeedback" class="feedback"></div>
+        <button id="challengeNext" class="secondary hidden" style="margin-top:12px">Ďalej →</button>
+        <div class="progress-wrap" style="width:min(100%,560px)">
+          <div class="progress-line"><div id="challengeBar" class="progress-bar"></div></div>
+        </div>
+      </div>
+
+      <div id="challengeResult" class="challenge-result">
+        <div class="q-type">VÝSLEDOK</div>
+        <div id="challengeScore" class="score-big">8/10</div>
+        <h2 id="challengeTitle">Výborne.</h2>
+        <p id="challengeSummary" class="muted"></p>
+        <div id="challengeMistakes" class="examples" style="justify-content:center;margin:18px 0"></div>
+        <button id="restartChallenge" class="primary">Skúsiť znova</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="verbs" class="panel">
+    <div class="card">
+      <div class="verbs-head">
+        <div>
+          <h2>33 známych slovies</h2>
+          <p class="muted" style="margin:4px 0 0">Klikni na sloveso a vypočuj si dvojicu.</p>
+        </div>
+        <input id="searchInput" class="search" placeholder="Hľadať sloveso…" />
+      </div>
+      <div id="verbList" class="verb-list"></div>
+    </div>
+  </section>
+
+  <div class="footer-actions">
+    <button id="resetBtn" class="reset">Vynulovať môj pokrok</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
