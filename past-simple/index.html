@@ -160,12 +160,20 @@
         <h2 id="challengeTitle">Výborne.</h2>
         <p id="challengeSummary" class="muted"></p>
         <div id="challengeMistakes" class="examples" style="justify-content:center;margin:18px 0"></div>
-        <div class="result-actions">
-          <button id="shareResult" class="primary">Zdieľať výsledok</button>
-          <button id="copyResult" class="secondary">Kopírovať výsledok</button>
-          <button id="restartChallenge" class="secondary">Skúsiť znova</button>
+
+        <div class="leaderboard-card">
+          <div class="leaderboard-title">
+            <div>
+              <div class="q-type">REBRÍČEK</div>
+              <h3>Najlepší výsledok</h3>
+            </div>
+            <span>z 10</span>
+          </div>
+          <div id="leaderboardRows" class="leaderboard-rows"></div>
+          <div class="leaderboard-note">Rebríček sa zatiaľ ukladá iba v tomto prehliadači.</div>
         </div>
-        <div id="resultSavedNote" class="saved-note">Výsledok je uložený na tomto zariadení.</div>
+
+        <button id="restartChallenge" class="secondary" style="margin-top:16px">Skúsiť znova</button>
       </div>
     </div>
   </section>
