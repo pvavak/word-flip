@@ -10,7 +10,9 @@ Písanie toleruje veľkosť písmen, medzery, interpunkciu a štandardné skrát
 
 ## Odovzdávanie a súkromie
 
-Pred spustením možno zapnúť odoslanie učiteľovi, zadať kód triedy a číslo žiaka v triednom zozname. Kód triedy sa môže predvyplniť z fragmentu odkazu #class=...; nie je súčasťou zdrojového kódu. Pri spustení vznikne jedinečný podpísaný pokus. Po 20 odpovediach sa výsledok automaticky odošle službe https://english-unit1-results.petinek.chatgpt.site. Potvrdenie sa ukáže až po úspešnom uložení. Pri chybe možno odoslanie zopakovať bez duplicitného záznamu. Bez potvrdenia sa výsledok nepovažuje za odovzdaný.
+Priamy funkčný kvíz: https://english-unit1-results.petinek.chatgpt.site/quiz/. GitHub Pages verzia zostáva zachovaná; jej aktualizácia čaká vo fronte GitHub Actions.
+
+Pred spustením možno zapnúť odoslanie učiteľovi, zadať kód triedy a číslo žiaka v triednom zozname. Číslo 0 slúži na skúšobné odovzdanie a nezaraďuje sa medzi žiakov. Kód triedy sa môže predvyplniť z fragmentu odkazu #class=...; nie je súčasťou zdrojového kódu. Pri spustení vznikne jedinečný podpísaný pokus. Po 20 odpovediach sa výsledok automaticky odošle službe https://english-unit1-results.petinek.chatgpt.site. Potvrdenie sa ukáže až po úspešnom uložení. Pri chybe možno odoslanie zopakovať bez duplicitného záznamu. Bez potvrdenia sa výsledok nepovažuje za odovzdaný.
 
 Učiteľský prehľad /teacher je prístupný iba overenému účtu vlastníka cez Sign in with ChatGPT. Ukladá sa číslo žiaka, 20 odpovedí, serverom vypočítané skóre a čas pokusu do D1 databázy; tieto údaje nie sú vo verejnom GitHube. Mená a kontakty detí sa nezhromažďujú. Kód žiaka zadáva sám žiak; nie je to autentifikácia totožnosti. Prehľad zobrazuje posledný a najlepší výsledok a opakované pokusy.
 

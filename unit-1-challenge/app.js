@@ -12,9 +12,9 @@
       uploadContext=null;
       if($('record-result').checked){
         const studentCode=Number($('student-code').value),classCode=$('class-code').value.trim();
-        if(!Number.isInteger(studentCode)||studentCode<1||studentCode>40)throw new Error('Zadaj svoje číslo v triednom zozname (1–40).');
+        if(!Number.isInteger(studentCode)||studentCode<0||studentCode>40)throw new Error('Zadaj svoje číslo v triednom zozname (1–40; 0 je skúšobný pokus).');
         if(!classCode)throw new Error('Doplň kód triedy z odkazu alebo správy v EduPage.');
-        const result=await request('/api/start',{studentCode,classCode});uploadContext={id:result.id,token:result.token,studentCode};
+        const result=await request('/api/start',{studentCode:studentCode===0?'TEST':studentCode,classCode});uploadContext={id:result.id,token:result.token,studentCode};
       }
       session=createSession();index=0;$('intro').hidden=true;$('results').hidden=true;$('quiz').hidden=false;render();
     }catch(error){$('intro').hidden=false;$('results').hidden=true;$('start-error').textContent=error.message;}
@@ -65,7 +65,7 @@
     else{$('send-status').className='feedback';$('send-status').textContent='Tréning bez odoslania. Tento výsledok sa učiteľovi neuložil.';$('retry-send').hidden=true;}
   }
   async function sendResult(){if(!pendingPayload)return;$('retry-send').hidden=true;$('restart').disabled=true;$('send-status').className='feedback';$('send-status').textContent='Odosielam výsledok učiteľovi… Nezatváraj stránku.';
-    try{const receipt=await request('/api/submit',pendingPayload);$('send-status').textContent=`✓ Výsledok bol uložený učiteľovi. Žiak ${uploadContext.studentCode} · ${receipt.score}/20. Môžeš zavrieť stránku.`;pendingPayload=null;$('restart').disabled=false;}
+    try{const receipt=await request('/api/submit',pendingPayload);$('send-status').textContent=`✓ Výsledok bol uložený učiteľovi. ${uploadContext.studentCode===0?'Skúšobný pokus':'Žiak '+uploadContext.studentCode} · ${receipt.score}/20. Môžeš zavrieť stránku.`;pendingPayload=null;$('restart').disabled=false;}
     catch(error){$('send-status').className='feedback bad';$('send-status').textContent=`Výsledok sa zatiaľ neuložil. ${error.message} Nezatváraj stránku a použi tlačidlo na opätovné odoslanie.`;$('retry-send').hidden=false;}
   }
   $('start').onclick=start;$('restart').onclick=start;$('answer-form').onsubmit=check;

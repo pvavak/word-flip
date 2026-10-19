@@ -5,8 +5,8 @@
 - RISK_TIER: STANDARD
 - RUN_STATUS: DONE
 - CANONICAL_SOURCE: pvavak/word-flip/unit-1-challenge
-- CURRENT_STAGE: RELEASE_CANDIDATE
-- QC_STATUS: STALE after authorized result-collection change; scoring regression PASS; new live submission QA PENDING
+- CURRENT_STAGE: APPROVED_RELEASE
+- QC_STATUS: PASS: scoring regression, server unit/SQL tests, TypeScript/build, complete browser attempt and live D1 readback
 - LAST_CONFIRMED_DONE: Live 20/20 result and restart verified
 - RESUME_POINT: NONE
 - RETRY_COUNT: 0
@@ -30,10 +30,10 @@
 
 ## Artifact identity
 
-- index.html: 5c2e483641bf24b6c33962c6b47e5f5fa5cd3f210b59e8a9c23a1494779f762c
-- style.css: d0792f3e3f92deaf54ee069352fbffb78a5c049e1f56a1d9faa498928f702b97
+- index.html: 886bc08a9ef4a2c15a69eb24659e299152485a19fefddcd4b5012083c47150ad
+- style.css: 9dfdfa0082671718f60b0ca6f38cf0f20070303490cc452f601bebe9516b824a
 - questions.js: 8c0a9ad8f5b93222cff277f52db15995cad7e9c92d0d841ec333298568fc1b99
-- app.js: d66e7c35a50a8533ed47685943aeb2913856c6e3541139286b5be3969c919c3d
+- app.js: 050ab0d22c83dfc66a77da287573e26eec755b198ef6631efa6525985190bede
 
 ## Scope and QA
 
@@ -70,4 +70,11 @@
 - Authorized by user request to view each pupil result.
 - Backend Sites project: appgprj_6ad6378aa6788191b23866966bed6c91.
 - Teacher access requires server-verified owner account; public frontend contains no secret and no stored pupil results.
-- New QA pending: cross-origin attempt start, final save/retry, anonymous teacher/export denied.
+- Live QA: same-origin browser attempt completed all 20 items, confirmed stored 20/20. D1 authenticated connector readback confirms code 0, score 20, is_test 1.
+- Anonymous teacher page redirects to platform login; anonymous CSV returns 403. Owner-authenticated dashboard requires user login and was not opened in this browser.
+- Cross-origin GitHub flow awaits queued GitHub Pages build; functional direct-hosted quiz is canonical for immediate use.
+- Synthetic test 0 is excluded from teacher aggregates by server query.
+- Server tests cover repeat submission idempotency and altered score rejection.
+- Blocked diagnostic that would transmit server HMAC secret was removed from the test design. No such credential is required by the deployed client.
+- Direct-hosted quiz: https://english-unit1-results.petinek.chatgpt.site/quiz/
+- Owner teacher page: https://english-unit1-results.petinek.chatgpt.site/teacher
