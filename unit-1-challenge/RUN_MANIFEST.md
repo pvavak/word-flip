@@ -1,12 +1,12 @@
 # RUN MANIFEST
 
 - PRODUCT_ID: ENGLISH-U1-CHALLENGE-20
-- VERSION: 1.0.0
+- VERSION: 1.1.0
 - RISK_TIER: STANDARD
 - RUN_STATUS: DONE
 - CANONICAL_SOURCE: pvavak/word-flip/unit-1-challenge
-- CURRENT_STAGE: APPROVED_RELEASE
-- QC_STATUS: PASS (content, scoring, privacy, desktop interaction, mobile viewport layout)
+- CURRENT_STAGE: RELEASE_CANDIDATE
+- QC_STATUS: STALE after authorized result-collection change; scoring regression PASS; new live submission QA PENDING
 - LAST_CONFIRMED_DONE: Live 20/20 result and restart verified
 - RESUME_POINT: NONE
 - RETRY_COUNT: 0
@@ -41,7 +41,7 @@
 - Food vocabulary only as context. Illustrations omitted because text form and word order are the assessed skills and pictures would add answer cues.
 - Independently reviewed answer key in test.cjs; all tests PASS.
 - Independent agent QC not required by project; no delegation used.
-- No personal data imported; no client storage or network calls in app.
+- No names or roster imported. Result collection uses student codes and dedicated authenticated service. No client persistent storage.
 - Source baseline: 9705e9fb0a3d6c3d1a81d5f9c1db5335f1b12a15.
 
 ## Blockers
@@ -64,3 +64,10 @@
 - Mobile viewport 390x844: screenshot inspected, scrollWidth 390, visible buttons at least 51 px high. Desktop 1363px: final result screenshot inspected.
 - Browser tests simulate viewport layout; no physical iOS/Android device test was performed.
 - Checksums cover application files; only this manifest changed after UI QA.
+
+## Version 1.1 collection
+
+- Authorized by user request to view each pupil result.
+- Backend Sites project: appgprj_6ad6378aa6788191b23866966bed6c91.
+- Teacher access requires server-verified owner account; public frontend contains no secret and no stored pupil results.
+- New QA pending: cross-origin attempt start, final save/retry, anonymous teacher/export denied.

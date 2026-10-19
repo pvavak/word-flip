@@ -2,9 +2,30 @@
   'use strict';
   const {questions,createSession}=UnitOne;
   const $=id=>document.getElementById(id);
-  let session,index=0,selected='',ordered=[],locked=false;
+  const RESULTS_API='https://english-unit1-results.petinek.chatgpt.site';
+  let session,index=0,selected='',ordered=[],locked=false,uploadContext=null,pendingPayload=null;
   function element(tag,text,className){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;}
-  function start(){session=createSession();index=0;$('intro').hidden=true;$('results').hidden=true;$('quiz').hidden=false;render();}
+  async function start(){
+    if(pendingPayload)return;
+    $('start-error').textContent='';$('start').disabled=true;$('restart').disabled=true;
+    try{
+      uploadContext=null;
+      if($('record-result').checked){
+        const studentCode=Number($('student-code').value),classCode=$('class-code').value.trim();
+        if(!Number.isInteger(studentCode)||studentCode<1||studentCode>40)throw new Error('Zadaj svoje číslo v triednom zozname (1–40).');
+        if(!classCode)throw new Error('Doplň kód triedy z odkazu alebo správy v EduPage.');
+        const result=await request('/api/start',{studentCode,classCode});uploadContext={id:result.id,token:result.token,studentCode};
+      }
+      session=createSession();index=0;$('intro').hidden=true;$('results').hidden=true;$('quiz').hidden=false;render();
+    }catch(error){$('intro').hidden=false;$('results').hidden=true;$('start-error').textContent=error.message;}
+    finally{$('start').disabled=false;$('restart').disabled=false;}
+  }
+  async function request(path,payload){
+    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
+    try{const response=await fetch(RESULTS_API+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:controller.signal});const data=await response.json();if(!response.ok)throw new Error(data.error||'Odoslanie sa nepodarilo. Skús to znova.');return data;}
+    catch(error){if(error.name==='AbortError'||error instanceof TypeError)throw new Error('Spojenie sa nepodarilo. Skontroluj internet a skús to znova.');throw error;}
+    finally{clearTimeout(timer);}
+  }
   function updateStats(){ $('counter').textContent=`Úloha ${index+1} z ${questions.length}`;$('score').textContent=`${session.score} / 20 bodov`;$('progress').value=session.responses.length; }
   function render(){
     locked=false;selected='';ordered=[];const q=questions[index];updateStats();
@@ -40,7 +61,16 @@
     $('result-score').replaceChildren(document.createTextNode(session.score),element('small',' / 20 bodov'));
     $('result-message').textContent=session.score===20?'V tomto pokuse máš všetkých 20 odpovedí správne.':`Správne: ${session.score} z 20 (${session.score*5} %). Pozri si vysvetlenia pri chybách a potom to skús znova.`;
     $('review').replaceChildren();questions.forEach((q,i)=>{const r=session.responses[i];const d=element('details');const summary=element('summary');summary.append(element('span',r.correct?'✓ Správne':'↻ Zopakuj','review-state'+(r.correct?'':' bad')),document.createTextNode(`${i+1}. ${q.prompt}`));d.append(summary);if(q.passage)d.append(element('p',q.passage));d.append(element('p',`Tvoja odpoveď: ${r.value}`),element('p',`Správna odpoveď: ${q.answer}`),element('p',q.explanation));$('review').append(d);});$('result-title').focus();
+    if(uploadContext){pendingPayload={id:uploadContext.id,token:uploadContext.token,answers:session.responses.map(r=>r.value)};sendResult();}
+    else{$('send-status').className='feedback';$('send-status').textContent='Tréning bez odoslania. Tento výsledok sa učiteľovi neuložil.';$('retry-send').hidden=true;}
+  }
+  async function sendResult(){if(!pendingPayload)return;$('retry-send').hidden=true;$('restart').disabled=true;$('send-status').className='feedback';$('send-status').textContent='Odosielam výsledok učiteľovi… Nezatváraj stránku.';
+    try{const receipt=await request('/api/submit',pendingPayload);$('send-status').textContent=`✓ Výsledok bol uložený učiteľovi. Žiak ${uploadContext.studentCode} · ${receipt.score}/20. Môžeš zavrieť stránku.`;pendingPayload=null;$('restart').disabled=false;}
+    catch(error){$('send-status').className='feedback bad';$('send-status').textContent=`Výsledok sa zatiaľ neuložil. ${error.message} Nezatváraj stránku a použi tlačidlo na opätovné odoslanie.`;$('retry-send').hidden=false;}
   }
   $('start').onclick=start;$('restart').onclick=start;$('answer-form').onsubmit=check;
   $('next').onclick=()=>{if(!locked)return;if(index<questions.length-1){index++;render();}else finish();};
+  $('retry-send').onclick=sendResult;
+  $('record-result').onchange=()=>{$('student-fields').hidden=!$('record-result').checked;};
+  const classFromLink=new URLSearchParams(location.hash.slice(1)).get('class');if(classFromLink)$('class-code').value=classFromLink.slice(0,20);
 })();

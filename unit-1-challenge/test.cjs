@@ -31,6 +31,8 @@ for(const [index,wrong] of [[4,'eat'],[5,'having'],[7,'I cooking dinner now.'],[
 const fs=require('node:fs');
 for(const file of ['app.js','questions.js','index.html','style.css']){
   const text=fs.readFileSync(`${__dirname}/${file}`,'utf8');
-  assert(!/localStorage|sessionStorage|psq_|STUDENTS|leaderboard|fetch\(|XMLHttpRequest|https?:\/\//.test(text),`Privacy ${file}`);
+  assert(!/localStorage|sessionStorage|psq_|STUDENTS|leaderboard|XMLHttpRequest/.test(text),`Privacy ${file}`);
 }
 console.log('PASS: 20 independent answer keys; 20 wrong answers; all distractors and word sets; 20/20, 0/20, 10/20; duplicate/empty/out-of-order guards; contractions; reset; privacy.');
+
+assert(fs.readFileSync(__dirname+'/app.js','utf8').includes('https://english-unit1-results.petinek.chatgpt.site'));

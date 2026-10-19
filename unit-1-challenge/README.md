@@ -1,6 +1,6 @@
 # English Challenge · Unit 1
 
-20 úloh pre vek 10–11 rokov: present simple a present continuous, kladné vety, otázky, krátke odpovede a zápory. Jedlo je kontext viet. Bez samostatného testovania slovíčok či výslovnosti.
+20 úloh pre vek 10–11 rokov: present simple a present continuous, kladné vety, otázky, krátke odpovede a zápory. Jedlo je kontext viet. Bez samostatného testovania slovíčok či výslovnosti. Verzia 1.1 pridáva odovzdávanie výsledkov učiteľovi.
 
 ## Použitie
 
@@ -8,9 +8,13 @@ Otvoriť index.html alebo celý priečinok vložiť do koreňa GitHub Pages repo
 
 Písanie toleruje veľkosť písmen, medzery, interpunkciu a štandardné skrátené/plné tvary. Cieľový slovesný tvar musí byť správny. Slovosled možno skladať kliknutím aj klávesnicou; klik na vybrané slovo ho vráti. Každá úloha má jednu určenú odpoveď, nie otvorenú osobnú otázku.
 
-## Súkromie
+## Odovzdávanie a súkromie
 
-Žiadne mená, prihlasovanie, rebríček, analytika, cookies ani ukladanie do localStorage. Aplikácia neodosiela odpovede. Výsledok existuje iba v pamäti stránky počas pokusu. Bežné doručovanie stránky zabezpečuje GitHub Pages.
+Pred spustením možno zapnúť odoslanie učiteľovi, zadať kód triedy a číslo žiaka v triednom zozname. Kód triedy sa môže predvyplniť z fragmentu odkazu #class=...; nie je súčasťou zdrojového kódu. Pri spustení vznikne jedinečný podpísaný pokus. Po 20 odpovediach sa výsledok automaticky odošle službe https://english-unit1-results.petinek.chatgpt.site. Potvrdenie sa ukáže až po úspešnom uložení. Pri chybe možno odoslanie zopakovať bez duplicitného záznamu. Bez potvrdenia sa výsledok nepovažuje za odovzdaný.
+
+Učiteľský prehľad /teacher je prístupný iba overenému účtu vlastníka cez Sign in with ChatGPT. Ukladá sa číslo žiaka, 20 odpovedí, serverom vypočítané skóre a čas pokusu do D1 databázy; tieto údaje nie sú vo verejnom GitHube. Mená a kontakty detí sa nezhromažďujú. Kód žiaka zadáva sám žiak; nie je to autentifikácia totožnosti. Prehľad zobrazuje posledný a najlepší výsledok a opakované pokusy.
+
+Režim bez odoslania je naďalej dostupný vypnutím zaškrtávacieho poľa. Aplikácia nepoužíva cookies, analytiku ani localStorage. Obnovením stránky sa rozpracovaný alebo ešte neodoslaný výsledok stratí. Pri začatom odosielaní musí žiak počkať na potvrdenie.
 
 ## Pôvod a oddelenie
 
