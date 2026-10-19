@@ -3,14 +3,14 @@
 - PRODUCT_ID: ENGLISH-U1-CHALLENGE-20
 - VERSION: 1.0.0
 - RISK_TIER: STANDARD
-- RUN_STATUS: IN_PROGRESS
+- RUN_STATUS: DONE
 - CANONICAL_SOURCE: pvavak/word-flip/unit-1-challenge
-- CURRENT_STAGE: CONTENT_QA_PASS
-- QC_STATUS: Content and scoring PASS; browser/mobile QA PENDING
-- LAST_CONFIRMED_DONE: 20 grammar items and scoring tests
-- RESUME_POINT: GitHub Pages publication and live UI test
+- CURRENT_STAGE: APPROVED_RELEASE
+- QC_STATUS: PASS (content, scoring, privacy, desktop interaction, mobile viewport layout)
+- LAST_CONFIRMED_DONE: Live 20/20 result and restart verified
+- RESUME_POINT: NONE
 - RETRY_COUNT: 0
-- PERSISTENCE_MODE: ATTENDED_ONLY until committed
+- PERSISTENCE_MODE: DURABLE (GitHub source and readback verified)
 - DESIGN_SYSTEM: provisional, green/ivory, system fonts, responsive
 
 ## Units
@@ -19,8 +19,8 @@
 |---|---|---|
 | 20 grammar tasks | DONE | PASS |
 | Scoring and privacy | DONE | PASS |
-| Desktop/mobile UI | PENDING | Local preview blocked by host proc mount |
-| GitHub Pages | PENDING | Existing Pages deployment verified in repository history |
+| Desktop/mobile UI | DONE | PASS: 390 × 844 viewport intro/choice layout, no horizontal overflow; full 20-task flow in Chrome desktop |
+| GitHub Pages | DONE | PASS: ce3b61e, workflow 39277051429 completed successfully; live URL opened |
 
 ## Freeze map
 
@@ -46,9 +46,21 @@
 
 ## Blockers
 
-- Local managed preview cannot start: host does not permit proc mount. Continue UI verification on GitHub Pages.
+- NONE. Local preview was unavailable; live Pages UI was tested instead.
 
 ## Lessons / regression
 
 - SOURCE_REQUIREMENT: 19 October clarification narrows all 20 items to the two present tenses; non-grammar tasks replaced before publication.
-- Regression gate: preserve old file hashes; reject duplicate scoring; accept contractions; reject missing auxiliary/-s; confirm 320px overflow and tap targets.
+- Regression gate: preserve old file hashes; reject duplicate scoring; accept contractions; reject missing auxiliary/-s; confirm 390px overflow and tap targets.
+
+## Live QA evidence
+
+- https://pvavak.github.io/word-flip/unit-1-challenge/ loaded publicly.
+- All 20 tasks answered correctly through rendered UI; final result 20/20; 20 review rows.
+- Input variants tested live: I'm, do not, curly apostrophe doesn’t.
+- Blank choice and incomplete order blocked; selected word removable; all order tasks completed.
+- Enter submits input and advances focused Next; reset shows task 1 and 0 points.
+- Incorrect choice gets 0 points, explanation shown, both chosen and correct option locked.
+- Mobile viewport 390x844: screenshot inspected, scrollWidth 390, visible buttons at least 51 px high. Desktop 1363px: final result screenshot inspected.
+- Browser tests simulate viewport layout; no physical iOS/Android device test was performed.
+- Checksums cover application files; only this manifest changed after UI QA.
