@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="English Challenge: 20 úloh z Unit 1. Jedlo, present simple a present continuous. Skontroluj si odpovede a získaj skóre z 20 bodov.">
+  <meta name="theme-color" content="#174b3e">
+  <title>English Challenge · Unit 1</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="questions.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="brand"><span class="brand-mark" aria-hidden="true">EC</span><span>ENGLISH CHALLENGE<small>UNIT 1 · SIMPLE & CONTINUOUS</small></span><span class="edition">20 úloh</span></header>
+    <section id="intro" class="card hero" aria-labelledby="intro-title">
+      <div class="eyebrow">READY WHEN YOU ARE</div>
+      <h1 id="intro-title">A little English.<br><span>A big challenge.</span></h1>
+      <p class="lead">Present simple alebo present continuous?<br>Zvyky, dej práve teraz, otázky a zápory.</p>
+      <div class="topics"><span>Present simple</span><span>Present continuous</span><span>Ask & answer</span></div>
+      <div class="rules"><p><strong>20 úloh = 20 bodov.</strong> Vyberaj, dopĺňaj a skladaj vety.</p><p>Za prvú správnu odpoveď máš 1 bod. Po každej úlohe uvidíš vysvetlenie. Na konci si pozrieš aj chyby.</p><p>Bez časového limitu. Približne 10–15 minút.</p></div>
+      <button id="start" class="primary">Začať challenge <span aria-hidden="true">→</span></button>
+      <p class="small">Bez mena a prihlasovania. Výsledok sa nikam neposiela.<br>Po obnovení stránky sa pokus začne odznova.</p>
+    </section>
+    <section id="quiz" hidden aria-labelledby="question-title">
+      <div class="stats"><span id="counter"></span><strong id="score" aria-live="polite"></strong></div>
+      <progress id="progress" max="20" value="0" aria-label="Dokončené úlohy"></progress>
+      <article class="card question-card">
+        <div class="eyebrow" id="group"></div>
+        <p id="instruction" class="instruction"></p>
+        <blockquote id="passage" lang="en" hidden></blockquote>
+        <h2 id="question-title" lang="en" tabindex="-1"></h2>
+        <form id="answer-form" novalidate>
+          <div id="answer-area"></div>
+          <p id="validation" class="validation" role="alert"></p>
+          <button id="check" type="submit" class="primary">Skontrolovať odpoveď</button>
+        </form>
+        <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+        <button id="next" class="primary" hidden>Ďalšia úloha →</button>
+      </article>
+      <p class="small quiz-note">Každá úloha je za 1 bod. Pracuj vlastným tempom.</p>
+    </section>
+    <section id="results" class="card" hidden aria-labelledby="result-title">
+      <div class="eyebrow">CHALLENGE COMPLETE</div>
+      <h1 id="result-title" tabindex="-1"></h1>
+      <div id="result-score" class="result-score"></div>
+      <p id="result-message" class="lead"></p>
+      <p class="small">Skóre patrí tomuto pokusu. Ak ho chceš ukázať učiteľovi, urob snímku obrazovky.</p>
+      <button id="restart" class="primary">Skúsiť všetkých 20 úloh znova ↻</button>
+      <h2 class="review-title">Tvoje odpovede</h2>
+      <p class="small">Otvor úlohu a pozri si riešenie aj vysvetlenie.</p>
+      <div id="review"></div>
+    </section>
+    <noscript><p class="card">Na spustenie kvízu zapni v prehliadači JavaScript.</p></noscript>
+    <footer>UNIT 1 <span aria-hidden="true">/</span> EVERY ANSWER IS A STEP FORWARD</footer>
+  </main>
+</body>
+</html>
