@@ -7,9 +7,9 @@
   <meta name="theme-color" content="#174b3e">
   <title>English Challenge · Unit 1</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=4">
   <script defer src="questions.js"></script>
-  <script defer src="app.js"></script>
+  <script defer src="app.js?v=4"></script>
 </head>
 <body>
   <main class="shell">
@@ -20,12 +20,12 @@
       <p class="lead">Present simple alebo present continuous?<br>Zvyky, dej práve teraz, otázky a zápory.</p>
       <div class="topics"><span>Present simple</span><span>Present continuous</span><span>Ask & answer</span></div>
       <div class="rules"><p><strong>20 úloh = 20 bodov.</strong> Vyberaj, dopĺňaj a skladaj vety.</p><p>Za prvú správnu odpoveď máš 1 bod. Po každej úlohe uvidíš vysvetlenie. Na konci si pozrieš aj chyby.</p><p>Bez časového limitu. Približne 10–15 minút.</p></div>
-      <fieldset class="submission-settings"><legend>Ako chceš pracovať?</legend><label><input id="record-result" type="checkbox" checked> Odoslať výsledok učiteľovi</label><div id="student-fields"><label for="student-code" class="input-label">Tvoje číslo v triednom zozname</label><input id="student-code" type="number" min="0" max="40" step="1" inputmode="numeric" placeholder="napr. 7"><p class="small">Učiteľ môže na skúšku použiť číslo 0. Skúšobný výsledok sa nezaradí medzi výsledky žiakov.</p><label for="class-code" class="input-label">Kód triedy z EduPage</label><input id="class-code" type="text" autocomplete="off" spellcheck="false" autocapitalize="characters" maxlength="20" placeholder="Kód od učiteľa"></div><p id="start-error" class="validation" role="alert"></p></fieldset>
+      <fieldset class="submission-settings"><legend>Tvoj účet na naše úlohy</legend><label><input id="record-result" type="checkbox" checked> Odoslať výsledok učiteľovi</label><div id="student-fields"><label for="student-name" class="input-label">Prihlasovacie meno</label><input id="student-name" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="50" placeholder="Krstné meno, pri zhode aj písmeno"><label for="student-password" class="input-label">Heslo</label><input id="student-password" type="password" autocomplete="current-password" maxlength="128" placeholder="Tvoje pridelené heslo"><p class="small">Použi meno z prideleného zoznamu. Veľké písmená a diakritika v mene nerozhodujú. V hesle ich dodrž presne.</p></div><p id="start-error" class="validation" role="alert"></p></fieldset>
       <button id="start" class="primary">Začať challenge <span aria-hidden="true">→</span></button>
-      <p class="small">Pri odoslaní sa učiteľovi uloží tvoje číslo, odpovede, skóre a čas pokusu. Mená sa nezadávajú. Výsledky ostatných neuvidíš.<br>Ak chceš iba precvičovať, vypni odoslanie. Po obnovení stránky sa pokus začne odznova.</p>
+      <p class="small">Pri odoslaní sa učiteľovi uloží tvoj účet, odpovede, skóre a čas pokusu. Výsledky ostatných neuvidíš. Tvoje heslo sa vo výsledkoch nezobrazuje.<br>Ak chceš iba precvičovať, vypni odoslanie. Po obnovení stránky sa pokus začne odznova.</p>
     </section>
     <section id="quiz" hidden aria-labelledby="question-title">
-      <div class="stats"><span id="counter"></span><strong id="score" aria-live="polite"></strong></div>
+      <p id="signed-in" class="small" aria-live="polite"></p><div class="stats"><span id="counter"></span><strong id="score" aria-live="polite"></strong></div>
       <progress id="progress" max="20" value="0" aria-label="Dokončené úlohy"></progress>
       <article class="card question-card">
         <div class="eyebrow" id="group"></div>
@@ -50,7 +50,7 @@
       <div id="send-status" class="feedback" role="status" aria-live="polite"></div>
       <button id="retry-send" class="primary" hidden>Odoslať výsledok znova</button>
       <button id="restart" class="primary">Skúsiť všetkých 20 úloh znova ↻</button>
-      <h2 class="review-title">Tvoje odpovede</h2>
+      <button id="logout" class="undo" type="button">Odhlásiť sa</button><h2 class="review-title">Tvoje odpovede</h2>
       <p class="small">Otvor úlohu a pozri si riešenie aj vysvetlenie.</p>
       <div id="review"></div>
     </section>

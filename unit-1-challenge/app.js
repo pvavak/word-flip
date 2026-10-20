@@ -2,8 +2,8 @@
   'use strict';
   const {questions,createSession}=UnitOne;
   const $=id=>document.getElementById(id);
-  const RESULTS_API='https://english-unit1-results.petinek.chatgpt.site';
-  let session,index=0,selected='',ordered=[],locked=false,uploadContext=null,pendingPayload=null;
+  const RESULTS_API=location.hostname==='pvavak.github.io'?'https://english-unit1-results.petinek.chatgpt.site':'';
+  let session,index=0,selected='',ordered=[],locked=false,uploadContext=null,pendingPayload=null,studentAuth=null;
   function element(tag,text,className){const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;}
   async function start(){
     if(pendingPayload)return;
@@ -11,18 +11,23 @@
     try{
       uploadContext=null;
       if($('record-result').checked){
-        const studentCode=Number($('student-code').value),classCode=$('class-code').value.trim();
-        if(!Number.isInteger(studentCode)||studentCode<0||studentCode>40)throw new Error('Zadaj svoje číslo v triednom zozname (1–40; 0 je skúšobný pokus).');
-        if(!classCode)throw new Error('Doplň kód triedy z odkazu alebo správy v EduPage.');
-        const result=await request('/api/start',{studentCode:studentCode===0?'TEST':studentCode,classCode});uploadContext={id:result.id,token:result.token,studentCode};
+        if(!studentAuth){
+          const username=$('student-name').value.trim(),password=$('student-password').value;
+          if(!username||!password)throw new Error('Vyplň svoje prihlasovacie meno a heslo.');
+          studentAuth=await request('/api/student-login',{username,password});
+          $('student-password').value='';
+        }
+        const result=await request('/api/start',{studentToken:studentAuth.studentToken});
+        uploadContext={id:result.id,token:result.token,studentCode:result.studentCode,username:result.username};
+
       }
-      session=createSession();index=0;$('intro').hidden=true;$('results').hidden=true;$('quiz').hidden=false;render();
-    }catch(error){$('intro').hidden=false;$('results').hidden=true;$('start-error').textContent=error.message;}
+      $('signed-in').textContent=uploadContext?'Prihlásený účet: '+uploadContext.username:'Tréning bez odoslania';session=createSession();index=0;$('intro').hidden=true;$('results').hidden=true;$('quiz').hidden=false;render();
+    }catch(error){if(error.status===401)studentAuth=null;$('intro').hidden=false;$('results').hidden=true;$('start-error').textContent=error.message;}
     finally{$('start').disabled=false;$('restart').disabled=false;}
   }
   async function request(path,payload){
     const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);
-    try{const response=await fetch(RESULTS_API+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:controller.signal});const data=await response.json();if(!response.ok)throw new Error(data.error||'Odoslanie sa nepodarilo. Skús to znova.');return data;}
+    try{const response=await fetch(RESULTS_API+path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:controller.signal});const data=await response.json();if(!response.ok){const error=new Error(data.error||'Odoslanie sa nepodarilo. Skús to znova.');error.status=response.status;throw error;}return data;}
     catch(error){if(error.name==='AbortError'||error instanceof TypeError)throw new Error('Spojenie sa nepodarilo. Skontroluj internet a skús to znova.');throw error;}
     finally{clearTimeout(timer);}
   }
@@ -65,12 +70,13 @@
     else{$('send-status').className='feedback';$('send-status').textContent='Tréning bez odoslania. Tento výsledok sa učiteľovi neuložil.';$('retry-send').hidden=true;}
   }
   async function sendResult(){if(!pendingPayload)return;$('retry-send').hidden=true;$('restart').disabled=true;$('send-status').className='feedback';$('send-status').textContent='Odosielam výsledok učiteľovi… Nezatváraj stránku.';
-    try{const receipt=await request('/api/submit',pendingPayload);$('send-status').textContent=`✓ Výsledok bol uložený učiteľovi. ${uploadContext.studentCode===0?'Skúšobný pokus':'Žiak '+uploadContext.studentCode} · ${receipt.score}/20. Môžeš zavrieť stránku.`;pendingPayload=null;$('restart').disabled=false;}
+    try{const receipt=await request('/api/submit',pendingPayload);$('send-status').textContent=`✓ Výsledok bol uložený učiteľovi. ${uploadContext.username} · ${receipt.score}/20. Môžeš zavrieť stránku.`;pendingPayload=null;$('restart').disabled=false;}
     catch(error){$('send-status').className='feedback bad';$('send-status').textContent=`Výsledok sa zatiaľ neuložil. ${error.message} Nezatváraj stránku a použi tlačidlo na opätovné odoslanie.`;$('retry-send').hidden=false;}
   }
   $('start').onclick=start;$('restart').onclick=start;$('answer-form').onsubmit=check;
   $('next').onclick=()=>{if(!locked)return;if(index<questions.length-1){index++;render();}else finish();};
   $('retry-send').onclick=sendResult;
   $('record-result').onchange=()=>{$('student-fields').hidden=!$('record-result').checked;};
-  const classFromLink=new URLSearchParams(location.hash.slice(1)).get('class');if(classFromLink)$('class-code').value=classFromLink.slice(0,20);
+  $('logout').onclick=()=>{studentAuth=null;uploadContext=null;session=null;$('student-password').value='';$('student-name').value='';$('results').hidden=true;$('quiz').hidden=true;$('intro').hidden=false;$('student-name').focus();};
+  ['student-name','student-password'].forEach(id=>$(id).addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();start();}}));
 })();
